@@ -18,7 +18,7 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
 
     return Container(
       width: size.width,
-      height: 100,
+      height: 80,
       child: Card(
         color: gray,
         elevation: 10,
@@ -31,8 +31,8 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                 child: Text(
                   'PORTFÓLIO',
                   style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
                       color: graphite),
                 )),
             Container(
@@ -53,9 +53,9 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                         }),
                         textStyle: MaterialStateProperty.resolveWith((states) =>
                             TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontFamily: "quicksand",
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                                 color: gray3)),
                       ),
                       onPressed: () {
@@ -78,9 +78,9 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                         }),
                         textStyle: MaterialStateProperty.resolveWith((states) =>
                             TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontFamily: "quicksand",
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                                 color: gray3)),
                       ),
                       onPressed: () {
@@ -105,9 +105,9 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                         }),
                         textStyle: MaterialStateProperty.resolveWith((states) =>
                             TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontFamily: "quicksand",
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                                 color: gray3)),
                       ),
                       onPressed: () {
@@ -132,9 +132,9 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                         }),
                         textStyle: MaterialStateProperty.resolveWith((states) =>
                             TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontFamily: "quicksand",
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                                 color: gray3)),
                       ),
                       onPressed: () {
