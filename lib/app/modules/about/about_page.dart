@@ -35,18 +35,22 @@ class AboutPage extends StatelessWidget {
                     'Renan C. Torres',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 26,
                         color: white,
                         fontWeight: FontWeight.w800),
                   ),
                   Text(
                     'Desenvolvedor Front-End',
                     style: TextStyle(
-                        fontSize: 18,
-                        color: gray1,
+                        fontSize: 23,
+                        color: gray4,
                         fontWeight: FontWeight.w600),
                   ),
-                  Text(sobre)
+                  Text(sobre,
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: white,
+                          fontWeight: FontWeight.w400))
                 ],
               )),
               ResponsiveRowColumnItem(
@@ -62,7 +66,28 @@ class AboutPage extends StatelessWidget {
                       backgroundImage: AssetImage('eu.jpeg'),
                       radius: 100,
                     ),
-                  )
+                  ),
+                  Container(
+                    height: 20,
+                  ),
+                  TextButton(
+                      style: TextButton.styleFrom(
+                          enableFeedback: true,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 80, vertical: 20),
+                          textStyle: TextStyle(
+                              color: graphite,
+                              fontFamily: 'quicksand',
+                              fontSize: 14),
+                          backgroundColor: gray4,
+                          onSurface: white,
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(60)))),
+                      onPressed: () {
+                        print("teste");
+                      },
+                      child: Text('Ver currículo'))
                 ],
               ))
             ],
