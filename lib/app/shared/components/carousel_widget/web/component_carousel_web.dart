@@ -25,7 +25,53 @@ class ComponentCarouselWeb extends StatelessWidget {
                       fontWeight: FontWeight.w800),
                 ),
               ),
-              Container(width: 400, child: Text(sobre)),
+              Container(
+                width: 400,
+                padding: const EdgeInsets.only(top: 10),
+                child: Text(
+                  'Desenvolvedor Front-End',
+                  style: TextStyle(
+                      fontSize: 23, color: gray4, fontWeight: FontWeight.w600),
+                ),
+              ),
+              Container(
+                width: 400,
+                padding: const EdgeInsets.only(top: 10),
+                child: Text(sobre,
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: graphite,
+                        fontWeight: FontWeight.w400)),
+              ),
+              Container(
+                alignment: Alignment.bottomCenter,
+                padding: const EdgeInsets.only(top: 30),
+                width: 400,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                        onPressed: () {},
+                        child: Container(
+                          child: Image.asset('android.png'),
+                        )),
+                    TextButton(
+                        onPressed: () {},
+                        child: Container(
+                          child: Image.asset('android.png'),
+                        )),
+                    Container(
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.arrow_forward_ios,
+                            size: 50,
+                          )),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
           Container(
