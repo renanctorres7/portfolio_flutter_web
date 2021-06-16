@@ -13,7 +13,7 @@ class AboutPage extends StatelessWidget {
       print(constraints.maxWidth);
       return Container(
         child: SingleChildScrollView(
-          controller: scrollController,
+          physics: NeverScrollableScrollPhysics(),
           child: ResponsiveRowColumn(
             rowCrossAxisAlignment: CrossAxisAlignment.center,
             rowMainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -31,7 +31,7 @@ class AboutPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    height: constraints.maxWidth > 650 ? 150 : 110,
+                    height: 150,
                   ),
                   Container(
                     width: 400,
@@ -72,12 +72,12 @@ class AboutPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: constraints.maxWidth > 650 ? 150 : 40,
+                    height: constraints.maxWidth > 650 ? 170 : 50,
                   ),
                   Container(
                     child: CircleAvatar(
                       backgroundImage: AssetImage('eu.jpeg'),
-                      radius: constraints.maxWidth > 650 ? 100 : 80,
+                      radius: 100,
                     ),
                   ),
                   Container(
@@ -87,8 +87,7 @@ class AboutPage extends StatelessWidget {
                       style: TextButton.styleFrom(
                           enableFeedback: true,
                           padding: EdgeInsets.symmetric(
-                              horizontal: constraints.maxWidth > 650 ? 80 : 60,
-                              vertical: 20),
+                              horizontal: 80, vertical: 20),
                           textStyle: TextStyle(
                               color: graphite,
                               fontFamily: 'quicksand',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AppWidget extends StatelessWidget {
@@ -9,15 +10,18 @@ class AppWidget extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(fontFamily: 'quicksand'),
             builder: (context, widget) => ResponsiveWrapper.builder(widget,
-                maxWidth: 1200,
+                maxWidth: 2400,
                 minWidth: 480,
                 defaultScale: true,
+                alignment: Alignment.topCenter,
                 breakpoints: [
                   ResponsiveBreakpoint.resize(480, name: MOBILE),
                   ResponsiveBreakpoint.resize(800, name: TABLET),
                   ResponsiveBreakpoint.resize(1000, name: DESKTOP),
                 ],
-                background: Container(color: Color(0xFFF5F5F5))),
+                background: Container(
+                  color: graphite,
+                )),
             initialRoute: "/")
         .modular();
   }

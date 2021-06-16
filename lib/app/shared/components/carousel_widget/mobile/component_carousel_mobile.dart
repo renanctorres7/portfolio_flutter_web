@@ -4,20 +4,21 @@ import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
 
-class ComponentCarouselWeb extends StatefulWidget {
+class ComponentCarouselMobile extends StatefulWidget {
   final int index;
   final PageController pageCrtl;
 
-  const ComponentCarouselWeb(
+  const ComponentCarouselMobile(
       {Key? key, required this.index, required this.pageCrtl})
       : super(key: key);
 
   @override
-  _ComponentCarouselWebState createState() => _ComponentCarouselWebState();
+  _ComponentCarouselMobileState createState() =>
+      _ComponentCarouselMobileState();
 }
 
-class _ComponentCarouselWebState
-    extends ModularState<ComponentCarouselWeb, CarouselWebStore> {
+class _ComponentCarouselMobileState
+    extends ModularState<ComponentCarouselMobile, CarouselWebStore> {
   @override
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
@@ -26,7 +27,7 @@ class _ComponentCarouselWebState
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            width: 200,
+            width: 150,
             child: Image.asset(
               'cel1.png',
               fit: BoxFit.fitHeight,
