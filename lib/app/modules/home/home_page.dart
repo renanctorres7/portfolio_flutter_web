@@ -54,7 +54,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                       child: ProjectsPage(),
                     ),
                     Container(
-                      color: Colors.yellow,
+                      color: graphite,
                       height: constraints.maxWidth > MOBILE_MAX
                           ? size.height * 0.7
                           : size.height * 0.9,
