@@ -28,29 +28,30 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                 color: graphite,
                 height: size.height,
                 width: size.width,
-                child: AboutPage(),
               ),
             ),
             SingleChildScrollView(
               controller: controller.scrollController,
               child: Column(
                 children: [
-                  SizedBox(
-                    height: size.height,
+                  Container(
+                    height: size.height * 0.7,
+                    width: size.width,
+                    child: AboutPage(),
                   ),
                   Container(
                     color: Colors.blue,
-                    height: size.height,
+                    height: size.height * 0.7,
                     width: size.width,
                   ),
                   Container(
                     color: Colors.yellow,
-                    height: size.height,
+                    height: size.height * 0.7,
                     width: size.width,
                   ),
                   Container(
                     color: Colors.grey,
-                    height: size.height,
+                    height: size.height * 0.7,
                     width: size.width,
                   )
                 ],
