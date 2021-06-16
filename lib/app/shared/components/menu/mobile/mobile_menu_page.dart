@@ -5,7 +5,8 @@ import 'package:portfolio/app/shared/constants/colors.dart';
 
 class MobileMenuPage extends StatefulWidget {
   final double height;
-  MobileMenuPage({required this.height});
+  final ScrollController scrollController;
+  MobileMenuPage({required this.height, required this.scrollController});
   @override
   MobileMenuPageState createState() => MobileMenuPageState();
 }
@@ -58,6 +59,7 @@ class MobileMenuPageState extends ModularState<MobileMenuPage, HomeStore> {
               controller: controller,
               height: widget.height,
               value: value,
+              scrollController: widget.scrollController,
             ),
           ],
         ),
@@ -71,12 +73,14 @@ class ColumnMenu extends StatelessWidget {
       {Key? key,
       required this.controller,
       required this.height,
-      required this.value})
+      required this.value,
+      required this.scrollController})
       : super(key: key);
 
   final HomeStore controller;
   final double height;
   final bool value;
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +110,7 @@ class ColumnMenu extends StatelessWidget {
                           color: gray3)),
                 ),
                 onPressed: () {
-                  controller.goToElement(0, height);
+                  controller.goToElement(0, height, scrollController);
                 },
                 child: Text(
                   'Sobre   ',
@@ -131,7 +135,7 @@ class ColumnMenu extends StatelessWidget {
                           color: gray3)),
                 ),
                 onPressed: () {
-                  controller.goToElement(1, height);
+                  controller.goToElement(1, height, scrollController);
                 },
                 child: Text(
                   'Projetos',
@@ -156,7 +160,7 @@ class ColumnMenu extends StatelessWidget {
                           color: gray3)),
                 ),
                 onPressed: () {
-                  controller.goToElement(2, height);
+                  controller.goToElement(2, height, scrollController);
                 },
                 child: Text(
                   'Habilidades',
@@ -181,7 +185,7 @@ class ColumnMenu extends StatelessWidget {
                           color: gray3)),
                 ),
                 onPressed: () {
-                  controller.goToElement(3, height);
+                  controller.goToElement(3, height, scrollController);
                 },
                 child: Text(
                   'Contato',

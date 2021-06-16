@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:portfolio/app/modules/about/about_page.dart';
 import 'package:portfolio/app/modules/home/home_store.dart';
 import 'package:portfolio/app/modules/projects/projects_page.dart';
-import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_widget.dart';
 import 'package:portfolio/app/shared/components/menu/mobile/mobile_menu_page.dart';
 import 'package:portfolio/app/shared/components/menu/web/web_menu_page.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
@@ -19,6 +17,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    ScrollController? scrollController = ScrollController();
 
     return Scaffold(
       body: NotificationListener<ScrollNotification>(
@@ -34,7 +33,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
               ),
             ),
             SingleChildScrollView(
-              controller: controller.scrollController,
+              controller: scrollController,
               child: Column(
                 children: [
                   Container(
@@ -66,9 +65,11 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
               visibleWhen: [Condition.largerThan(name: MOBILE)],
               child: WebMenuPage(
                 heigth: size.height,
+                scrollController: scrollController,
               ),
               replacement: MobileMenuPage(
                 height: size.height,
+                scrollController: scrollController,
               ),
             ),
           ],

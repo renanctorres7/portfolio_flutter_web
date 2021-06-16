@@ -20,7 +20,7 @@ class _ComponentCarouselWebState
     extends ModularState<ComponentCarouselWeb, CarouselWebStore> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    // final size = MediaQuery.of(context).size;
     return Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -46,7 +46,7 @@ class _ComponentCarouselWebState
                 child: Text(
                   'Desenvolvedor Front-End',
                   style: TextStyle(
-                      fontSize: 23, color: gray4, fontWeight: FontWeight.w600),
+                      fontSize: 23, color: gray1, fontWeight: FontWeight.w600),
                 ),
               ),
               Container(
@@ -74,7 +74,7 @@ class _ComponentCarouselWebState
                     TextButton(
                         onPressed: () {},
                         child: Container(
-                          child: Image.asset('android.png'),
+                          child: Image.asset('apple.png'),
                         )),
                     Container(
                       child: IconButton(
@@ -82,10 +82,17 @@ class _ComponentCarouselWebState
                             controller.animateSlider(
                                 widget.index, widget.pageCrtl);
                           },
-                          icon: Icon(
-                            Icons.arrow_forward_ios,
-                            size: 50,
-                          )),
+                          icon: widget.index != 0
+                              ? Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 50,
+                                  color: gray1,
+                                )
+                              : Icon(
+                                  Icons.arrow_back_ios_new,
+                                  size: 50,
+                                  color: gray1,
+                                )),
                     )
                   ],
                 ),

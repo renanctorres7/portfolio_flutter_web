@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:portfolio/app/modules/home/home_store.dart';
@@ -6,7 +5,8 @@ import 'package:portfolio/app/shared/constants/colors.dart';
 
 class WebMenuPage extends StatefulWidget {
   final double heigth;
-  WebMenuPage({required this.heigth});
+  final ScrollController scrollController;
+  WebMenuPage({required this.heigth, required this.scrollController});
   @override
   WebMenuPageState createState() => WebMenuPageState();
 }
@@ -59,7 +59,8 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                                 color: gray3)),
                       ),
                       onPressed: () {
-                        controller.goToElement(0, widget.heigth);
+                        controller.goToElement(
+                            0, widget.heigth, widget.scrollController);
                       },
                       child: Text('Sobre'),
                     ),
@@ -84,7 +85,8 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                                 color: gray3)),
                       ),
                       onPressed: () {
-                        controller.goToElement(1, widget.heigth);
+                        controller.goToElement(
+                            1, widget.heigth, widget.scrollController);
                       },
                       child: Text(
                         'Projetos',
@@ -111,7 +113,8 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                                 color: gray3)),
                       ),
                       onPressed: () {
-                        controller.goToElement(2, widget.heigth);
+                        controller.goToElement(
+                            2, widget.heigth, widget.scrollController);
                       },
                       child: Text(
                         'Habilidades',
@@ -138,7 +141,8 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                                 color: gray3)),
                       ),
                       onPressed: () {
-                        controller.goToElement(3, widget.heigth);
+                        controller.goToElement(
+                            3, widget.heigth, widget.scrollController);
                       },
                       child: Text(
                         'Contato',

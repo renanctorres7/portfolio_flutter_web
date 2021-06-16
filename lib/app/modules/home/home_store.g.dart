@@ -24,21 +24,6 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  final _$scrollControllerAtom = Atom(name: 'HomeStoreBase.scrollController');
-
-  @override
-  ScrollController? get scrollController {
-    _$scrollControllerAtom.reportRead();
-    return super.scrollController;
-  }
-
-  @override
-  set scrollController(ScrollController? value) {
-    _$scrollControllerAtom.reportWrite(value, super.scrollController, () {
-      super.scrollController = value;
-    });
-  }
-
   final _$HomeStoreBaseActionController =
       ActionController(name: 'HomeStoreBase');
 
@@ -54,11 +39,12 @@ mixin _$HomeStore on HomeStoreBase, Store {
   }
 
   @override
-  void goToElement(int index, double height) {
+  void goToElement(
+      int index, double height, ScrollController scrollController) {
     final _$actionInfo = _$HomeStoreBaseActionController.startAction(
         name: 'HomeStoreBase.goToElement');
     try {
-      return super.goToElement(index, height);
+      return super.goToElement(index, height, scrollController);
     } finally {
       _$HomeStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -67,8 +53,7 @@ mixin _$HomeStore on HomeStoreBase, Store {
   @override
   String toString() {
     return '''
-offset: ${offset},
-scrollController: ${scrollController}
+offset: ${offset}
     ''';
   }
 }

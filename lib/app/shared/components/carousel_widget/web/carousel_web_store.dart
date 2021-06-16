@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:portfolio/app/shared/components/carousel_widget/web/component_carousel_web.dart';
 
 part 'carousel_web_store.g.dart';
 

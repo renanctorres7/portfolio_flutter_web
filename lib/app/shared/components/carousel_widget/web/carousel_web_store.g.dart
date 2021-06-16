@@ -24,6 +24,15 @@ mixin _$CarouselWebStore on _CarouselWebStoreBase, Store {
     });
   }
 
+  final _$animateSliderAsyncAction =
+      AsyncAction('_CarouselWebStoreBase.animateSlider');
+
+  @override
+  Future<void> animateSlider(int index, PageController pageController) {
+    return _$animateSliderAsyncAction
+        .run(() => super.animateSlider(index, pageController));
+  }
+
   final _$_CarouselWebStoreBaseActionController =
       ActionController(name: '_CarouselWebStoreBase');
 

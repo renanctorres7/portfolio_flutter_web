@@ -9,9 +9,6 @@ abstract class HomeStoreBase with Store {
   @observable
   double offset = 0;
 
-  @observable
-  ScrollController? scrollController = ScrollController();
-
   @action
   bool voidOnScroll(ScrollNotification scrollNotification) {
     offset = scrollNotification.metrics.pixels;
@@ -19,9 +16,10 @@ abstract class HomeStoreBase with Store {
   }
 
   @action
-  void goToElement(int index, double height) {
-    if (scrollController!.hasClients)
-      scrollController!.animateTo(
+  void goToElement(
+      int index, double height, ScrollController scrollController) {
+    if (scrollController.hasClients)
+      scrollController.animateTo(
           ((height * 0.7) *
               index), // 100 is the height of container and index of 6th element is 5
           duration: const Duration(milliseconds: 1000),
