@@ -20,10 +20,11 @@ abstract class HomeStoreBase with Store {
 
   @action
   void goToElement(int index, double height) {
-    scrollController!.animateTo(
-        ((height * 0.7) *
-            index), // 100 is the height of container and index of 6th element is 5
-        duration: const Duration(milliseconds: 1000),
-        curve: Curves.decelerate);
+    if (scrollController!.hasClients)
+      scrollController!.animateTo(
+          ((height * 0.7) *
+              index), // 100 is the height of container and index of 6th element is 5
+          duration: const Duration(milliseconds: 1000),
+          curve: Curves.decelerate);
   }
 }

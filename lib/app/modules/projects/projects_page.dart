@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class AboutPage extends StatelessWidget {
+class ProjectsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -37,11 +36,11 @@ class AboutPage extends StatelessWidget {
                   Container(
                     width: 400,
                     child: Text(
-                      'Renan C. Torres',
+                      'Projetos',
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           fontSize: 26,
-                          color: white,
+                          color: graphite,
                           fontWeight: FontWeight.w800),
                     ),
                   ),
@@ -49,10 +48,10 @@ class AboutPage extends StatelessWidget {
                     width: 400,
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      'Desenvolvedor Front-End',
+                      'Aplicativo - Nome do Aplicativo',
                       style: TextStyle(
                           fontSize: 23,
-                          color: gray4,
+                          color: gray3,
                           fontWeight: FontWeight.w600),
                     ),
                   ),
