@@ -6,6 +6,7 @@ import 'package:portfolio/app/modules/projects/projects_page.dart';
 import 'package:portfolio/app/shared/components/menu/mobile/mobile_menu_page.dart';
 import 'package:portfolio/app/shared/components/menu/web/web_menu_page.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
+import 'package:portfolio/app/shared/constants/values.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,62 +20,72 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
     final size = MediaQuery.of(context).size;
     ScrollController? scrollController = ScrollController();
 
-    return Scaffold(
-      body: NotificationListener<ScrollNotification>(
-        onNotification: controller.voidOnScroll,
-        child: Stack(
-          children: [
-            Positioned(
-              top: -.25 * controller.offset,
-              child: Container(
-                color: graphite,
-                height: size.height,
-                width: size.width,
+    return LayoutBuilder(builder: (context, constraints) {
+      return Scaffold(
+        body: NotificationListener<ScrollNotification>(
+          onNotification: controller.voidOnScroll,
+          child: Stack(
+            children: [
+              Positioned(
+                top: -.25 * controller.offset,
+                child: Container(
+                  color: graphite,
+                  height: size.height,
+                  width: size.width,
+                ),
               ),
-            ),
-            SingleChildScrollView(
-              controller: scrollController,
-              child: Column(
-                children: [
-                  Container(
-                    height: size.height * 0.7,
-                    width: size.width,
-                    child: AboutPage(),
-                  ),
-                  Container(
-                    color: white,
-                    height: size.height * 0.7,
-                    width: size.width,
-                    child: ProjectsPage(),
-                  ),
-                  Container(
-                    color: Colors.yellow,
-                    height: size.height * 0.7,
-                    width: size.width,
-                  ),
-                  Container(
-                    color: Colors.grey,
-                    height: size.height * 0.7,
-                    width: size.width,
-                  )
-                ],
+              SingleChildScrollView(
+                controller: scrollController,
+                child: Column(
+                  children: [
+                    Container(
+                      height: constraints.maxWidth > MOBILE_MAX
+                          ? size.height * 0.7
+                          : size.height * 0.9,
+                      width: size.width,
+                      child: AboutPage(),
+                    ),
+                    Container(
+                      color: white,
+                      height: constraints.maxWidth > MOBILE_MAX
+                          ? size.height * 0.7
+                          : size.height * 0.9,
+                      width: size.width,
+                      child: ProjectsPage(),
+                    ),
+                    Container(
+                      color: Colors.yellow,
+                      height: constraints.maxWidth > MOBILE_MAX
+                          ? size.height * 0.7
+                          : size.height * 0.9,
+                      width: size.width,
+                    ),
+                    Container(
+                      color: Colors.grey,
+                      height: constraints.maxWidth > MOBILE_MAX
+                          ? size.height * 0.7
+                          : size.height * 0.9,
+                      width: size.width,
+                    )
+                  ],
+                ),
               ),
-            ),
-            ResponsiveVisibility(
-              visible: false,
-              visibleWhen: [Condition.largerThan(name: MOBILE)],
-              child: WebMenuPage(
-                heigth: size.height,
-                scrollController: scrollController,
+              ResponsiveVisibility(
+                visible: false,
+                visibleWhen: [Condition.largerThan(name: MOBILE)],
+                child: WebMenuPage(
+                  heigth: size.height,
+                  scrollController: scrollController,
+                ),
+                replacement: MobileMenuPage(
+                  height: size.height,
+                  scrollController: scrollController,
+                ),
               ),
-              replacement: MobileMenuPage(
-                height: size.height,
-                scrollController: scrollController,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
