@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_store.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
 
-class ComponentCarouselWeb extends StatelessWidget {
+class ComponentCarouselWeb extends StatefulWidget {
+  final int index;
+  final PageController pageCrtl;
+
+  const ComponentCarouselWeb(
+      {Key? key, required this.index, required this.pageCrtl})
+      : super(key: key);
+
+  @override
+  _ComponentCarouselWebState createState() => _ComponentCarouselWebState();
+}
+
+class _ComponentCarouselWebState
+    extends ModularState<ComponentCarouselWeb, CarouselWebStore> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -63,7 +78,10 @@ class ComponentCarouselWeb extends StatelessWidget {
                         )),
                     Container(
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            controller.animateSlider(
+                                widget.index, widget.pageCrtl);
+                          },
                           icon: Icon(
                             Icons.arrow_forward_ios,
                             size: 50,
