@@ -41,11 +41,20 @@ class _CarouselWebState extends State<CarouselWeb> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      width: size.width,
-      height: size.height,
-      child: PageView(
-        children: list,
-        controller: _controller,
+      child: Column(
+        children: [
+          Container(
+            height: 150,
+          ),
+          Container(
+            width: size.width,
+            height: size.height * 0.4,
+            child: PageView(
+              children: list,
+              controller: _controller,
+            ),
+          ),
+        ],
       ),
     );
   }

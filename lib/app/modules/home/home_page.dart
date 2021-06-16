@@ -46,7 +46,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                     color: white,
                     height: size.height * 0.7,
                     width: size.width,
-                    child: CarouselWeb(),
+                    child: ProjectsPage(),
                   ),
                   Container(
                     color: Colors.yellow,
