@@ -6,13 +6,19 @@ class SlidePercent extends StatelessWidget {
   final String text;
   final double width;
   final double height;
+  final double percent;
 
   const SlidePercent(
-      {Key? key, required this.text, required this.width, required this.height})
+      {Key? key,
+      required this.text,
+      required this.width,
+      required this.height,
+      required this.percent})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       width: width,
       height: height,
@@ -21,7 +27,7 @@ class SlidePercent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 100,
+            width: size.width * 0.1,
             height: 50,
             child: AutoSizeText(
               text,
@@ -36,14 +42,14 @@ class SlidePercent extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   children: [
                     Container(
-                      width: 300,
+                      width: size.width * 0.3,
                       height: 30,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),
                           color: white),
                     ),
                     Container(
-                      width: 200,
+                      width: ((size.width * 0.3) * percent) / 100,
                       height: 30,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/modules/skills/mobile/skills_carousel_mobile.dart';
 import 'package:portfolio/app/modules/skills/skills_carousel_web.dart';
 import 'package:portfolio/app/modules/skills/skills_carousel_web2.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/mobile/component_carousel_mobile.dart';
@@ -42,7 +43,7 @@ class SkillsPage extends StatelessWidget {
                       )
                     : PageView(
                         children: [
-                          SkillsCarouselWeb(
+                          SkillsCarouselMobile(
                             index: 1,
                             pageCrtl: pageController,
                           ),
