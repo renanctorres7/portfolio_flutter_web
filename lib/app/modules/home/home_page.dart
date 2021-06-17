@@ -44,6 +44,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                           ? size.height * 0.7
                           : size.height * 0.9,
                       width: size.width,
+                      color: graphite,
                       child: AboutPage(),
                     ),
                     Container(
