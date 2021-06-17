@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:portfolio/app/modules/about/about_page.dart';
 import 'package:portfolio/app/modules/home/home_store.dart';
 import 'package:portfolio/app/modules/projects/projects_page.dart';
+import 'package:portfolio/app/modules/skills/skills_page.dart';
 import 'package:portfolio/app/shared/components/menu/mobile/mobile_menu_page.dart';
 import 'package:portfolio/app/shared/components/menu/web/web_menu_page.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
@@ -59,9 +60,10 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                           ? size.height * 0.7
                           : size.height * 0.9,
                       width: size.width,
+                      child: SkillsPage(),
                     ),
                     Container(
-                      color: Colors.grey,
+                      color: white,
                       height: constraints.maxWidth > MOBILE_MAX
                           ? size.height * 0.7
                           : size.height * 0.9,

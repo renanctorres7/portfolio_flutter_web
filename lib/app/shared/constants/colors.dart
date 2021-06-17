@@ -7,3 +7,4 @@ const Color gray1 = Color(0xFF979797);
 const Color gray2 = Color(0xFF3B3B47);
 const Color gray3 = Color(0xFF5F6368);
 const Color gray4 = Color(0xFFD8D8D8);
+const Color purple = Color(0xFF525088);

@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:portfolio/app/modules/skills/skills_carousel_web.dart';
+import 'package:portfolio/app/modules/skills/skills_carousel_web2.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/mobile/component_carousel_mobile.dart';
-import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_store.dart';
-import 'package:portfolio/app/shared/components/carousel_widget/web/component_carousel_web.dart';
+import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_widget.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
 
-class CarouselWeb extends StatefulWidget {
-  @override
-  _CarouselWebState createState() => _CarouselWebState();
-}
-
-class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
+class SkillsPage extends StatelessWidget {
   PageController pageController = PageController();
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return LayoutBuilder(builder: (context, constraints) {
+      print(constraints.maxWidth);
       return Container(
         child: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),
@@ -30,19 +25,15 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                 width: size.width,
                 height: constraints.maxWidth > MOBILE_MAX
                     ? size.height * 0.6
-                    : size.height * 0.8,
+                    : size.height * 0.9,
                 child: constraints.maxWidth > MOBILE_MAX
                     ? PageView(
                         children: [
-                          ComponentCarouselWeb(
+                          SkillsCarouselWeb(
                             index: 1,
                             pageCrtl: pageController,
                           ),
-                          ComponentCarouselWeb(
-                            index: 2,
-                            pageCrtl: pageController,
-                          ),
-                          ComponentCarouselWeb(
+                          SkillsCarouselWeb2(
                             index: 0,
                             pageCrtl: pageController,
                           ),
@@ -51,15 +42,11 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                       )
                     : PageView(
                         children: [
-                          ComponentCarouselMobile(
+                          SkillsCarouselWeb(
                             index: 1,
                             pageCrtl: pageController,
                           ),
-                          ComponentCarouselMobile(
-                            index: 2,
-                            pageCrtl: pageController,
-                          ),
-                          ComponentCarouselMobile(
+                          SkillsCarouselWeb2(
                             index: 0,
                             pageCrtl: pageController,
                           ),
