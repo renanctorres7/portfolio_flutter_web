@@ -43,7 +43,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             hasAndroid: true,
                             hasApple: true,
                             image: 'receitas.png',
-                            url: 'url',
+                            url: receitas,
                           ),
                           ComponentCarouselWeb(
                             index: 2,
@@ -53,7 +53,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             hasAndroid: true,
                             hasApple: true,
                             image: 'jejum.png',
-                            url: 'url',
+                            url: jejum,
                           ),
                           ComponentCarouselWeb(
                             index: 0,
@@ -63,7 +63,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             hasAndroid: true,
                             hasApple: false,
                             image: 'isa.png',
-                            url: 'url',
+                            url: isa,
                           ),
                         ],
                         controller: pageController,
@@ -78,7 +78,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             hasAndroid: true,
                             hasApple: true,
                             image: 'receitas.png',
-                            url: 'url',
+                            url: receitas,
                           ),
                           ComponentCarouselMobile(
                             index: 2,
@@ -88,7 +88,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             hasAndroid: true,
                             hasApple: true,
                             image: 'jejum.png',
-                            url: 'url',
+                            url: jejum,
                           ),
                           ComponentCarouselMobile(
                             index: 0,
@@ -98,7 +98,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             hasAndroid: true,
                             hasApple: false,
                             image: 'isa.png',
-                            url: 'url',
+                            url: isa,
                           ),
                         ],
                         controller: pageController,
