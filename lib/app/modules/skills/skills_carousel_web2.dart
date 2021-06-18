@@ -1,11 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/modules/skills/widgets/slide_percent.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_store.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
-import 'package:portfolio/app/shared/constants/text.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
 
 class SkillsCarouselWeb2 extends StatefulWidget {

@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_store.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
-import 'package:portfolio/app/shared/constants/text.dart';
 
 class ComponentCarouselMobile extends StatefulWidget {
   final int index;
   final PageController pageCrtl;
+  final String title;
+  final String text;
+  final String image;
+  final bool hasAndroid;
+  final bool hasApple;
+  final String url;
 
   const ComponentCarouselMobile(
-      {Key? key, required this.index, required this.pageCrtl})
+      {Key? key,
+      required this.index,
+      required this.pageCrtl,
+      required this.title,
+      required this.text,
+      required this.image,
+      required this.hasAndroid,
+      required this.hasApple,
+      required this.url})
       : super(key: key);
 
   @override
@@ -31,7 +45,7 @@ class _ComponentCarouselMobileState
             Container(
               width: 150,
               child: Image.asset(
-                'cel1.png',
+                widget.image,
                 fit: BoxFit.fitHeight,
               ),
             ),
@@ -48,7 +62,7 @@ class _ComponentCarouselMobileState
               width: 400,
               padding: const EdgeInsets.only(top: 10),
               child: Text(
-                'Desenvolvedor Front-End',
+                widget.title,
                 style: TextStyle(
                     fontSize: 23, color: gray1, fontWeight: FontWeight.w600),
               ),
@@ -56,7 +70,7 @@ class _ComponentCarouselMobileState
             Container(
               width: 400,
               padding: const EdgeInsets.only(top: 10),
-              child: Text(sobre,
+              child: Text(widget.text,
                   style: TextStyle(
                       fontSize: 16,
                       color: graphite,
@@ -70,16 +84,26 @@ class _ComponentCarouselMobileState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextButton(
-                      onPressed: () {},
-                      child: Container(
-                        child: Image.asset('android.png'),
-                      )),
-                  TextButton(
-                      onPressed: () {},
-                      child: Container(
-                        child: Image.asset('apple.png'),
-                      )),
+                  widget.hasAndroid == true
+                      ? TextButton(
+                          onPressed: () {},
+                          child: Container(
+                            height: 50,
+                            child: SvgPicture.asset('android.svg'),
+                          ))
+                      : Container(
+                          height: 50,
+                        ),
+                  widget.hasApple == true
+                      ? TextButton(
+                          onPressed: () {},
+                          child: Container(
+                            height: 50,
+                            child: SvgPicture.asset('apple.svg'),
+                          ))
+                      : Container(
+                          height: 50,
+                        ),
                   Container(
                     child: IconButton(
                         onPressed: () {

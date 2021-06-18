@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app/modules/skills/mobile/skills_carousel_mobile.dart';
 import 'package:portfolio/app/modules/skills/skills_carousel_web.dart';
 import 'package:portfolio/app/modules/skills/skills_carousel_web2.dart';
-import 'package:portfolio/app/shared/components/carousel_widget/mobile/component_carousel_mobile.dart';
-import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_widget.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
 
 class SkillsPage extends StatelessWidget {
@@ -13,7 +11,6 @@ class SkillsPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return LayoutBuilder(builder: (context, constraints) {
-      print(constraints.maxWidth);
       return Container(
         child: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),

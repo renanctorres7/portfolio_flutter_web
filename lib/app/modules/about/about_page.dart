@@ -7,7 +7,6 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
-    ScrollController? scrollController = ScrollController();
 
     return LayoutBuilder(builder: (context, constraints) {
       print(constraints.maxWidth);

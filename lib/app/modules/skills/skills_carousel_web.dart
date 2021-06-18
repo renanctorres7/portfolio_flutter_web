@@ -4,7 +4,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_store.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
-import 'package:portfolio/app/shared/constants/text.dart';
 
 class SkillsCarouselWeb extends StatefulWidget {
   final int index;

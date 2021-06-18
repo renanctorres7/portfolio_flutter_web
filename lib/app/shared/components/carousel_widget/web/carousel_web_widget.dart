@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/mobile/component_carousel_mobile.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_store.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/web/component_carousel_web.dart';
+import 'package:portfolio/app/shared/constants/text.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
 
 class CarouselWeb extends StatefulWidget {
@@ -37,14 +38,32 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                           ComponentCarouselWeb(
                             index: 1,
                             pageCrtl: pageController,
+                            title: 'Aplicativo - Receitas Fit',
+                            text: sobre,
+                            hasAndroid: true,
+                            hasApple: true,
+                            image: 'receitas.png',
+                            url: 'url',
                           ),
                           ComponentCarouselWeb(
                             index: 2,
                             pageCrtl: pageController,
+                            title: 'Aplicativo - Jejum Intermitente',
+                            text: sobre,
+                            hasAndroid: true,
+                            hasApple: true,
+                            image: 'jejum.png',
+                            url: 'url',
                           ),
                           ComponentCarouselWeb(
                             index: 0,
                             pageCrtl: pageController,
+                            title: 'Aplicativo - Isa Estética',
+                            text: sobre,
+                            hasAndroid: true,
+                            hasApple: false,
+                            image: 'isa.png',
+                            url: 'url',
                           ),
                         ],
                         controller: pageController,
@@ -54,14 +73,32 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                           ComponentCarouselMobile(
                             index: 1,
                             pageCrtl: pageController,
+                            title: 'Aplicativo - Receitas Fit',
+                            text: sobre,
+                            hasAndroid: true,
+                            hasApple: true,
+                            image: 'receitas.png',
+                            url: 'url',
                           ),
                           ComponentCarouselMobile(
                             index: 2,
                             pageCrtl: pageController,
+                            title: 'Aplicativo - Jejum Intermitente',
+                            text: sobre,
+                            hasAndroid: true,
+                            hasApple: true,
+                            image: 'jejum.png',
+                            url: 'url',
                           ),
                           ComponentCarouselMobile(
                             index: 0,
                             pageCrtl: pageController,
+                            title: 'Aplicativo - Isa Estética',
+                            text: sobre,
+                            hasAndroid: true,
+                            hasApple: false,
+                            image: 'isa.png',
+                            url: 'url',
                           ),
                         ],
                         controller: pageController,
