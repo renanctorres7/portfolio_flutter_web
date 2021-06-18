@@ -49,10 +49,13 @@ class ContactWeb extends StatelessWidget {
                 child: SvgPicture.asset('local.svg'),
               ),
               Container(
+                alignment: Alignment.centerLeft,
+                height: 50,
+                width: size.width * 0.2,
                 child: SelectableText(
                   'Brasília - Distrito Federal\nBrasil',
                   style: TextStyle(
-                      fontSize: 16, color: gray1, fontWeight: FontWeight.w600),
+                      fontSize: 14, color: gray1, fontWeight: FontWeight.w600),
                 ),
               ),
             ],

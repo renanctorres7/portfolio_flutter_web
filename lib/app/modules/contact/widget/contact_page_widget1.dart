@@ -3,12 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactPageWidget extends StatelessWidget {
+class ContactPageWidget1 extends StatelessWidget {
   final String image;
   final String text;
   final String url;
 
-  const ContactPageWidget(
+  const ContactPageWidget1(
       {Key? key, required this.image, required this.text, required this.url})
       : super(key: key);
 
@@ -33,7 +33,7 @@ class ContactPageWidget extends StatelessWidget {
         Container(
           alignment: Alignment.centerLeft,
           height: 50,
-          width: size.width * 0.2,
+          width: size.width * 0.5,
           child: SelectableText(
             text,
             style: TextStyle(
