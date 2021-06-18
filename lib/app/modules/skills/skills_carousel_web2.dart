@@ -53,12 +53,12 @@ class _SkillsCarouselWeb2State
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: size.height * 0.08),
+                  padding: EdgeInsets.only(top: size.height * 0.05),
                   width: constraints.maxWidth > MOBILE_MAX
                       ? size.width * 0.68
                       : size.width * 0.9,
                   height: constraints.maxWidth > MOBILE_MAX
-                      ? size.height * 0.55
+                      ? size.height * 0.45
                       : size.height * 0.7,
                   child: ListView(
                     children: [
@@ -66,7 +66,6 @@ class _SkillsCarouselWeb2State
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Column(
-                            mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

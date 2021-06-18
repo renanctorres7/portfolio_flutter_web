@@ -26,11 +26,11 @@ class _SkillsCarouselMobileState
     final size = MediaQuery.of(context).size;
     return LayoutBuilder(builder: (context, constraints) {
       return Container(
+        width: constraints.maxWidth > MOBILE_MAX ? 500 : size.width * 0.9,
+        height: size.height * 0.9,
         child: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),
           child: Container(
-            width: constraints.maxWidth > MOBILE_MAX ? 500 : size.width * 0.9,
-            height: size.height * 0.8,
             padding: constraints.maxWidth > MOBILE_MAX
                 ? EdgeInsets.only(left: 0)
                 : EdgeInsets.only(left: 20),
