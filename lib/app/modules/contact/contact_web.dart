@@ -18,7 +18,7 @@ class ContactWeb extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ContactPageWidget(
-                image: 'whats.svg',
+                image: 'assets/whats.svg',
                 text: "(61) 99917-4230",
                 url: urlPhone,
               ),
@@ -48,7 +48,7 @@ class ContactWeb extends StatelessWidget {
               Container(
                 height: 50,
                 width: 50,
-                child: SvgPicture.asset('local.svg'),
+                child: SvgPicture.asset('assets/local.svg'),
               ),
               Container(
                 alignment: Alignment.centerLeft,

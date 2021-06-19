@@ -20,7 +20,9 @@ class SkillsPage extends StatelessWidget {
                 height: constraints.maxWidth > MOBILE_MAX ? 50 : 50,
               ),
               Container(
-                width: size.width,
+               width: constraints.maxWidth > MOBILE_MAX
+                    ? size.width * 0.9
+                    : size.width,
                 height: constraints.maxWidth > MOBILE_MAX
                     ? size.height * 0.8
                     : size.height * 0.9,

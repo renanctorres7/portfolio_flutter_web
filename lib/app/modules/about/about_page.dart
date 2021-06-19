@@ -39,36 +39,45 @@ class _AboutPageState extends State<AboutPage> {
                   Container(
                     height: 150,
                   ),
-                  Container(
-                    width: 400,
-                    child: Text(
-                      'Renan C. Torres',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          fontSize: 26,
-                          color: white,
-                          fontWeight: FontWeight.w800),
-                    ),
-                  ),
-                  Container(
-                    width: 400,
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text(
-                      'Desenvolvedor Front-End',
-                      style: TextStyle(
-                          fontSize: 23,
-                          color: gray4,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Container(
-                    width: 400,
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text(sobre,
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 400, minWidth: 350),
+                    child: Container(
+                      width: 400,
+                      child: Text(
+                        'Renan C. Torres',
+                        textAlign: TextAlign.left,
                         style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 26,
                             color: white,
-                            fontWeight: FontWeight.w400)),
+                            fontWeight: FontWeight.w800),
+                      ),
+                    ),
+                  ),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 400, minWidth: 350),
+                    child: Container(
+                      width: 400,
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text(
+                        'Desenvolvedor Front-End',
+                        style: TextStyle(
+                            fontSize: 23,
+                            color: gray4,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 400, minWidth: 350),
+                    child: Container(
+                      width: 400,
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text(sobre,
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: white,
+                              fontWeight: FontWeight.w400)),
+                    ),
                   )
                 ],
               )),

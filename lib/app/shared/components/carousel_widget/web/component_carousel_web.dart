@@ -55,9 +55,9 @@ class _ComponentCarouselWebState
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 400, minWidth: 350),
+                  constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
                   child: Container(
-                    width: size.width * 0.4,
+                    width: size.width * 0.5,
                     child: AutoSizeText(
                       'Projetos',
                       textAlign: TextAlign.left,
@@ -68,86 +68,98 @@ class _ComponentCarouselWebState
                     ),
                   ),
                 ),
-                Container(
-                  width: size.width * 0.4,
-                  padding: const EdgeInsets.only(top: 10),
-                  child: AutoSizeText(
-                    widget.title,
-                    style: TextStyle(
-                        fontSize: 23,
-                        color: gray1,
-                        fontWeight: FontWeight.w600),
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
+                  child: Container(
+                    width: size.width * 0.5,
+                    padding: const EdgeInsets.only(top: 10),
+                    child: AutoSizeText(
+                      widget.title,
+                      style: TextStyle(
+                          fontSize: 23,
+                          color: gray1,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
-                Container(
-                  width: size.width * 0.4,
-                  padding: const EdgeInsets.only(top: 10),
-                  child: AutoSizeText(widget.text,
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: graphite,
-                          fontWeight: FontWeight.w400)),
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
+                  child: Container(
+                    width: size.width * 0.5,
+                    padding: const EdgeInsets.only(top: 10),
+                    child: AutoSizeText(widget.text,
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: graphite,
+                            fontWeight: FontWeight.w400)),
+                  ),
                 ),
-                Container(
-                  alignment: Alignment.bottomCenter,
-                  padding: const EdgeInsets.only(top: 30),
-                  width: size.width * 0.4,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      widget.hasAndroid == true
-                          ? TextButton(
-                              onPressed: () {
-                                launchURLandroid(widget.url);
-                              },
-                              child: Container(
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 500, minWidth: 330),
+                  child: Container(
+                    alignment: Alignment.bottomCenter,
+                    padding: const EdgeInsets.only(top: 30),
+                    width: size.width * 0.4,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        widget.hasAndroid == true
+                            ? TextButton(
+                                onPressed: () {
+                                  launchURLandroid(widget.url);
+                                },
+                                child: Container(
+                                  height: 50,
+                                  child: SvgPicture.asset('assets/android.svg'),
+                                ))
+                            : Container(
                                 height: 50,
-                                child: SvgPicture.asset('assets/android.svg'),
-                              ))
-                          : Container(
-                              height: 50,
-                            ),
-                      widget.hasApple == true
-                          ? TextButton(
-                              onPressed: () {
-                                launchURLios(widget.urlIOS);
-                              },
-                              child: Container(
+                              ),
+                        widget.hasApple == true
+                            ? TextButton(
+                                onPressed: () {
+                                  launchURLios(widget.urlIOS);
+                                },
+                                child: Container(
+                                  height: 50,
+                                  child: SvgPicture.asset('assets/apple.svg'),
+                                ))
+                            : Container(
                                 height: 50,
-                                child: SvgPicture.asset('assets/apple.svg'),
-                              ))
-                          : Container(
-                              height: 50,
-                            ),
-                      Container(
-                        child: IconButton(
-                            onPressed: () {
-                              controller.animateSlider(
-                                  widget.index, widget.pageCrtl);
-                            },
-                            icon: widget.index != 0
-                                ? Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: 50,
-                                    color: gray1,
-                                  )
-                                : Icon(
-                                    Icons.arrow_back_ios_new,
-                                    size: 50,
-                                    color: gray1,
-                                  )),
-                      )
-                    ],
+                              ),
+                        Container(
+                          child: IconButton(
+                              onPressed: () {
+                                controller.animateSlider(
+                                    widget.index, widget.pageCrtl);
+                              },
+                              icon: widget.index != 0
+                                  ? Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 50,
+                                      color: gray1,
+                                    )
+                                  : Icon(
+                                      Icons.arrow_back_ios_new,
+                                      size: 50,
+                                      color: gray1,
+                                    )),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
             ),
-            Container(
-              width: 200,
-              child: Image.network(
-                widget.image,
-                fit: BoxFit.fitHeight,
+            ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 200, minWidth: 150),
+              child: Container(
+                width: 200,
+                child: Image.network(
+                  widget.image,
+                  fit: BoxFit.fitHeight,
+                ),
               ),
             )
           ],

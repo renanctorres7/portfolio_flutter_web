@@ -27,16 +27,19 @@ class ContactPage extends StatelessWidget {
               Container(
                 height: constraints.maxWidth > MOBILE_MAX ? 100 : 50,
               ),
-              Container(
-                width: size.width * 0.68,
-                alignment: Alignment.centerLeft,
-                child: AutoSizeText(
-                  'Contato',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontSize: 26,
-                      color: graphite,
-                      fontWeight: FontWeight.w800),
+              ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
+                child: Container(
+                  width: size.width * 0.8,
+                  alignment: Alignment.centerLeft,
+                  child: AutoSizeText(
+                    'Contato',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontSize: 26,
+                        color: graphite,
+                        fontWeight: FontWeight.w800),
+                  ),
                 ),
               ),
               Container(
