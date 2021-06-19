@@ -17,12 +17,12 @@ class SkillsPage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: constraints.maxWidth > MOBILE_MAX ? 100 : 50,
+                height: constraints.maxWidth > MOBILE_MAX ? 50 : 50,
               ),
               Container(
                 width: size.width,
                 height: constraints.maxWidth > MOBILE_MAX
-                    ? size.height * 0.6
+                    ? size.height * 0.8
                     : size.height * 0.9,
                 child: constraints.maxWidth > MOBILE_MAX
                     ? PageView(

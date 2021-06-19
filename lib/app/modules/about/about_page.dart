@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:portfolio/app/modules/about/about_page_store.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
 
 class AboutPage extends StatefulWidget {
   @override
   _AboutPageState createState() => _AboutPageState();
 }
 
-class _AboutPageState extends ModularState<AboutPage, AboutPageStore> {
+class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
@@ -78,7 +78,7 @@ class _AboutPageState extends ModularState<AboutPage, AboutPageStore> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: constraints.maxWidth > 650 ? 170 : 50,
+                    height: constraints.maxWidth > 650 ? 150 : 20,
                   ),
                   Container(
                     child: CircleAvatar(
@@ -104,7 +104,9 @@ class _AboutPageState extends ModularState<AboutPage, AboutPageStore> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(60)))),
                       onPressed: () {
-                        controller.downloadFile();
+                        html.window.open(
+                            'https://drive.google.com/file/d/1rehaNXloYlZ1-4b_jO-EokSTnFyxhl8Q/view?usp=sharing',
+                            'Currículo');
                       },
                       child: Text('Baixar currículo'))
                 ],

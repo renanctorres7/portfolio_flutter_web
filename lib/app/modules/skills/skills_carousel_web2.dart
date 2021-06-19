@@ -57,7 +57,7 @@ class _SkillsCarouselWeb2State
                       : size.width * 0.9,
                   height: constraints.maxWidth > MOBILE_MAX
                       ? size.height * 0.45
-                      : size.height * 0.7,
+                      : size.height * 0.6,
                   child: ListView(
                     children: [
                       Row(

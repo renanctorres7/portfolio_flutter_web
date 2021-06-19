@@ -36,43 +36,47 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                   width: size.width,
                 ),
               ),
-              SingleChildScrollView(
+              Scrollbar(
                 controller: scrollController,
-                child: Column(
-                  children: [
-                    Container(
-                      height: constraints.maxWidth > MOBILE_MAX
-                          ? size.height * 0.7
-                          : size.height * 0.9,
-                      width: size.width,
-                      color: graphite,
-                      child: AboutPage(),
-                    ),
-                    Container(
-                      color: white,
-                      height: constraints.maxWidth > MOBILE_MAX
-                          ? size.height * 0.7
-                          : size.height * 0.9,
-                      width: size.width,
-                      child: ProjectsPage(),
-                    ),
-                    Container(
-                      color: graphite,
-                      height: constraints.maxWidth > MOBILE_MAX
-                          ? size.height * 0.7
-                          : size.height * 0.9,
-                      width: size.width,
-                      child: SkillsPage(),
-                    ),
-                    Container(
-                      color: white,
-                      height: constraints.maxWidth > MOBILE_MAX
-                          ? size.height * 0.7
-                          : size.height * 0.9,
-                      width: size.width,
-                      child: ContactPage(),
-                    )
-                  ],
+                isAlwaysShown: true,
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  child: Column(
+                    children: [
+                      Container(
+                        height: constraints.maxWidth > MOBILE_MAX
+                            ? size.height * 0.7
+                            : size.height * 0.9,
+                        width: size.width,
+                        color: graphite,
+                        child: AboutPage(),
+                      ),
+                      Container(
+                        color: white,
+                        height: constraints.maxWidth > MOBILE_MAX
+                            ? size.height * 0.7
+                            : size.height * 0.9,
+                        width: size.width,
+                        child: ProjectsPage(),
+                      ),
+                      Container(
+                        color: graphite,
+                        height: constraints.maxWidth > MOBILE_MAX
+                            ? size.height * 0.7
+                            : size.height * 0.9,
+                        width: size.width,
+                        child: SkillsPage(),
+                      ),
+                      Container(
+                        color: white,
+                        height: constraints.maxWidth > MOBILE_MAX
+                            ? size.height * 0.7
+                            : size.height * 0.9,
+                        width: size.width,
+                        child: ContactPage(),
+                      )
+                    ],
+                  ),
                 ),
               ),
               ResponsiveVisibility(

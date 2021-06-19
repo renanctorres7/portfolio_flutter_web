@@ -1,12 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/modules/contact/contact_mobile.dart';
 import 'package:portfolio/app/modules/contact/contact_web.dart';
-import 'package:portfolio/app/modules/contact/widget/contact_page_widget.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 class ContactPage extends StatelessWidget {
   @override

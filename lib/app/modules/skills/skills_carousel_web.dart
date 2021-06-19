@@ -42,7 +42,7 @@ class _SkillsCarouselWebState
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: size.height * 0.08),
+                padding: EdgeInsets.only(top: size.height * 0.03),
                 width: size.width * 0.7,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,7 +179,7 @@ class _SkillsCarouselWebState
                           alignment: Alignment.centerLeft,
                           padding: EdgeInsets.only(top: 20),
                           child: AutoSizeText(
-                            'Flutter (Dart)',
+                            'Figma',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 fontSize: 14,
@@ -195,7 +195,6 @@ class _SkillsCarouselWebState
               ),
               Container(
                 width: size.width * 0.7,
-                padding: EdgeInsets.only(top: size.height * 0.02),
                 alignment: Alignment.bottomRight,
                 child: IconButton(
                     onPressed: () {

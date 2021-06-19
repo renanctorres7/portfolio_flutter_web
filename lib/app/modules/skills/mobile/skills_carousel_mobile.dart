@@ -52,7 +52,7 @@ class _SkillsCarouselMobileState
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: size.height * 0.08),
+                  padding: EdgeInsets.only(top: size.height * 0.01),
                   width: size.width * 0.7,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -223,7 +223,7 @@ class _SkillsCarouselMobileState
                       : size.width * 0.85,
                   padding: constraints.maxWidth > MOBILE_MAX
                       ? EdgeInsets.only(top: size.height * 0.02)
-                      : EdgeInsets.only(top: size.height * 0.12),
+                      : EdgeInsets.only(top: size.height * 0.01),
                   alignment: Alignment.bottomRight,
                   child: IconButton(
                       onPressed: () {

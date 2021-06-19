@@ -5,7 +5,6 @@ import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web
 import 'package:portfolio/app/shared/components/carousel_widget/web/component_carousel_web.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CarouselWeb extends StatefulWidget {
   @override
@@ -26,12 +25,12 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
           child: Column(
             children: [
               Container(
-                height: constraints.maxWidth > MOBILE_MAX ? 100 : 50,
+                height: constraints.maxWidth > MOBILE_MAX ? 50 : 50,
               ),
               Container(
                 width: size.width,
                 height: constraints.maxWidth > MOBILE_MAX
-                    ? size.height * 0.6
+                    ? size.height * 0.8
                     : size.height * 0.8,
                 child: constraints.maxWidth > MOBILE_MAX
                     ? PageView(
@@ -43,7 +42,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: receitas,
                             hasAndroid: true,
                             hasApple: true,
-                            image: 'receitas.png',
+                            image: 'assets/assets/receitas.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=br.com.rctorres.receitas_fit',
                             urlIOS:
@@ -56,7 +55,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: jejum,
                             hasAndroid: true,
                             hasApple: true,
-                            image: 'jejum.png',
+                            image: 'assets/jejum.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.dieta.jejum_intermitente',
                             urlIOS:
@@ -69,7 +68,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: isa,
                             hasAndroid: true,
                             hasApple: false,
-                            image: 'isa.png',
+                            image: 'assets/isa.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.beleza.isa_estetica',
                             urlIOS: '',

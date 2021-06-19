@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/app/modules/contact/widget/contact_page_widget.dart';
 import 'package:portfolio/app/modules/contact/widget/contact_page_widget1.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
