@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_store.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ComponentCarouselWeb extends StatefulWidget {
   final int index;
@@ -13,6 +14,7 @@ class ComponentCarouselWeb extends StatefulWidget {
   final bool hasAndroid;
   final bool hasApple;
   final String url;
+  final String urlIOS;
 
   const ComponentCarouselWeb(
       {Key? key,
@@ -23,7 +25,8 @@ class ComponentCarouselWeb extends StatefulWidget {
       required this.image,
       required this.hasAndroid,
       required this.hasApple,
-      required this.url})
+      required this.url,
+      required this.urlIOS})
       : super(key: key);
 
   @override
@@ -32,6 +35,11 @@ class ComponentCarouselWeb extends StatefulWidget {
 
 class _ComponentCarouselWebState
     extends ModularState<ComponentCarouselWeb, CarouselWebStore> {
+  void launchURLandroid(String url) async =>
+      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+
+  void launchURLios(String url) async =>
+      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   @override
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
@@ -86,7 +94,9 @@ class _ComponentCarouselWebState
                     children: [
                       widget.hasAndroid == true
                           ? TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                launchURLandroid(widget.url);
+                              },
                               child: Container(
                                 height: 50,
                                 child: SvgPicture.asset('android.svg'),
@@ -96,7 +106,9 @@ class _ComponentCarouselWebState
                             ),
                       widget.hasApple == true
                           ? TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                launchURLios(widget.urlIOS);
+                              },
                               child: Container(
                                 height: 50,
                                 child: SvgPicture.asset('apple.svg'),

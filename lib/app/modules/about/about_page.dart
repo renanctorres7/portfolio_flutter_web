@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:portfolio/app/modules/about/about_page_store.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class AboutPage extends StatelessWidget {
+class AboutPage extends StatefulWidget {
+  @override
+  _AboutPageState createState() => _AboutPageState();
+}
+
+class _AboutPageState extends ModularState<AboutPage, AboutPageStore> {
   @override
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
@@ -97,9 +104,9 @@ class AboutPage extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(60)))),
                       onPressed: () {
-                        print("teste");
+                        controller.downloadFile();
                       },
-                      child: Text('Ver currículo'))
+                      child: Text('Baixar currículo'))
                 ],
               ))
             ],

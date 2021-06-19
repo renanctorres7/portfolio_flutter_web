@@ -5,6 +5,7 @@ import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web
 import 'package:portfolio/app/shared/components/carousel_widget/web/component_carousel_web.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CarouselWeb extends StatefulWidget {
   @override
@@ -39,31 +40,39 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             index: 1,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Receitas Fit',
-                            text: sobre,
+                            text: receitas,
                             hasAndroid: true,
                             hasApple: true,
                             image: 'receitas.png',
-                            url: receitas,
+                            url:
+                                'https://play.google.com/store/apps/details?id=br.com.rctorres.receitas_fit',
+                            urlIOS:
+                                'https://apps.apple.com/br/app/receitas-fit/id1540754956',
                           ),
                           ComponentCarouselWeb(
                             index: 2,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Jejum Intermitente',
-                            text: sobre,
+                            text: jejum,
                             hasAndroid: true,
                             hasApple: true,
                             image: 'jejum.png',
-                            url: jejum,
+                            url:
+                                'https://play.google.com/store/apps/details?id=com.dieta.jejum_intermitente',
+                            urlIOS:
+                                'https://apps.apple.com/br/app/jejum-intermitente-f%C3%A1cil/id1533103508',
                           ),
                           ComponentCarouselWeb(
                             index: 0,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Isa Estética',
-                            text: sobre,
+                            text: isa,
                             hasAndroid: true,
                             hasApple: false,
                             image: 'isa.png',
-                            url: isa,
+                            url:
+                                'https://play.google.com/store/apps/details?id=com.beleza.isa_estetica',
+                            urlIOS: '',
                           ),
                         ],
                         controller: pageController,
@@ -74,31 +83,39 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             index: 1,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Receitas Fit',
-                            text: sobre,
+                            text: receitas,
                             hasAndroid: true,
                             hasApple: true,
                             image: 'receitas.png',
-                            url: receitas,
+                            url:
+                                'https://play.google.com/store/apps/details?id=br.com.rctorres.receitas_fit',
+                            urlIOS:
+                                'https://apps.apple.com/br/app/receitas-fit/id1540754956',
                           ),
                           ComponentCarouselMobile(
                             index: 2,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Jejum Intermitente',
-                            text: sobre,
+                            text: jejum,
                             hasAndroid: true,
                             hasApple: true,
                             image: 'jejum.png',
-                            url: jejum,
+                            url:
+                                'https://play.google.com/store/apps/details?id=com.dieta.jejum_intermitente',
+                            urlIOS:
+                                'https://apps.apple.com/br/app/jejum-intermitente-f%C3%A1cil/id1533103508',
                           ),
                           ComponentCarouselMobile(
                             index: 0,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Isa Estética',
-                            text: sobre,
+                            text: isa,
                             hasAndroid: true,
                             hasApple: false,
                             image: 'isa.png',
-                            url: isa,
+                            url:
+                                'https://play.google.com/store/apps/details?id=com.beleza.isa_estetica',
+                            urlIOS: '',
                           ),
                         ],
                         controller: pageController,

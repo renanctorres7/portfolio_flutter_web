@@ -71,6 +71,15 @@ class _SkillsCarouselWeb2State
                                 width: size.width * 0.68,
                                 height: size.height * 0.02,
                                 text: 'HTML',
+                                percent: 70,
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              SlidePercent(
+                                width: size.width * 0.68,
+                                height: size.height * 0.02,
+                                text: 'CSS',
                                 percent: 50,
                               ),
                               SizedBox(
@@ -79,7 +88,7 @@ class _SkillsCarouselWeb2State
                               SlidePercent(
                                 width: size.width * 0.68,
                                 height: size.height * 0.02,
-                                text: 'HTML',
+                                text: 'Bootstrap',
                                 percent: 50,
                               ),
                               SizedBox(
@@ -88,8 +97,9 @@ class _SkillsCarouselWeb2State
                               SlidePercent(
                                 width: size.width * 0.68,
                                 height: size.height * 0.02,
-                                text: 'HTML',
-                                percent: 50,
+                                text:
+                                    'Banco de dados (relacional, não relacional)',
+                                percent: 80,
                               ),
                               SizedBox(
                                 height: 15,
@@ -97,8 +107,8 @@ class _SkillsCarouselWeb2State
                               SlidePercent(
                                 width: size.width * 0.68,
                                 height: size.height * 0.02,
-                                text: 'HTML',
-                                percent: 50,
+                                text: 'Firebase',
+                                percent: 70,
                               ),
                               SizedBox(
                                 height: 15,
@@ -106,8 +116,8 @@ class _SkillsCarouselWeb2State
                               SlidePercent(
                                 width: size.width * 0.68,
                                 height: size.height * 0.02,
-                                text: 'HTML',
-                                percent: 50,
+                                text: 'Git',
+                                percent: 90,
                               ),
                               SizedBox(
                                 height: 15,
@@ -115,8 +125,8 @@ class _SkillsCarouselWeb2State
                               SlidePercent(
                                 width: size.width * 0.68,
                                 height: size.height * 0.02,
-                                text: 'HTML',
-                                percent: 50,
+                                text: 'Figma',
+                                percent: 70,
                               ),
                               SizedBox(
                                 height: 15,
@@ -124,8 +134,8 @@ class _SkillsCarouselWeb2State
                               SlidePercent(
                                 width: size.width * 0.68,
                                 height: size.height * 0.02,
-                                text: 'HTML',
-                                percent: 50,
+                                text: 'Flutter',
+                                percent: 90,
                               ),
                             ],
                           )

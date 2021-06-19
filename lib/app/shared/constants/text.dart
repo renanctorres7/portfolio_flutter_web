@@ -5,7 +5,7 @@ Gosto de aprender e buscar soluções, novos conhecimentos são sempre bem-vindo
 
 const String receitas =
     '''Um aplicativo de receitas feito usando Flutter e Firebase, atualizado usando Banco de Dados.
-    Implementado também Push Notifications e AdMob''';
+Implementado também Push Notifications e AdMob''';
 
 const String jejum =
     '''Um aplicativo de jejum feito com Flutter, utiliza Local Notification e AdMob''';

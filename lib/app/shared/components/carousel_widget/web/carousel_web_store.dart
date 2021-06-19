@@ -19,6 +19,6 @@ abstract class _CarouselWebStoreBase with Store {
   @action
   Future<void> animateSlider(int index, PageController pageController) async {
     pageController.animateToPage(index,
-        duration: Duration(seconds: 1), curve: Curves.linear);
+        duration: Duration(seconds: 1), curve: Curves.easeIn);
   }
 }
