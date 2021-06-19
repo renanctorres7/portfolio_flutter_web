@@ -99,7 +99,7 @@ class _ComponentCarouselMobileState
                           },
                           child: Container(
                             height: 50,
-                            child: SvgPicture.asset('android.svg'),
+                            child: SvgPicture.asset('assets/android.svg'),
                           ))
                       : Container(
                           height: 50,
@@ -111,7 +111,7 @@ class _ComponentCarouselMobileState
                           },
                           child: Container(
                             height: 50,
-                            child: SvgPicture.asset('apple.svg'),
+                            child: SvgPicture.asset('assets/apple.svg'),
                           ))
                       : Container(
                           height: 50,

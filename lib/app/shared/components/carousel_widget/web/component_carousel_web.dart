@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -42,7 +43,7 @@ class _ComponentCarouselWebState
       await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   @override
   Widget build(BuildContext context) {
-    // final size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return Container(
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
@@ -53,21 +54,24 @@ class _ComponentCarouselWebState
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  width: 400,
-                  child: Text(
-                    'Projetos',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        fontSize: 26,
-                        color: graphite,
-                        fontWeight: FontWeight.w800),
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 400, minWidth: 350),
+                  child: Container(
+                    width: size.width * 0.4,
+                    child: AutoSizeText(
+                      'Projetos',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontSize: 26,
+                          color: graphite,
+                          fontWeight: FontWeight.w800),
+                    ),
                   ),
                 ),
                 Container(
-                  width: 400,
+                  width: size.width * 0.4,
                   padding: const EdgeInsets.only(top: 10),
-                  child: Text(
+                  child: AutoSizeText(
                     widget.title,
                     style: TextStyle(
                         fontSize: 23,
@@ -76,9 +80,9 @@ class _ComponentCarouselWebState
                   ),
                 ),
                 Container(
-                  width: 400,
+                  width: size.width * 0.4,
                   padding: const EdgeInsets.only(top: 10),
-                  child: Text(widget.text,
+                  child: AutoSizeText(widget.text,
                       style: TextStyle(
                           fontSize: 16,
                           color: graphite,
@@ -87,7 +91,7 @@ class _ComponentCarouselWebState
                 Container(
                   alignment: Alignment.bottomCenter,
                   padding: const EdgeInsets.only(top: 30),
-                  width: 400,
+                  width: size.width * 0.4,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

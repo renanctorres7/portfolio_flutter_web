@@ -26,13 +26,13 @@ class _SkillsCarouselWebState
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Container(
-          width: 500,
+          width: size.width,
           alignment: Alignment.center,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                width: size.width * 0.68,
+                width: size.width * 0.8,
                 alignment: Alignment.centerLeft,
                 child: AutoSizeText(
                   'Habilidades',
@@ -43,7 +43,7 @@ class _SkillsCarouselWebState
               ),
               Container(
                 padding: EdgeInsets.only(top: size.height * 0.03),
-                width: size.width * 0.7,
+                width: size.width,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,

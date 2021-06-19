@@ -72,7 +72,7 @@ class _SkillsCarouselMobileState
                                 width: 50,
                                 alignment: Alignment.center,
                                 child: SvgPicture.asset(
-                                  'mobile.svg',
+                                  'assets/mobile.svg',
                                   color: Colors.black,
                                 ),
                               ),
@@ -124,7 +124,7 @@ class _SkillsCarouselMobileState
                                 width: 50,
                                 alignment: Alignment.center,
                                 child: SvgPicture.asset(
-                                  'pc.svg',
+                                  'assets/pc.svg',
                                   color: Colors.black,
                                 ),
                               ),
@@ -201,7 +201,7 @@ class _SkillsCarouselMobileState
                                 alignment: Alignment.centerLeft,
                                 padding: EdgeInsets.only(top: 20),
                                 child: AutoSizeText(
-                                  'Flutter (Dart)',
+                                  'Figma',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                       fontSize: 14,

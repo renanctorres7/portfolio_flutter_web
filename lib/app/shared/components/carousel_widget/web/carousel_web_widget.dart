@@ -28,7 +28,9 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                 height: constraints.maxWidth > MOBILE_MAX ? 50 : 50,
               ),
               Container(
-                width: size.width,
+                width: constraints.maxWidth > MOBILE_MAX
+                    ? size.width * 0.9
+                    : size.width,
                 height: constraints.maxWidth > MOBILE_MAX
                     ? size.height * 0.8
                     : size.height * 0.8,
@@ -42,7 +44,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: receitas,
                             hasAndroid: true,
                             hasApple: true,
-                            image: 'assets/assets/receitas.png',
+                            image: 'assets/receitas.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=br.com.rctorres.receitas_fit',
                             urlIOS:
@@ -62,7 +64,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                                 'https://apps.apple.com/br/app/jejum-intermitente-f%C3%A1cil/id1533103508',
                           ),
                           ComponentCarouselWeb(
-                            index: 0,
+                            index: 3,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Isa Estética',
                             text: isa,
@@ -72,6 +74,19 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             url:
                                 'https://play.google.com/store/apps/details?id=com.beleza.isa_estetica',
                             urlIOS: '',
+                          ),
+                          ComponentCarouselWeb(
+                            index: 0,
+                            pageCrtl: pageController,
+                            title: 'Aplicativo - Thomas',
+                            text: thomas,
+                            hasAndroid: true,
+                            hasApple: true,
+                            image: 'assets/thomas.png',
+                            url:
+                                'https://play.google.com/store/apps/details?id=com.thomas',
+                            urlIOS:
+                                'https://apps.apple.com/br/app/thomas/id1549672161',
                           ),
                         ],
                         controller: pageController,
@@ -85,7 +100,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: receitas,
                             hasAndroid: true,
                             hasApple: true,
-                            image: 'receitas.png',
+                            image: 'assets/receitas.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=br.com.rctorres.receitas_fit',
                             urlIOS:
@@ -98,23 +113,36 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: jejum,
                             hasAndroid: true,
                             hasApple: true,
-                            image: 'jejum.png',
+                            image: 'assets/jejum.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.dieta.jejum_intermitente',
                             urlIOS:
                                 'https://apps.apple.com/br/app/jejum-intermitente-f%C3%A1cil/id1533103508',
                           ),
                           ComponentCarouselMobile(
-                            index: 0,
+                            index: 3,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Isa Estética',
                             text: isa,
                             hasAndroid: true,
                             hasApple: false,
-                            image: 'isa.png',
+                            image: 'assets/isa.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.beleza.isa_estetica',
                             urlIOS: '',
+                          ),
+                          ComponentCarouselMobile(
+                            index: 0,
+                            pageCrtl: pageController,
+                            title: 'Aplicativo - Thomas',
+                            text: thomas,
+                            hasAndroid: true,
+                            hasApple: true,
+                            image: 'assets/thomas.png',
+                            url:
+                                'https://play.google.com/store/apps/details?id=com.thomas',
+                            urlIOS:
+                                'https://apps.apple.com/br/app/thomas/id1549672161',
                           ),
                         ],
                         controller: pageController,

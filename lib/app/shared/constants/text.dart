@@ -4,7 +4,7 @@ const String sobre =
 Gosto de aprender e buscar soluções, novos conhecimentos são sempre bem-vindos.''';
 
 const String receitas =
-    '''Um aplicativo de receitas feito usando Flutter e Firebase, atualizado usando Banco de Dados.
+    '''Um aplicativo de receitas feito no Flutter, atualizado usando Banco de Dados do Firebase.
 Implementado também Push Notifications e AdMob''';
 
 const String jejum =
@@ -12,6 +12,10 @@ const String jejum =
 
 const String isa =
     '''Um aplicativo de uma clínica de estética feito em Flutter e Firebase, utiliza Push Notification e AdMob''';
+
+const String thomas =
+    '''Junto com uma equipe migramos o aplicativo que era apenas Android (Java) para o Flutter, disponibilizando assim também para iOS. 
+Atualmente refizemos o design e em breve estaremos lançando junto com melhorias''';
 
 const String urlEmail = 'renanctorres7@gmail.com';
 
