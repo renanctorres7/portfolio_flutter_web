@@ -26,7 +26,7 @@ class ContactWeb extends StatelessWidget {
                 width: 50,
               ),
               ContactPageWidget(
-                image: 'arroba.svg',
+                image: 'assets/arroba.svg',
                 text: "renanctorres7@gmail.com",
                 url: urlEmail,
               ),
@@ -38,7 +38,7 @@ class ContactWeb extends StatelessWidget {
           Row(
             children: [
               ContactPageWidget(
-                image: 'linkedin.svg',
+                image: 'assets/linkedin.svg',
                 text: "LinkedIn",
                 url: urlLink,
               ),

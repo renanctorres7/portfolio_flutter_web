@@ -13,7 +13,7 @@ class ContactMobile extends StatelessWidget {
       child: Column(
         children: [
           ContactPageWidget1(
-            image: 'whats.svg',
+            image: 'assets/whats.svg',
             text: "(61) 99917-4230",
             url: urlPhone,
           ),
@@ -21,7 +21,7 @@ class ContactMobile extends StatelessWidget {
             height: 30,
           ),
           ContactPageWidget1(
-            image: 'arroba.svg',
+            image: 'assets/arroba.svg',
             text: "renanctorres7@gmail.com",
             url: urlEmail,
           ),
@@ -29,7 +29,7 @@ class ContactMobile extends StatelessWidget {
             height: 30,
           ),
           ContactPageWidget1(
-            image: 'linkedin.svg',
+            image: 'assets/linkedin.svg',
             text: "LinkedIn",
             url: urlLink,
           ),
@@ -41,7 +41,7 @@ class ContactMobile extends StatelessWidget {
               Container(
                 height: 50,
                 width: 50,
-                child: SvgPicture.asset('local.svg'),
+                child: SvgPicture.asset('assets/local.svg'),
               ),
               SizedBox(
                 width: 10,

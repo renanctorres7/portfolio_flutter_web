@@ -91,7 +91,7 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                   Container(
                     child: CircleAvatar(
-                      backgroundImage: AssetImage('eu.jpeg'),
+                      backgroundImage: AssetImage('assets/eu.jpeg'),
                       radius: 100,
                     ),
                   ),
