@@ -89,6 +89,7 @@ class ColumnMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     if (value == true) {
       return Container(
+        color: gray,
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(left: 20),
         child: Column(
