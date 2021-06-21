@@ -59,6 +59,8 @@ class _SkillsCarouselWeb2State
                       ? size.height * 0.45
                       : size.height * 0.6,
                   child: ListView(
+                    shrinkWrap: true,
+                    physics: ClampingScrollPhysics(),
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
