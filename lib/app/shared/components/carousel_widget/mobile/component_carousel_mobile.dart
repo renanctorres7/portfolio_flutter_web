@@ -15,6 +15,8 @@ class ComponentCarouselMobile extends StatefulWidget {
   final bool hasApple;
   final String url;
   final String urlIOS;
+  final bool hasWeb;
+  final String? urlWeb;
 
   const ComponentCarouselMobile(
       {Key? key,
@@ -26,6 +28,8 @@ class ComponentCarouselMobile extends StatefulWidget {
       required this.hasAndroid,
       required this.hasApple,
       required this.url,
+      required this.hasWeb,
+      this.urlWeb,
       required this.urlIOS})
       : super(key: key);
 
@@ -112,6 +116,18 @@ class _ComponentCarouselMobileState
                           child: Container(
                             height: 50,
                             child: SvgPicture.asset('assets/apple.svg'),
+                          ))
+                      : Container(
+                          height: 50,
+                        ),
+                  widget.hasWeb == true
+                      ? TextButton(
+                          onPressed: () {
+                            launchURLios(widget.urlWeb!);
+                          },
+                          child: Container(
+                            height: 50,
+                            child: SvgPicture.asset('assets/web.svg'),
                           ))
                       : Container(
                           height: 50,
