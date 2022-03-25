@@ -44,6 +44,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: receitas,
                             hasAndroid: true,
                             hasApple: true,
+                            hasWeb: false,
                             image: 'assets/receitas.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=br.com.rctorres.receitas_fit',
@@ -57,6 +58,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: jejum,
                             hasAndroid: true,
                             hasApple: true,
+                            hasWeb: false,
                             image: 'assets/jejum.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.dieta.jejum_intermitente',
@@ -66,14 +68,16 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                           ComponentCarouselWeb(
                             index: 3,
                             pageCrtl: pageController,
-                            title: 'Aplicativo - Isa Estética',
+                            title: 'Aplicativo/Site - Isa Estética',
                             text: isa,
                             hasAndroid: true,
+                            hasWeb: true,
                             hasApple: false,
                             image: 'assets/isa.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.beleza.isa_estetica',
                             urlIOS: '',
+                            urlWeb: 'https://isa-estetica.web.app/',
                           ),
                           ComponentCarouselWeb(
                             index: 0,
@@ -81,6 +85,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             title: 'Aplicativo - Thomas',
                             text: thomas,
                             hasAndroid: true,
+                            hasWeb: false,
                             hasApple: true,
                             image: 'assets/thomas.png',
                             url:
@@ -100,6 +105,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: receitas,
                             hasAndroid: true,
                             hasApple: true,
+                            hasWeb: false,
                             image: 'assets/receitas.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=br.com.rctorres.receitas_fit',
@@ -113,6 +119,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: jejum,
                             hasAndroid: true,
                             hasApple: true,
+                            hasWeb: false,
                             image: 'assets/jejum.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.dieta.jejum_intermitente',
@@ -122,14 +129,16 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                           ComponentCarouselMobile(
                             index: 3,
                             pageCrtl: pageController,
-                            title: 'Aplicativo - Isa Estética',
+                            title: 'Aplicativo/Site - Isa Estética',
                             text: isa,
                             hasAndroid: true,
                             hasApple: false,
+                            hasWeb: true,
                             image: 'assets/isa.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.beleza.isa_estetica',
                             urlIOS: '',
+                            urlWeb: 'https://isa-estetica.web.app/',
                           ),
                           ComponentCarouselMobile(
                             index: 0,
@@ -138,6 +147,7 @@ class _CarouselWebState extends ModularState<CarouselWeb, CarouselWebStore> {
                             text: thomas,
                             hasAndroid: true,
                             hasApple: true,
+                            hasWeb: false,
                             image: 'assets/thomas.png',
                             url:
                                 'https://play.google.com/store/apps/details?id=com.thomas',
