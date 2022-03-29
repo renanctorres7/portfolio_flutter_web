@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/app/modules/home/home_controller.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 
-class WebMenuPage extends StatefulWidget {
+class WebMenuPage extends GetView<HomeController> {
   final double heigth;
   final ScrollController scrollController;
   WebMenuPage({required this.heigth, required this.scrollController});
-  @override
-  WebMenuPageState createState() => WebMenuPageState();
-}
 
-class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -21,7 +17,7 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
-          color: gray,
+          color: ColorsApp.gray,
           boxShadow: [
             BoxShadow(color: Colors.black38, spreadRadius: 5, blurRadius: 5)
           ]),
@@ -35,7 +31,9 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
               child: Text(
                 'PORTFÓLIO',
                 style: TextStyle(
-                    fontSize: 20, fontWeight: FontWeight.w700, color: graphite),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: ColorsApp.graphite),
               )),
           Container(
             padding: EdgeInsets.only(right: 60),
@@ -50,7 +48,7 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                         if (states.contains(MaterialState.hovered)) {
                           return Colors.white;
                         } else {
-                          return gray3;
+                          return ColorsApp.gray3;
                         }
                       }),
                       textStyle: MaterialStateProperty.resolveWith((states) =>
@@ -58,11 +56,10 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                               fontSize: 16,
                               fontFamily: "quicksand",
                               fontWeight: FontWeight.w500,
-                              color: gray3)),
+                              color: ColorsApp.gray3)),
                     ),
                     onPressed: () {
-                      controller.goToElement(
-                          0, widget.heigth, widget.scrollController);
+                      controller.goToElement(0, heigth, scrollController);
                     },
                     child: Text('Sobre'),
                   ),
@@ -76,7 +73,7 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                         if (states.contains(MaterialState.hovered)) {
                           return Colors.white;
                         } else {
-                          return gray3;
+                          return ColorsApp.gray3;
                         }
                       }),
                       textStyle: MaterialStateProperty.resolveWith((states) =>
@@ -84,11 +81,10 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                               fontSize: 16,
                               fontFamily: "quicksand",
                               fontWeight: FontWeight.w500,
-                              color: gray3)),
+                              color: ColorsApp.gray3)),
                     ),
                     onPressed: () {
-                      controller.goToElement(
-                          1, widget.heigth, widget.scrollController);
+                      controller.goToElement(1, heigth, scrollController);
                     },
                     child: Text(
                       'Projetos',
@@ -104,7 +100,7 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                         if (states.contains(MaterialState.hovered)) {
                           return Colors.white;
                         } else {
-                          return gray3;
+                          return ColorsApp.gray3;
                         }
                       }),
                       textStyle: MaterialStateProperty.resolveWith((states) =>
@@ -112,11 +108,10 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                               fontSize: 16,
                               fontFamily: "quicksand",
                               fontWeight: FontWeight.w500,
-                              color: gray3)),
+                              color: ColorsApp.gray3)),
                     ),
                     onPressed: () {
-                      controller.goToElement(
-                          2, widget.heigth, widget.scrollController);
+                      controller.goToElement(2, heigth, scrollController);
                     },
                     child: Text(
                       'Habilidades',
@@ -132,7 +127,7 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                         if (states.contains(MaterialState.hovered)) {
                           return Colors.white;
                         } else {
-                          return gray3;
+                          return ColorsApp.gray3;
                         }
                       }),
                       textStyle: MaterialStateProperty.resolveWith((states) =>
@@ -140,11 +135,10 @@ class WebMenuPageState extends ModularState<WebMenuPage, HomeStore> {
                               fontSize: 16,
                               fontFamily: "quicksand",
                               fontWeight: FontWeight.w500,
-                              color: gray3)),
+                              color: ColorsApp.gray3)),
                     ),
                     onPressed: () {
-                      controller.goToElement(
-                          3, widget.heigth, widget.scrollController);
+                      controller.goToElement(3, heigth, scrollController);
                     },
                     child: Text(
                       'Contato',
