@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:portfolio/app/modules/home/home_controller.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 
-class WebMenuPage extends GetView<HomeController> {
+class WebMenu extends GetView<HomeController> {
   final double heigth;
   final ScrollController scrollController;
-  WebMenuPage({required this.heigth, required this.scrollController});
+  WebMenu({required this.heigth, required this.scrollController});
 
   @override
   Widget build(BuildContext context) {

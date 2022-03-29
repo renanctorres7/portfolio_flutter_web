@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/app/modules/about/about_page.dart';
 import 'package:portfolio/app/modules/contact/contact_page.dart';
 import 'package:portfolio/app/modules/home/home_controller.dart';
 import 'package:portfolio/app/modules/projects/projects_page.dart';
 import 'package:portfolio/app/modules/skills/skills_page.dart';
-import 'package:portfolio/app/shared/components/menu/mobile/mobile_menu_page.dart';
-import 'package:portfolio/app/shared/components/menu/web/web_menu_page.dart';
+
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
-import 'package:responsive_framework/responsive_framework.dart';
+import 'package:responsive_framework/responsive_value.dart' as Responsive;
+import 'package:responsive_framework/responsive_wrapper.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
+import '../../shared/widgets/widgets.dart';
 
-class _HomePageState extends ModularState<HomePage, HomeStore> {
+class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    ScrollController? scrollController = ScrollController();
 
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
@@ -29,47 +25,47 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
           child: Stack(
             children: [
               Positioned(
-                top: -.25 * controller.offset,
+                top: -.25 * controller.offset.value,
                 child: Container(
-                  color: graphite,
+                  color: ColorsApp.graphite,
                   height: size.height,
                   width: size.width,
                 ),
               ),
               Scrollbar(
-                controller: scrollController,
+                controller: controller.scrollController,
                 isAlwaysShown: true,
                 child: SingleChildScrollView(
-                  controller: scrollController,
+                  controller: controller.scrollController,
                   child: Column(
                     children: [
                       Container(
-                        height: constraints.maxWidth > MOBILE_MAX
+                        height: constraints.maxWidth > DefaultValues.MOBILE_MAX
                             ? size.height * 0.7
                             : size.height * 0.9,
                         width: size.width,
-                        color: graphite,
+                        color: ColorsApp.graphite,
                         child: AboutPage(),
                       ),
                       Container(
-                        color: white,
-                        height: constraints.maxWidth > MOBILE_MAX
+                        color: ColorsApp.white,
+                        height: constraints.maxWidth > DefaultValues.MOBILE_MAX
                             ? size.height * 0.7
                             : size.height * 0.9,
                         width: size.width,
                         child: ProjectsPage(),
                       ),
                       Container(
-                        color: graphite,
-                        height: constraints.maxWidth > MOBILE_MAX
+                        color: ColorsApp.graphite,
+                        height: constraints.maxWidth > DefaultValues.MOBILE_MAX
                             ? size.height * 0.7
                             : size.height * 0.9,
                         width: size.width,
                         child: SkillsPage(),
                       ),
                       Container(
-                        color: white,
-                        height: constraints.maxWidth > MOBILE_MAX
+                        color: ColorsApp.white,
+                        height: constraints.maxWidth > DefaultValues.MOBILE_MAX
                             ? size.height * 0.7
                             : size.height * 0.9,
                         width: size.width,
@@ -79,16 +75,16 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
                   ),
                 ),
               ),
-              ResponsiveVisibility(
+              Responsive.ResponsiveVisibility(
                 visible: false,
-                visibleWhen: [Condition.largerThan(name: MOBILE)],
-                child: WebMenuPage(
+                visibleWhen: [Responsive.Condition.largerThan(name: MOBILE)],
+                child: WebMenu(
                   heigth: size.height,
-                  scrollController: scrollController,
+                  scrollController: controller.scrollController!,
                 ),
-                replacement: MobileMenuPage(
+                replacement: MobileMenu(
                   height: size.height,
-                  scrollController: scrollController,
+                  scrollController: controller.scrollController!,
                 ),
               ),
             ],

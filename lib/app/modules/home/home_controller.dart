@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
   var offset = 0.0.obs;
 
+  ScrollController? scrollController = ScrollController();
+
   bool voidOnScroll(ScrollNotification scrollNotification) {
     offset.value = scrollNotification.metrics.pixels;
     return true;
