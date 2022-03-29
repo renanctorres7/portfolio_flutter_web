@@ -1,12 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_store.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class ComponentCarouselWeb extends StatefulWidget {
+import '../../../utils/utils.dart';
+
+class CarouselWeb extends StatelessWidget {
   final int index;
   final PageController pageCrtl;
   final String title;
@@ -19,7 +18,7 @@ class ComponentCarouselWeb extends StatefulWidget {
   final String urlIOS;
   final String? urlWeb;
 
-  const ComponentCarouselWeb(
+  const CarouselWeb(
       {Key? key,
       required this.index,
       required this.pageCrtl,
@@ -34,17 +33,6 @@ class ComponentCarouselWeb extends StatefulWidget {
       required this.urlIOS})
       : super(key: key);
 
-  @override
-  _ComponentCarouselWebState createState() => _ComponentCarouselWebState();
-}
-
-class _ComponentCarouselWebState
-    extends ModularState<ComponentCarouselWeb, CarouselWebStore> {
-  void launchURLandroid(String url) async =>
-      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
-
-  void launchURLios(String url) async =>
-      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -67,7 +55,7 @@ class _ComponentCarouselWebState
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           fontSize: 26,
-                          color: graphite,
+                          color: ColorsApp.graphite,
                           fontWeight: FontWeight.w800),
                     ),
                   ),
@@ -78,10 +66,10 @@ class _ComponentCarouselWebState
                     width: size.width * 0.5,
                     padding: const EdgeInsets.only(top: 10),
                     child: AutoSizeText(
-                      widget.title,
+                      title,
                       style: TextStyle(
                           fontSize: 23,
-                          color: gray1,
+                          color: ColorsApp.gray1,
                           fontWeight: FontWeight.w600),
                     ),
                   ),
@@ -91,10 +79,10 @@ class _ComponentCarouselWebState
                   child: Container(
                     width: size.width * 0.5,
                     padding: const EdgeInsets.only(top: 10),
-                    child: AutoSizeText(widget.text,
+                    child: AutoSizeText(text,
                         style: TextStyle(
                             fontSize: 16,
-                            color: graphite,
+                            color: ColorsApp.graphite,
                             fontWeight: FontWeight.w400)),
                   ),
                 ),
@@ -108,10 +96,10 @@ class _ComponentCarouselWebState
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        widget.hasAndroid == true
+                        hasAndroid == true
                             ? TextButton(
                                 onPressed: () {
-                                  launchURLandroid(widget.url);
+                                  Utils.launchURLandroid(url);
                                 },
                                 child: Container(
                                   height: 50,
@@ -120,10 +108,10 @@ class _ComponentCarouselWebState
                             : Container(
                                 height: 50,
                               ),
-                        widget.hasApple == true
+                        hasApple == true
                             ? TextButton(
                                 onPressed: () {
-                                  launchURLios(widget.urlIOS);
+                                  Utils.launchURLios(urlIOS);
                                 },
                                 child: Container(
                                   height: 50,
@@ -132,10 +120,10 @@ class _ComponentCarouselWebState
                             : Container(
                                 height: 50,
                               ),
-                        widget.hasWeb == true
+                        hasWeb == true
                             ? TextButton(
                                 onPressed: () {
-                                  launchURLios(widget.urlWeb!);
+                                  Utils.launchURLios(urlWeb!);
                                 },
                                 child: Container(
                                   height: 50,
@@ -147,19 +135,18 @@ class _ComponentCarouselWebState
                         Container(
                           child: IconButton(
                               onPressed: () {
-                                controller.animateSlider(
-                                    widget.index, widget.pageCrtl);
+                                Utils.animateSlider(index, pageCrtl);
                               },
-                              icon: widget.index != 0
+                              icon: index != 0
                                   ? Icon(
                                       Icons.arrow_forward_ios,
                                       size: 50,
-                                      color: gray1,
+                                      color: ColorsApp.gray1,
                                     )
                                   : Icon(
                                       Icons.arrow_back_ios_new,
                                       size: 50,
-                                      color: gray1,
+                                      color: ColorsApp.gray1,
                                     )),
                         )
                       ],
@@ -173,7 +160,7 @@ class _ComponentCarouselWebState
               child: Container(
                 width: 200,
                 child: Image.network(
-                  widget.image,
+                  image,
                   fit: BoxFit.fitHeight,
                 ),
               ),
