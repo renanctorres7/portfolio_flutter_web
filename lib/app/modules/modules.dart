@@ -1,1 +1,13 @@
-export 'home/home_controller.dart';
+export './about/about_page.dart';
+export './contact/contact_mobile.dart';
+export './contact/contact_page.dart';
+export './contact/contact_web.dart';
+export './home/home_bindings.dart';
+export './home/home_controller.dart';
+export './home/home_page.dart';
+export './projects/projects_bindings.dart';
+export './projects/projects_controller.dart';
+export './projects/projects_page.dart';
+export './skills/skills_bindings.dart';
+export './skills/skills_controller.dart';
+export './skills/skills_page.dart';
