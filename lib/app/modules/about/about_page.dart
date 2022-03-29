@@ -7,8 +7,6 @@ import 'package:universal_html/html.dart' as html;
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final size = MediaQuery.of(context).size;
-
     return LayoutBuilder(builder: (context, constraints) {
       print(constraints.maxWidth);
       return Container(

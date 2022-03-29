@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class ContactPageWidget1 extends StatelessWidget {
+class ContactPageWidget extends StatelessWidget {
   final String image;
   final String text;
   final String url;
+  final bool isMobile;
 
-  const ContactPageWidget1(
-      {Key? key, required this.image, required this.text, required this.url})
+  const ContactPageWidget(
+      {Key? key,
+      required this.image,
+      required this.text,
+      required this.url,
+      required this.isMobile})
       : super(key: key);
 
   void launchURL() async =>
@@ -33,12 +37,12 @@ class ContactPageWidget1 extends StatelessWidget {
         Container(
           alignment: Alignment.centerLeft,
           height: 50,
-          width: size.width * 0.5,
+          width: isMobile == false ? size.width * 0.2 : size.width * 0.5,
           child: SelectableText(
             text,
             style: TextStyle(
               fontSize: 14,
-              color: graphite,
+              color: ColorsApp.graphite,
               fontWeight: FontWeight.w600,
             ),
           ),
