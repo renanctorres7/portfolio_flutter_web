@@ -40,11 +40,6 @@ class ComponentCarouselMobile extends StatefulWidget {
 
 class _ComponentCarouselMobileState
     extends ModularState<ComponentCarouselMobile, CarouselWebStore> {
-  void launchURLandroid(String url) async =>
-      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
-
-  void launchURLios(String url) async =>
-      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   @override
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
