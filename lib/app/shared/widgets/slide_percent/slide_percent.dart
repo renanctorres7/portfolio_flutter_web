@@ -32,7 +32,9 @@ class SlidePercent extends StatelessWidget {
             child: AutoSizeText(
               text,
               style: TextStyle(
-                  fontSize: 18, color: white, fontWeight: FontWeight.w500),
+                  fontSize: 18,
+                  color: ColorsApp.white,
+                  fontWeight: FontWeight.w500),
             ),
           ),
           Flexible(
@@ -46,14 +48,14 @@ class SlidePercent extends StatelessWidget {
                       height: 30,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),
-                          color: white),
+                          color: ColorsApp.white),
                     ),
                     Container(
                       width: ((size.width * 0.3) * percent) / 100,
                       height: 30,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),
-                          color: gray1),
+                          color: ColorsApp.gray1),
                     ),
                   ],
                 ),

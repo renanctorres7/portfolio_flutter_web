@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/modules/skills/mobile/skills_carousel_mobile.dart';
-import 'package:portfolio/app/modules/skills/skills_carousel_web.dart';
-import 'package:portfolio/app/modules/skills/skills_carousel_web2.dart';
+import 'package:portfolio/app/shared/widgets/skills_carousel/mobile/skills_carousel_mobile.dart';
+import 'package:portfolio/app/shared/widgets/skills_carousel/common/skills_carousel_common.dart';
+import 'package:portfolio/app/shared/widgets/skills_carousel/web/skills_carousel_web.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
 
 class SkillsPage extends StatelessWidget {
-  PageController pageController = PageController();
   @override
   Widget build(BuildContext context) {
+    PageController pageController = PageController();
     final size = MediaQuery.of(context).size;
 
     return LayoutBuilder(builder: (context, constraints) {
@@ -17,23 +17,24 @@ class SkillsPage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: constraints.maxWidth > MOBILE_MAX ? 50 : 50,
+                height:
+                    constraints.maxWidth > DefaultValues.MOBILE_MAX ? 50 : 50,
               ),
               Container(
-               width: constraints.maxWidth > MOBILE_MAX
+                width: constraints.maxWidth > DefaultValues.MOBILE_MAX
                     ? size.width * 0.9
                     : size.width,
-                height: constraints.maxWidth > MOBILE_MAX
+                height: constraints.maxWidth > DefaultValues.MOBILE_MAX
                     ? size.height * 0.8
                     : size.height * 0.9,
-                child: constraints.maxWidth > MOBILE_MAX
+                child: constraints.maxWidth > DefaultValues.MOBILE_MAX
                     ? PageView(
                         children: [
-                          SkillsCarouselWeb(
+                          SkillsCarouselCommon(
                             index: 1,
                             pageCrtl: pageController,
                           ),
-                          SkillsCarouselWeb2(
+                          SkillsCarouselWeb(
                             index: 0,
                             pageCrtl: pageController,
                           ),
@@ -46,7 +47,7 @@ class SkillsPage extends StatelessWidget {
                             index: 1,
                             pageCrtl: pageController,
                           ),
-                          SkillsCarouselWeb2(
+                          SkillsCarouselCommon(
                             index: 0,
                             pageCrtl: pageController,
                           ),
