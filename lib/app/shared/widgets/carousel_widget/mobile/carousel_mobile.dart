@@ -89,7 +89,7 @@ class CarouselMobile extends StatelessWidget {
                   hasAndroid == true
                       ? TextButton(
                           onPressed: () {
-                            Utils.launchURLandroid(url);
+                            Utils.launchURL(url);
                           },
                           child: Container(
                             height: 50,
@@ -101,7 +101,7 @@ class CarouselMobile extends StatelessWidget {
                   hasApple == true
                       ? TextButton(
                           onPressed: () {
-                            Utils.launchURLios(urlIOS);
+                            Utils.launchURL(urlIOS);
                           },
                           child: Container(
                             height: 50,
@@ -113,7 +113,7 @@ class CarouselMobile extends StatelessWidget {
                   hasWeb == true
                       ? TextButton(
                           onPressed: () {
-                            Utils.launchURLios(urlWeb!);
+                            Utils.launchURL(urlWeb!);
                           },
                           child: Container(
                             height: 50,

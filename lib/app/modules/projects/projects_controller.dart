@@ -2,5 +2,5 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProjectsController extends GetxController {
-  var pageController = PageController().obs;
+  PageController pageController = PageController();
 }

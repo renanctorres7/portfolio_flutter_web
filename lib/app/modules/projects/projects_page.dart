@@ -17,22 +17,19 @@ class ProjectsPage extends GetView<ProjectsController> {
           child: Column(
             children: [
               Container(
-                height:
-                    constraints.maxWidth > DefaultValues.MOBILE_MAX ? 50 : 50,
+                height: 50,
               ),
               Container(
                 width: constraints.maxWidth > DefaultValues.MOBILE_MAX
                     ? size.width * 0.9
                     : size.width,
-                height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                    ? size.height * 0.8
-                    : size.height * 0.8,
+                height: size.height * 0.8,
                 child: constraints.maxWidth > DefaultValues.MOBILE_MAX
                     ? PageView(
                         children: [
                           CarouselWeb(
                             index: 1,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                             title: 'Aplicativo - Receitas Fit',
                             text: DefaultTexts.receitas,
                             hasAndroid: true,
@@ -46,7 +43,7 @@ class ProjectsPage extends GetView<ProjectsController> {
                           ),
                           CarouselWeb(
                             index: 2,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                             title: 'Aplicativo - Jejum Intermitente',
                             text: DefaultTexts.jejum,
                             hasAndroid: true,
@@ -60,7 +57,7 @@ class ProjectsPage extends GetView<ProjectsController> {
                           ),
                           CarouselWeb(
                             index: 3,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                             title: 'Aplicativo/Site - Isa Estética',
                             text: DefaultTexts.isa,
                             hasAndroid: true,
@@ -74,7 +71,7 @@ class ProjectsPage extends GetView<ProjectsController> {
                           ),
                           CarouselWeb(
                             index: 0,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                             title: 'Aplicativo - Thomas',
                             text: DefaultTexts.thomas,
                             hasAndroid: true,
@@ -87,13 +84,13 @@ class ProjectsPage extends GetView<ProjectsController> {
                                 'https://apps.apple.com/br/app/thomas/id1549672161',
                           ),
                         ],
-                        controller: controller.pageController.value,
+                        controller: controller.pageController,
                       )
                     : PageView(
                         children: [
                           CarouselMobile(
                             index: 1,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                             title: 'Aplicativo - Receitas Fit',
                             text: DefaultTexts.receitas,
                             hasAndroid: true,
@@ -107,7 +104,7 @@ class ProjectsPage extends GetView<ProjectsController> {
                           ),
                           CarouselMobile(
                             index: 2,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                             title: 'Aplicativo - Jejum Intermitente',
                             text: DefaultTexts.jejum,
                             hasAndroid: true,
@@ -121,7 +118,7 @@ class ProjectsPage extends GetView<ProjectsController> {
                           ),
                           CarouselMobile(
                             index: 3,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                             title: 'Aplicativo/Site - Isa Estética',
                             text: DefaultTexts.isa,
                             hasAndroid: true,
@@ -135,7 +132,7 @@ class ProjectsPage extends GetView<ProjectsController> {
                           ),
                           CarouselMobile(
                             index: 0,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                             title: 'Aplicativo - Thomas',
                             text: DefaultTexts.thomas,
                             hasAndroid: true,
@@ -148,7 +145,7 @@ class ProjectsPage extends GetView<ProjectsController> {
                                 'https://apps.apple.com/br/app/thomas/id1549672161',
                           ),
                         ],
-                        controller: controller.pageController.value,
+                        controller: controller.pageController,
                       ),
               ),
             ],

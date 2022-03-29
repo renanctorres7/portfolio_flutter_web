@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:portfolio/app/modules/home/home_page.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -23,6 +24,6 @@ class AppWidget extends StatelessWidget {
             background: Container(
               color: ColorsApp.graphite,
             )),
-        initialRoute: "/");
+        home: HomePage());
   }
 }
