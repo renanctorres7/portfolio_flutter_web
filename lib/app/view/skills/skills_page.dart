@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/app/shared/widgets/skills_carousel/mobile/skills_carousel_mobile.dart';
 import 'package:portfolio/app/shared/widgets/skills_carousel/common/skills_carousel_common.dart';
 import 'package:portfolio/app/shared/widgets/skills_carousel/web/skills_carousel_web.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
+import 'package:portfolio/app/view/skills/skills_controller.dart';
 
-class SkillsPage extends StatelessWidget {
+class SkillsPage extends GetView<SkillsController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -31,27 +33,27 @@ class SkillsPage extends StatelessWidget {
                         children: [
                           SkillsCarouselCommon(
                             index: 1,
-                            pageCrtl: pageController,
+                            pageCrtl: controller.pageController.value,
                           ),
                           SkillsCarouselWeb(
                             index: 0,
-                            pageCrtl: pageController,
+                            pageCrtl: controller.pageController.value,
                           ),
                         ],
-                        controller: pageController,
+                        controller: controller.pageController.value,
                       )
                     : PageView(
                         children: [
                           SkillsCarouselMobile(
                             index: 1,
-                            pageCrtl: pageController,
+                            pageCrtl: controller.pageController.value,
                           ),
                           SkillsCarouselCommon(
                             index: 0,
-                            pageCrtl: pageController,
+                            pageCrtl: controller.pageController.value,
                           ),
                         ],
-                        controller: pageController,
+                        controller: controller.pageController.value,
                       ),
               ),
             ],

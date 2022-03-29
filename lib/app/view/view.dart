@@ -1,1 +1,1 @@
-export '../controller/general_controller.dart';
+export 'home/home_controller.dart';
