@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:portfolio/app/modules/home/home_controller.dart';
+
 import 'package:portfolio/app/shared/constants/colors.dart';
+
+import '../../widgets.dart';
 
 class MobileMenu extends StatefulWidget {
   final double height;
@@ -62,7 +63,6 @@ class _MobileMenuState extends State<MobileMenu> {
             ],
           ),
           ColumnMenu(
-            controller: controller,
             height: widget.height,
             value: value,
             scrollController: widget.scrollController,
