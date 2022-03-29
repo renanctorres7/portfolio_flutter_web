@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/shared/components/carousel_widget/web/carousel_web_widget.dart';
+import 'package:get/get.dart';
 
-class ProjectsPage extends StatelessWidget {
+import '../../shared/widgets/widgets.dart';
+import '../view.dart';
+
+class ProjectsPage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -24,7 +27,7 @@ class ProjectsPage extends StatelessWidget {
                 child: constraints.maxWidth > MOBILE_MAX
                     ? PageView(
                         children: [
-                          ComponentCarouselWeb(
+                          CarouselWeb(
                             index: 1,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Receitas Fit',
@@ -38,7 +41,7 @@ class ProjectsPage extends StatelessWidget {
                             urlIOS:
                                 'https://apps.apple.com/br/app/receitas-fit/id1540754956',
                           ),
-                          ComponentCarouselWeb(
+                          CarouselWeb(
                             index: 2,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Jejum Intermitente',
@@ -52,7 +55,7 @@ class ProjectsPage extends StatelessWidget {
                             urlIOS:
                                 'https://apps.apple.com/br/app/jejum-intermitente-f%C3%A1cil/id1533103508',
                           ),
-                          ComponentCarouselWeb(
+                          CarouselWeb(
                             index: 3,
                             pageCrtl: pageController,
                             title: 'Aplicativo/Site - Isa Estética',
@@ -66,7 +69,7 @@ class ProjectsPage extends StatelessWidget {
                             urlIOS: '',
                             urlWeb: 'https://isa-estetica.web.app/',
                           ),
-                          ComponentCarouselWeb(
+                          CarouselWeb(
                             index: 0,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Thomas',
@@ -85,7 +88,7 @@ class ProjectsPage extends StatelessWidget {
                       )
                     : PageView(
                         children: [
-                          ComponentCarouselMobile(
+                          CarouselMobile(
                             index: 1,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Receitas Fit',
@@ -99,7 +102,7 @@ class ProjectsPage extends StatelessWidget {
                             urlIOS:
                                 'https://apps.apple.com/br/app/receitas-fit/id1540754956',
                           ),
-                          ComponentCarouselMobile(
+                          CarouselMobile(
                             index: 2,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Jejum Intermitente',
@@ -113,7 +116,7 @@ class ProjectsPage extends StatelessWidget {
                             urlIOS:
                                 'https://apps.apple.com/br/app/jejum-intermitente-f%C3%A1cil/id1533103508',
                           ),
-                          ComponentCarouselMobile(
+                          CarouselMobile(
                             index: 3,
                             pageCrtl: pageController,
                             title: 'Aplicativo/Site - Isa Estética',
@@ -127,7 +130,7 @@ class ProjectsPage extends StatelessWidget {
                             urlIOS: '',
                             urlWeb: 'https://isa-estetica.web.app/',
                           ),
-                          ComponentCarouselMobile(
+                          CarouselMobile(
                             index: 0,
                             pageCrtl: pageController,
                             title: 'Aplicativo - Thomas',

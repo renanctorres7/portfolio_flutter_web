@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  double offset = 0;
+class GeneralController extends GetxController {
+  var offset = 0.0.obs;
+
+  var pageController = PageController().obs;
 
   bool voidOnScroll(ScrollNotification scrollNotification) {
-    offset = scrollNotification.metrics.pixels;
+    offset.value = scrollNotification.metrics.pixels;
     return true;
   }
 

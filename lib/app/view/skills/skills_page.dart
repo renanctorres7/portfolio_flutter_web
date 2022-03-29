@@ -7,7 +7,6 @@ import 'package:portfolio/app/shared/constants/values.dart';
 class SkillsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    PageController pageController = PageController();
     final size = MediaQuery.of(context).size;
 
     return LayoutBuilder(builder: (context, constraints) {
