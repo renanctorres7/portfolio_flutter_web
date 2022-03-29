@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:portfolio/app/modules/home/home_controller.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 
-class SkillsCarouselCommon extends GetView<HomeController> {
+class SkillsCarouselCommon extends StatelessWidget {
   final int index;
   final PageController pageCrtl;
 

@@ -7,7 +7,7 @@ import 'package:portfolio/app/shared/constants/values.dart';
 
 import '../../../../modules/modules.dart';
 
-class SkillsCarouselMobile extends GetView<HomeController> {
+class SkillsCarouselMobile extends StatelessWidget {
   final int index;
   final PageController pageCrtl;
 
