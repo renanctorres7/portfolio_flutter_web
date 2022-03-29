@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:portfolio/app/shared/constants/colors.dart';
+import 'package:portfolio/app/shared/utils/utils.dart';
 
 class SkillsCarouselCommon extends StatelessWidget {
   final int index;
@@ -199,7 +200,7 @@ class SkillsCarouselCommon extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 child: IconButton(
                     onPressed: () {
-                      // controller.animateSlider(index, pageCrtl);
+                      Utils.animateSlider(index, pageCrtl);
                     },
                     icon: index != 0
                         ? Icon(

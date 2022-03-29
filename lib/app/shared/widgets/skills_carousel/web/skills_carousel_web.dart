@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
+import 'package:portfolio/app/shared/utils/utils.dart';
 
 import '../../widgets.dart';
 
@@ -144,7 +145,7 @@ class SkillsCarouselWeb extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: IconButton(
                       onPressed: () {
-                        //controller.animateSlider(index, pageCrtl);
+                        Utils.animateSlider(index, pageCrtl);
                       },
                       icon: index != 0
                           ? Icon(

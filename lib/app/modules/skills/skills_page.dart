@@ -19,8 +19,7 @@ class SkillsPage extends GetView<SkillsController> {
           child: Column(
             children: [
               Container(
-                height:
-                    constraints.maxWidth > DefaultValues.MOBILE_MAX ? 50 : 50,
+                height: 50,
               ),
               Container(
                 width: constraints.maxWidth > DefaultValues.MOBILE_MAX
@@ -34,27 +33,27 @@ class SkillsPage extends GetView<SkillsController> {
                         children: [
                           SkillsCarouselCommon(
                             index: 1,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                           ),
                           SkillsCarouselWeb(
                             index: 0,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                           ),
                         ],
-                        controller: controller.pageController.value,
+                        controller: controller.pageController,
                       )
                     : PageView(
                         children: [
                           SkillsCarouselMobile(
                             index: 1,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                           ),
                           SkillsCarouselCommon(
                             index: 0,
-                            pageCrtl: controller.pageController.value,
+                            pageCrtl: controller.pageController,
                           ),
                         ],
-                        controller: controller.pageController.value,
+                        controller: controller.pageController,
                       ),
               ),
             ],
