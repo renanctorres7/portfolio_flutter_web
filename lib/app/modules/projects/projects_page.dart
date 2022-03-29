@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../shared/widgets/widgets.dart';
-import '../view.dart';
+import '../module.dart';
 
 class ProjectsPage extends GetView<HomeController> {
   @override
