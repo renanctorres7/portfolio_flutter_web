@@ -2,15 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
+import 'package:universal_html/html.dart' as html;
 
-class AboutPage extends StatefulWidget {
-  @override
-  _AboutPageState createState() => _AboutPageState();
-}
-
-class _AboutPageState extends State<AboutPage> {
+class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final size = MediaQuery.of(context).size;
@@ -48,7 +42,7 @@ class _AboutPageState extends State<AboutPage> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                             fontSize: 26,
-                            color: white,
+                            color: ColorsApp.white,
                             fontWeight: FontWeight.w800),
                       ),
                     ),
@@ -62,7 +56,7 @@ class _AboutPageState extends State<AboutPage> {
                         'Desenvolvedor Front-End',
                         style: TextStyle(
                             fontSize: 23,
-                            color: gray4,
+                            color: ColorsApp.gray4,
                             fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -72,10 +66,10 @@ class _AboutPageState extends State<AboutPage> {
                     child: Container(
                       width: 400,
                       padding: const EdgeInsets.only(top: 10),
-                      child: Text(sobre,
+                      child: Text(DefaultTexts.sobre,
                           style: TextStyle(
                               fontSize: 16,
-                              color: white,
+                              color: ColorsApp.white,
                               fontWeight: FontWeight.w400)),
                     ),
                   )
@@ -104,11 +98,11 @@ class _AboutPageState extends State<AboutPage> {
                           padding: EdgeInsets.symmetric(
                               horizontal: 80, vertical: 20),
                           textStyle: TextStyle(
-                              color: graphite,
+                              color: ColorsApp.graphite,
                               fontFamily: 'quicksand',
                               fontSize: 14),
-                          backgroundColor: gray4,
-                          onSurface: white,
+                          backgroundColor: ColorsApp.gray4,
+                          onSurface: ColorsApp.white,
                           shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(60)))),
