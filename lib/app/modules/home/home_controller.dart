@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:mobx/mobx.dart';
+import 'package:get/get.dart';
 
-part 'home_store.g.dart';
-
-class HomeStore = HomeStoreBase with _$HomeStore;
-
-abstract class HomeStoreBase with Store {
-  @observable
+class HomeController extends GetxController {
   double offset = 0;
 
-  @action
   bool voidOnScroll(ScrollNotification scrollNotification) {
     offset = scrollNotification.metrics.pixels;
     return true;
   }
 
-  @action
   void goToElement(
       int index, double height, ScrollController scrollController) {
     if (scrollController.hasClients)

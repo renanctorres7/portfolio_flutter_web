@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:portfolio/app/modules/home/home_store.dart';
+import 'package:portfolio/app/modules/home/home_controller.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 
 class WebMenuPage extends StatefulWidget {

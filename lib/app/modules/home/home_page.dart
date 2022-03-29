@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:portfolio/app/modules/about/about_page.dart';
 import 'package:portfolio/app/modules/contact/contact_page.dart';
-import 'package:portfolio/app/modules/home/home_store.dart';
+import 'package:portfolio/app/modules/home/home_controller.dart';
 import 'package:portfolio/app/modules/projects/projects_page.dart';
 import 'package:portfolio/app/modules/skills/skills_page.dart';
 import 'package:portfolio/app/shared/components/menu/mobile/mobile_menu_page.dart';
