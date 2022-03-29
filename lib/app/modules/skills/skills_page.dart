@@ -12,6 +12,7 @@ class SkillsPage extends GetView<SkillsController> {
     final size = MediaQuery.of(context).size;
 
     return LayoutBuilder(builder: (context, constraints) {
+      final controller = Get.put(SkillsController());
       return Container(
         child: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),

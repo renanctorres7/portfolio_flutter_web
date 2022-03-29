@@ -19,6 +19,7 @@ class HomePage extends GetView<HomeController> {
     final size = MediaQuery.of(context).size;
 
     return LayoutBuilder(builder: (context, constraints) {
+      final controller = Get.put(HomeController());
       return Scaffold(
         body: NotificationListener<ScrollNotification>(
           onNotification: controller.voidOnScroll,

@@ -11,6 +11,7 @@ class ProjectsPage extends GetView<ProjectsController> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return LayoutBuilder(builder: (context, constraints) {
+      final controller = Get.put(ProjectsController());
       return Container(
         child: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),

@@ -26,6 +26,7 @@ class AppWidget extends StatelessWidget {
             color: ColorsApp.graphite,
           )),
       getPages: AppPages.pages,
+      home: HomePage(),
     );
   }
 }

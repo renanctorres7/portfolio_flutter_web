@@ -6,7 +6,7 @@ import 'package:portfolio/app/modules/skills/skills_controller.dart';
 class HomeBindings implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => HomeController());
+    Get.put(HomeController());
     Get.put(ProjectsController());
 
     Get.put(SkillsController());
