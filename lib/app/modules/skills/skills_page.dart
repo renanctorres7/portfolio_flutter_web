@@ -4,7 +4,7 @@ import 'package:portfolio/app/shared/widgets/skills_carousel/mobile/skills_carou
 import 'package:portfolio/app/shared/widgets/skills_carousel/common/skills_carousel_common.dart';
 import 'package:portfolio/app/shared/widgets/skills_carousel/web/skills_carousel_web.dart';
 import 'package:portfolio/app/shared/constants/values.dart';
-import 'package:portfolio/app/view/skills/skills_controller.dart';
+import 'package:portfolio/app/modules/skills/skills_controller.dart';
 
 class SkillsPage extends GetView<SkillsController> {
   @override
