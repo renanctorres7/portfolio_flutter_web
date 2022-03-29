@@ -13,4 +13,7 @@ abstract class Utils {
 
   static void launchURLios(String url) async =>
       await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+
+  static void launchURL(String url) async =>
+      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 }

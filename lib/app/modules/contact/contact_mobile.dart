@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/app/modules/contact/widget/contact_page_widget1.dart';
 import 'package:portfolio/app/shared/constants/colors.dart';
 import 'package:portfolio/app/shared/constants/text.dart';
+
+import '../../shared/widgets/widgets.dart';
 
 class ContactMobile extends StatelessWidget {
   @override
@@ -12,26 +13,29 @@ class ContactMobile extends StatelessWidget {
       width: size.width * 0.8,
       child: Column(
         children: [
-          ContactPageWidget1(
+          ContactWidget(
             image: 'assets/whats.svg',
             text: "(61) 99917-4230",
-            url: urlPhone,
+            url: DefaultTexts.urlPhone,
+            isMobile: true,
           ),
           SizedBox(
             height: 30,
           ),
-          ContactPageWidget1(
+          ContactWidget(
             image: 'assets/arroba.svg',
             text: "renanctorres7@gmail.com",
-            url: urlEmail,
+            url: DefaultTexts.urlEmail,
+            isMobile: true,
           ),
           SizedBox(
             height: 30,
           ),
-          ContactPageWidget1(
+          ContactWidget(
             image: 'assets/linkedin.svg',
             text: "LinkedIn",
-            url: urlLink,
+            url: DefaultTexts.urlLink,
+            isMobile: true,
           ),
           SizedBox(
             height: 30,
@@ -53,7 +57,9 @@ class ContactMobile extends StatelessWidget {
                 child: SelectableText(
                   'Brasília - Distrito Federal\nBrasil',
                   style: TextStyle(
-                      fontSize: 14, color: gray1, fontWeight: FontWeight.w600),
+                      fontSize: 14,
+                      color: ColorsApp.gray1,
+                      fontWeight: FontWeight.w600),
                 ),
               ),
             ],

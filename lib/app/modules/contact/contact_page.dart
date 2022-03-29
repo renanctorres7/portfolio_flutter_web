@@ -11,21 +11,22 @@ class ContactPage extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       final size = MediaQuery.of(context).size;
       return Container(
-        padding: constraints.maxWidth > MOBILE_MAX
+        padding: constraints.maxWidth > DefaultValues.MOBILE_MAX
             ? EdgeInsets.only(left: 0)
             : EdgeInsets.only(left: 60),
         width: size.width,
-        height: constraints.maxWidth > MOBILE_MAX
+        height: constraints.maxWidth > DefaultValues.MOBILE_MAX
             ? size.height * 0.6
             : size.height * 0.9,
         child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: constraints.maxWidth > MOBILE_MAX
+            crossAxisAlignment: constraints.maxWidth > DefaultValues.MOBILE_MAX
                 ? CrossAxisAlignment.center
                 : CrossAxisAlignment.start,
             children: [
               Container(
-                height: constraints.maxWidth > MOBILE_MAX ? 100 : 50,
+                height:
+                    constraints.maxWidth > DefaultValues.MOBILE_MAX ? 100 : 50,
               ),
               ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
@@ -37,7 +38,7 @@ class ContactPage extends StatelessWidget {
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         fontSize: 26,
-                        color: graphite,
+                        color: ColorsApp.graphite,
                         fontWeight: FontWeight.w800),
                   ),
                 ),
@@ -45,7 +46,7 @@ class ContactPage extends StatelessWidget {
               Container(
                 height: 30,
               ),
-              constraints.maxWidth > MOBILE_MAX
+              constraints.maxWidth > DefaultValues.MOBILE_MAX
                   ? ContactWeb()
                   : ContactMobile(),
             ],
