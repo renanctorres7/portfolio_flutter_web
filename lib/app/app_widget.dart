@@ -21,7 +21,7 @@ class AppWidget extends StatelessWidget {
               ResponsiveBreakpoint.resize(1000, name: DESKTOP),
             ],
             background: Container(
-              color: graphite,
+              color: ColorsApp.graphite,
             )),
         initialRoute: "/");
   }
