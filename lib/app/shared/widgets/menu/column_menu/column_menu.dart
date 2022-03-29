@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/app/shared/constants/colors.dart';
+
+import '../../../../modules/modules.dart';
 
 class ColumnMenu extends GetView<HomeController> {
   const ColumnMenu(
       {Key? key,
-      required this.controller,
       required this.height,
       required this.value,
       required this.scrollController})
       : super(key: key);
 
-  final HomeStore controller;
   final double height;
   final bool value;
   final ScrollController scrollController;
@@ -19,7 +20,7 @@ class ColumnMenu extends GetView<HomeController> {
   Widget build(BuildContext context) {
     if (value == true) {
       return Container(
-        color: gray,
+        color: ColorsApp.gray,
         alignment: Alignment.topLeft,
         padding: EdgeInsets.only(left: 20),
         child: Column(
@@ -33,7 +34,7 @@ class ColumnMenu extends GetView<HomeController> {
                     if (states.contains(MaterialState.hovered)) {
                       return Colors.white;
                     } else {
-                      return gray3;
+                      return ColorsApp.gray3;
                     }
                   }),
                   textStyle: MaterialStateProperty.resolveWith((states) =>
@@ -41,7 +42,7 @@ class ColumnMenu extends GetView<HomeController> {
                           fontSize: 16,
                           fontFamily: "quicksand",
                           fontWeight: FontWeight.w500,
-                          color: gray3)),
+                          color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
                   controller.goToElement(0, height, scrollController);
@@ -58,7 +59,7 @@ class ColumnMenu extends GetView<HomeController> {
                     if (states.contains(MaterialState.hovered)) {
                       return Colors.white;
                     } else {
-                      return gray3;
+                      return ColorsApp.gray3;
                     }
                   }),
                   textStyle: MaterialStateProperty.resolveWith((states) =>
@@ -66,7 +67,7 @@ class ColumnMenu extends GetView<HomeController> {
                           fontSize: 16,
                           fontFamily: "quicksand",
                           fontWeight: FontWeight.w500,
-                          color: gray3)),
+                          color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
                   controller.goToElement(1, height, scrollController);
@@ -83,7 +84,7 @@ class ColumnMenu extends GetView<HomeController> {
                     if (states.contains(MaterialState.hovered)) {
                       return Colors.white;
                     } else {
-                      return gray3;
+                      return ColorsApp.gray3;
                     }
                   }),
                   textStyle: MaterialStateProperty.resolveWith((states) =>
@@ -91,7 +92,7 @@ class ColumnMenu extends GetView<HomeController> {
                           fontSize: 16,
                           fontFamily: "quicksand",
                           fontWeight: FontWeight.w500,
-                          color: gray3)),
+                          color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
                   controller.goToElement(2, height, scrollController);
@@ -108,7 +109,7 @@ class ColumnMenu extends GetView<HomeController> {
                     if (states.contains(MaterialState.hovered)) {
                       return Colors.white;
                     } else {
-                      return gray3;
+                      return ColorsApp.gray3;
                     }
                   }),
                   textStyle: MaterialStateProperty.resolveWith((states) =>
@@ -116,7 +117,7 @@ class ColumnMenu extends GetView<HomeController> {
                           fontSize: 16,
                           fontFamily: "quicksand",
                           fontWeight: FontWeight.w500,
-                          color: gray3)),
+                          color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
                   controller.goToElement(3, height, scrollController);
