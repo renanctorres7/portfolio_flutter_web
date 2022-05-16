@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 
-import '../entities/skills.dart';
+import '../entities/skills_entity.dart';
 import '../errors/errors.dart';
 import '../repositories/show_skills_repository.dart';
 
 abstract class ShowSkillsUsecase {
-  Future<Either<FailureShow, List<Skills>>> call();
+  Future<Either<FailureShow, List<SkillsEntity>>> call();
 }
 
 class ShowSkillsUsecaseImpl implements ShowSkillsUsecase {
@@ -13,7 +13,7 @@ class ShowSkillsUsecaseImpl implements ShowSkillsUsecase {
 
   ShowSkillsUsecaseImpl(this.repository);
   @override
-  Future<Either<FailureShow, List<Skills>>> call() async {
+  Future<Either<FailureShow, List<SkillsEntity>>> call() async {
     return repository.getList();
   }
 }
