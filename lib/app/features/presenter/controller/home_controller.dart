@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:portfolio/app/features/infra/models/projects_model.dart';
 
 class HomeController extends GetxController {
   var offset = 0.0.obs;
@@ -23,4 +24,6 @@ class HomeController extends GetxController {
 
   PageController pageController = PageController();
   PageController pageController1 = PageController();
+
+  var projectsList = <ProjectsModels>[].obs;
 }

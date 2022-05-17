@@ -13,7 +13,6 @@ class AboutPage extends StatelessWidget {
       constraints: BoxConstraints(maxWidth: 1000),
       child: LayoutBuilder(builder: (context, constraints) {
         final size = MediaQuery.of(context).size;
-        print(constraints.maxWidth);
 
         return Container(
           width: size.width,
@@ -50,7 +49,7 @@ class AboutPage extends StatelessWidget {
                           width: 400,
                           padding: const EdgeInsets.only(top: 10),
                           child: Text(
-                            'Desenvolvedor Front-End',
+                            'Desenvolvedor Flutter',
                             style: TextStyle(
                                 fontSize: 23,
                                 color: ColorsApp.gray4,
@@ -60,7 +59,7 @@ class AboutPage extends StatelessWidget {
                         Container(
                           width: 400,
                           padding: const EdgeInsets.only(top: 10),
-                          child: Text(DefaultTexts.sobre,
+                          child: Text(DefaultTexts.about,
                               style: TextStyle(
                                   fontSize: 16,
                                   color: ColorsApp.white,
@@ -158,7 +157,7 @@ class AboutPage extends StatelessWidget {
                             width: 400,
                             padding: const EdgeInsets.only(top: 10),
                             child: Text(
-                              'Desenvolvedor Front-End',
+                              'Desenvolvedor Flutter',
                               style: TextStyle(
                                   fontSize: 23,
                                   color: ColorsApp.gray4,
@@ -172,7 +171,7 @@ class AboutPage extends StatelessWidget {
                           child: Container(
                             width: 400,
                             padding: const EdgeInsets.only(top: 10),
-                            child: Text(DefaultTexts.sobre,
+                            child: Text(DefaultTexts.about,
                                 style: TextStyle(
                                     fontSize: 16,
                                     color: ColorsApp.white,

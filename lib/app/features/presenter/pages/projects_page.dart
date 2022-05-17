@@ -26,66 +26,23 @@ class ProjectsPage extends GetView<HomeController> {
                     : size.width,
                 height: size.height * 0.8,
                 child: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                    ? PageView(
-                        children: [
-                          CarouselWeb(
-                            index: 1,
-                            pageCrtl: controller.pageController,
-                            title: 'Aplicativo - Receitas Fit',
-                            text: DefaultTexts.receitas,
-                            hasAndroid: true,
-                            hasApple: true,
-                            hasWeb: false,
-                            image: 'assets/receitas.png',
-                            url:
-                                'https://play.google.com/store/apps/details?id=br.com.rctorres.receitas_fit',
-                            urlIOS:
-                                'https://apps.apple.com/br/app/receitas-fit/id1540754956',
-                          ),
-                          CarouselWeb(
-                            index: 2,
-                            pageCrtl: controller.pageController,
-                            title: 'Aplicativo - Jejum Intermitente',
-                            text: DefaultTexts.jejum,
-                            hasAndroid: true,
-                            hasApple: true,
-                            hasWeb: false,
-                            image: 'assets/jejum.png',
-                            url:
-                                'https://play.google.com/store/apps/details?id=com.dieta.jejum_intermitente',
-                            urlIOS:
-                                'https://apps.apple.com/br/app/jejum-intermitente-f%C3%A1cil/id1533103508',
-                          ),
-                          CarouselWeb(
-                            index: 3,
-                            pageCrtl: controller.pageController,
-                            title: 'Aplicativo/Site - Isa Estética',
-                            text: DefaultTexts.isa,
-                            hasAndroid: true,
-                            hasWeb: true,
-                            hasApple: false,
-                            image: 'assets/isa.png',
-                            url:
-                                'https://play.google.com/store/apps/details?id=com.beleza.isa_estetica',
-                            urlIOS: '',
-                            urlWeb: 'https://isa-estetica.web.app/',
-                          ),
-                          CarouselWeb(
-                            index: 0,
-                            pageCrtl: controller.pageController,
-                            title: 'Aplicativo - Thomas',
-                            text: DefaultTexts.thomas,
-                            hasAndroid: true,
-                            hasWeb: false,
-                            hasApple: true,
-                            image: 'assets/thomas.png',
-                            url:
-                                'https://play.google.com/store/apps/details?id=com.thomas',
-                            urlIOS:
-                                'https://apps.apple.com/br/app/thomas/id1549672161',
-                          ),
-                        ],
+                    ? PageView.builder(
+                        itemCount: controller.projectsList.length,
                         controller: controller.pageController,
+                        itemBuilder: (BuildContext context, int index) {
+                          return CarouselWeb(
+                            index: index,
+                            pageCrtl: controller.pageController,
+                            title: controller.projectsList[index].title ?? "",
+                            text: controller.projectsList[index].text ?? "",
+                            image:
+                                controller.projectsList[index].imageUrl ?? "",
+                            urlAndroid:
+                                controller.projectsList[index].androidUrl ?? "",
+                            urlIOS: controller.projectsList[index].iosUrl ?? "",
+                            urlWeb: controller.projectsList[index].webUrl ?? "",
+                          );
+                        },
                       )
                     : PageView(
                         children: [

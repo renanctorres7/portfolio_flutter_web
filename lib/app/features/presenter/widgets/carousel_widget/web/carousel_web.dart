@@ -11,12 +11,10 @@ class CarouselWeb extends StatelessWidget {
   final String title;
   final String text;
   final String image;
-  final bool hasAndroid;
-  final bool hasApple;
-  final bool hasWeb;
-  final String url;
+
+  final String urlAndroid;
   final String urlIOS;
-  final String? urlWeb;
+  final String urlWeb;
 
   const CarouselWeb(
       {Key? key,
@@ -25,11 +23,8 @@ class CarouselWeb extends StatelessWidget {
       required this.title,
       required this.text,
       required this.image,
-      required this.hasAndroid,
-      required this.hasApple,
-      required this.url,
-      required this.hasWeb,
-      this.urlWeb,
+      required this.urlAndroid,
+      required this.urlWeb,
       required this.urlIOS})
       : super(key: key);
 
@@ -96,10 +91,10 @@ class CarouselWeb extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        hasAndroid == true
+                        urlAndroid.isNotEmpty
                             ? TextButton(
                                 onPressed: () {
-                                  Utils.launchURL(url);
+                                  Utils.launchURL(urlAndroid);
                                 },
                                 child: Container(
                                   height: 50,
@@ -108,7 +103,7 @@ class CarouselWeb extends StatelessWidget {
                             : Container(
                                 height: 50,
                               ),
-                        hasApple == true
+                        urlIOS.isNotEmpty
                             ? TextButton(
                                 onPressed: () {
                                   Utils.launchURL(urlIOS);
@@ -120,10 +115,10 @@ class CarouselWeb extends StatelessWidget {
                             : Container(
                                 height: 50,
                               ),
-                        hasWeb == true
+                        urlWeb.isNotEmpty
                             ? TextButton(
                                 onPressed: () {
-                                  Utils.launchURL(urlWeb!);
+                                  Utils.launchURL(urlWeb);
                                 },
                                 child: Container(
                                   height: 50,
@@ -162,6 +157,28 @@ class CarouselWeb extends StatelessWidget {
                 child: Image.network(
                   image,
                   fit: BoxFit.fitHeight,
+                  loadingBuilder: (context, child, loadingProgress) {
+                    if (loadingProgress == null) {
+                      return child;
+                    }
+                    return SizedBox(
+                      width: size.width,
+                      height: size.height,
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: SizedBox(
+                          width: 200,
+                          child: LinearProgressIndicator(
+                            color: ColorsApp.purple,
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes!
+                                : null,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             )
