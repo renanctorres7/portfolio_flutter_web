@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:portfolio/features/domain/errors/errors.dart';
 import 'package:portfolio/features/infra/datasources/show_skills_datasource.dart';
 import 'package:portfolio/features/infra/models/skills_model.dart';
 import 'package:portfolio/features/infra/repositories/show_skills_repository_impl.dart';
@@ -21,5 +22,13 @@ void main() {
     verify(() => datasource.getSkillsList()).called(1);
   });
   test('Should return a Datasource Failure if datasource catchs error',
-      () async {});
+      () async {
+    when(() => datasource.getSkillsList())
+        .thenThrow((_) async => DatasourceFailure());
+
+    final result = await repository.getList();
+
+    expect(result, Left(DatasourceFailure()));
+    verify(() => datasource.getSkillsList()).called(1);
+  });
 }
