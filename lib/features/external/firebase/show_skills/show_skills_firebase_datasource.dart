@@ -27,7 +27,8 @@ class ShowSkillsFirebaseDatasource implements ShowSkillsDatasource {
 
       if (map != null) {
         map?.forEach((key, value) {
-          list.add(SkillsModel(title: key, percent: int.parse(value)));
+          list.add(
+              SkillsModel(title: value['title'], percent: value['percent']));
         });
       }
       return list;

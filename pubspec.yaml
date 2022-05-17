@@ -43,6 +43,7 @@ dev_dependencies:
   dartz: ^0.10.1
   equatable: ^2.0.3
   flutter_lints: ^2.0.1
+  fake_cloud_firestore: ^1.2.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
