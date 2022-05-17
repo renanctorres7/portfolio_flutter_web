@@ -10,12 +10,11 @@ class CarouselMobile extends StatelessWidget {
   final String title;
   final String text;
   final String image;
-  final bool hasAndroid;
-  final bool hasApple;
-  final String url;
+
+  final String urlAndroid;
   final String urlIOS;
-  final bool hasWeb;
-  final String? urlWeb;
+
+  final String urlWeb;
 
   const CarouselMobile(
       {Key? key,
@@ -24,11 +23,8 @@ class CarouselMobile extends StatelessWidget {
       required this.title,
       required this.text,
       required this.image,
-      required this.hasAndroid,
-      required this.hasApple,
-      required this.url,
-      required this.hasWeb,
-      this.urlWeb,
+      required this.urlAndroid,
+      required this.urlWeb,
       required this.urlIOS})
       : super(key: key);
 
@@ -87,10 +83,10 @@ class CarouselMobile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  hasAndroid == true
+                  urlAndroid.isNotEmpty
                       ? TextButton(
                           onPressed: () {
-                            Utils.launchURL(url);
+                            Utils.launchURL(urlAndroid);
                           },
                           child: Container(
                             height: 50,
@@ -99,7 +95,7 @@ class CarouselMobile extends StatelessWidget {
                       : Container(
                           height: 50,
                         ),
-                  hasApple == true
+                  urlIOS.isNotEmpty
                       ? TextButton(
                           onPressed: () {
                             Utils.launchURL(urlIOS);
@@ -111,10 +107,10 @@ class CarouselMobile extends StatelessWidget {
                       : Container(
                           height: 50,
                         ),
-                  hasWeb == true
+                  urlWeb.isNotEmpty
                       ? TextButton(
                           onPressed: () {
-                            Utils.launchURL(urlWeb!);
+                            Utils.launchURL(urlWeb);
                           },
                           child: Container(
                             height: 50,
