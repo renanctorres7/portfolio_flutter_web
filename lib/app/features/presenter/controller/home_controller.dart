@@ -22,8 +22,5 @@ class HomeController extends GetxController {
           curve: Curves.decelerate);
   }
 
-  PageController pageController = PageController();
   PageController pageController1 = PageController();
-
-  var projectsList = <ProjectsModels>[].obs;
 }

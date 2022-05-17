@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/app/features/presenter/controller/home_controller.dart';
+import 'package:portfolio/app/features/presenter/controller/projects_controller.dart';
 
-import '../../../core/constants/text.dart';
 import '../../../core/constants/values.dart';
 import '../widgets/carousel_widget/mobile/carousel_mobile.dart';
 import '../widgets/carousel_widget/web/carousel_web.dart';
 
-class ProjectsPage extends GetView<HomeController> {
+class ProjectsPage extends GetView<ProjectsController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
