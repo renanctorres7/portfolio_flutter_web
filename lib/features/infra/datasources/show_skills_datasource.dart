@@ -1,5 +1,5 @@
 import 'package:portfolio/features/infra/models/skills_model.dart';
 
-abstract class SkillsDatasource {
+abstract class ShowSkillsDatasource {
   Future<List<SkillsModel>> getSkillsList();
 }

@@ -6,3 +6,8 @@ class ServerFailure extends FailureShow {
   @override
   List<Object?> get props => [];
 }
+
+class DatasourceFailure extends FailureShow {
+  @override
+  List<Object?> get props => [];
+}
