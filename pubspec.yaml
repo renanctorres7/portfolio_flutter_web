@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   auto_size_text: ^3.0.0
-  flutter_svg: ^0.22.0
+  flutter_svg: ^1.0.3
   url_launcher: ^6.1.2
   dhttpd: ^4.0.0
   get: ^4.6.3
