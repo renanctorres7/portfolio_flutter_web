@@ -33,10 +33,10 @@ class ProjectsModels extends ProjectsEntity {
     return ProjectsModels(
         title: map['title'],
         text: map['text'],
-        androidUrl: map['androidUrl'],
-        iosUrl: map['iosUrl'],
-        webUrl: map['webUrl'],
-        imageUrl: map['imageUrl']);
+        androidUrl: map['android_url'],
+        iosUrl: map['ios_url'],
+        webUrl: map['web_url'],
+        imageUrl: map['image_url']);
   }
 
   String toJson() => jsonEncode(toMap());

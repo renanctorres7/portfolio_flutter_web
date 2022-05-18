@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../../infra/datasources/show_projects_datasource.dart';
@@ -11,30 +13,18 @@ class ShowProjectsFirebaseDatasource implements ShowProjectsDatasource {
   Future<List<ProjectsModels>> getProjectsList() async {
     firebaseFirestore = FirebaseFirestore.instance;
     List<ProjectsModels> list = [];
-    Map<String, dynamic>? map;
 
     try {
-      firebaseFirestore
-          .collection('portfolio')
-          .doc('projects')
-          .get()
-          .then((value) {
-        if (value.data() != null) {
-          map = value.data();
+      final docRef = firebaseFirestore.collection('portfolio').doc('projects');
+
+      final result = await docRef.get().then((value) async => value.data());
+
+      result!.values.toList().forEach((element) {
+        for (var item in element) {
+          list.add(ProjectsModels.fromMap(item));
         }
       });
 
-      if (map != null) {
-        map?.forEach((key, map) {
-          list.add(ProjectsModels(
-              title: map['title'],
-              text: map['text'],
-              androidUrl: map['androidUrl'],
-              iosUrl: map['iosUrl'],
-              webUrl: map['webUrl'],
-              imageUrl: map['imageUrl']));
-        });
-      }
       return list;
     } on FirebaseException catch (e) {
       //TODO implementar snackbar

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get_it/get_it.dart';
 import 'package:portfolio/app/features/domain/repositories/show_projects_repository.dart';
 import 'package:portfolio/app/features/domain/usecases/show_projects_usecase.dart';
@@ -9,10 +10,12 @@ final s1 = GetIt.instance;
 
 class DependencyInjection {
   static init() {
-    s1.registerSingleton<ShowProjectsRepository>(
-        ShowProjectsRepositoryImplementation(s1()));
+    s1.registerSingleton<FirebaseFirestore>(FirebaseFirestore.instance);
     s1.registerSingleton<ShowProjectsDatasource>(
         ShowProjectsFirebaseDatasource(s1()));
+    s1.registerSingleton<ShowProjectsRepository>(
+        ShowProjectsRepositoryImplementation(s1()));
+
     s1.registerSingleton<ShowProjectsUsecase>(
         ShowProjectsUsecaseImplementation(s1()));
   }
