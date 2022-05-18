@@ -3,9 +3,14 @@ import 'package:url_launcher/url_launcher.dart';
 
 abstract class Utils {
   static Future<void> animateSlider(
-      int index, PageController pageController) async {
-    pageController.animateToPage(index,
-        duration: Duration(seconds: 1), curve: Curves.easeIn);
+      int lastIndex, PageController pageController) async {
+    if (pageController.page == lastIndex) {
+      pageController.animateTo(0,
+          duration: Duration(seconds: 1), curve: Curves.easeIn);
+    } else {
+      pageController.nextPage(
+          duration: Duration(seconds: 1), curve: Curves.easeIn);
+    }
   }
 
   static void launchURL(String url) async =>

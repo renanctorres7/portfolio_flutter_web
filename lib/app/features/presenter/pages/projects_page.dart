@@ -36,61 +36,59 @@ class ProjectsPage extends GetView<ProjectsController> {
                         );
                       case StatusLoading.complete:
                       default:
-                        return constraints.maxWidth > DefaultValues.MOBILE_MAX
-                            ? PageView.builder(
-                                itemCount: controller.projectsList.length,
-                                controller: controller.pageController,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return CarouselWeb(
-                                    index: index,
-                                    pageCrtl: controller.pageController,
-                                    title:
-                                        controller.projectsList[index].title ??
-                                            "",
-                                    text: controller.projectsList[index].text ??
+                        if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+                          return PageView.builder(
+                            itemCount: controller.projectsList.length,
+                            controller: controller.pageController,
+                            itemBuilder: (BuildContext context, int index) {
+                              return CarouselWeb(
+                                key: Key(index.toString()),
+                                index: index,
+                                lastIndex: controller.projectsList.length - 1,
+                                pageCrtl: controller.pageController,
+                                title:
+                                    controller.projectsList[index].title ?? "",
+                                text: controller.projectsList[index].text ?? "",
+                                image:
+                                    controller.projectsList[index].imageUrl ??
                                         "",
-                                    image: controller
-                                            .projectsList[index].imageUrl ??
+                                urlAndroid:
+                                    controller.projectsList[index].androidUrl ??
                                         "",
-                                    urlAndroid: controller
-                                            .projectsList[index].androidUrl ??
-                                        "",
-                                    urlIOS:
-                                        controller.projectsList[index].iosUrl ??
-                                            "",
-                                    urlWeb:
-                                        controller.projectsList[index].webUrl ??
-                                            "",
-                                  );
-                                },
-                              )
-                            : PageView.builder(
-                                itemCount: controller.projectsList.length,
-                                controller: controller.pageController,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return CarouselMobile(
-                                    index: index,
-                                    pageCrtl: controller.pageController,
-                                    title:
-                                        controller.projectsList[index].title ??
-                                            "",
-                                    text: controller.projectsList[index].text ??
-                                        "",
-                                    image: controller
-                                            .projectsList[index].imageUrl ??
-                                        "",
-                                    urlAndroid: controller
-                                            .projectsList[index].androidUrl ??
-                                        "",
-                                    urlIOS:
-                                        controller.projectsList[index].iosUrl ??
-                                            "",
-                                    urlWeb:
-                                        controller.projectsList[index].webUrl ??
-                                            "",
-                                  );
-                                },
+                                urlIOS:
+                                    controller.projectsList[index].iosUrl ?? "",
+                                urlWeb:
+                                    controller.projectsList[index].webUrl ?? "",
                               );
+                            },
+                          );
+                        } else {
+                          return PageView.builder(
+                            itemCount: controller.projectsList.length,
+                            controller: controller.pageController,
+                            itemBuilder: (BuildContext context, int index) {
+                              return CarouselMobile(
+                                key: Key(index.toString()),
+                                index: index,
+                                lastIndex: controller.projectsList.length - 1,
+                                pageCrtl: controller.pageController,
+                                title:
+                                    controller.projectsList[index].title ?? "",
+                                text: controller.projectsList[index].text ?? "",
+                                image:
+                                    controller.projectsList[index].imageUrl ??
+                                        "",
+                                urlAndroid:
+                                    controller.projectsList[index].androidUrl ??
+                                        "",
+                                urlIOS:
+                                    controller.projectsList[index].iosUrl ?? "",
+                                urlWeb:
+                                    controller.projectsList[index].webUrl ?? "",
+                              );
+                            },
+                          );
+                        }
                     }
                   })),
             ],

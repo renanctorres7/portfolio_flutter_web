@@ -7,6 +7,8 @@ import '../../../../../core/utils/utils.dart';
 
 class CarouselWeb extends StatelessWidget {
   final int index;
+  final int lastIndex;
+
   final PageController pageCrtl;
   final String title;
   final String text;
@@ -25,7 +27,8 @@ class CarouselWeb extends StatelessWidget {
       required this.image,
       required this.urlAndroid,
       required this.urlWeb,
-      required this.urlIOS})
+      required this.urlIOS,
+      required this.lastIndex})
       : super(key: key);
 
   @override
@@ -130,9 +133,9 @@ class CarouselWeb extends StatelessWidget {
                         Container(
                           child: IconButton(
                               onPressed: () {
-                                Utils.animateSlider(index, pageCrtl);
+                                Utils.animateSlider(lastIndex, pageCrtl);
                               },
-                              icon: index != 0
+                              icon: index != lastIndex
                                   ? Icon(
                                       Icons.arrow_forward_ios,
                                       size: 50,

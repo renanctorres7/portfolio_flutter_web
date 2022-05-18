@@ -6,6 +6,8 @@ import '../../../../../core/utils/utils.dart';
 
 class CarouselMobile extends StatelessWidget {
   final int index;
+  final int lastIndex;
+
   final PageController pageCrtl;
   final String title;
   final String text;
@@ -19,6 +21,7 @@ class CarouselMobile extends StatelessWidget {
   const CarouselMobile(
       {Key? key,
       required this.index,
+      required this.lastIndex,
       required this.pageCrtl,
       required this.title,
       required this.text,
@@ -124,7 +127,7 @@ class CarouselMobile extends StatelessWidget {
                         onPressed: () {
                           Utils.animateSlider(index, pageCrtl);
                         },
-                        icon: index != 0
+                        icon: index != lastIndex
                             ? Icon(
                                 Icons.arrow_forward_ios,
                                 size: 50,
