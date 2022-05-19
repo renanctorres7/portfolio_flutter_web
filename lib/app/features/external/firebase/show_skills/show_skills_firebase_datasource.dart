@@ -11,25 +11,15 @@ class ShowSkillsFirebaseDatasource implements ShowSkillsDatasource {
   Future<List<SkillsModel>> getSkillsList() async {
     firebaseFirestore = FirebaseFirestore.instance;
     List<SkillsModel> list = [];
-    Map<String, dynamic>? map;
 
     try {
-      firebaseFirestore
-          .collection('portfolio')
-          .doc('skills')
-          .get()
-          .then((value) {
-        if (value.data() != null) {
-          map = value.data();
-        }
-      });
+      final docRef = firebaseFirestore.collection('portfolio').doc('skills');
 
-      if (map != null) {
-        map?.forEach((key, value) {
-          list.add(
-              SkillsModel(title: value['title'], percent: value['percent']));
-        });
-      }
+      final result = await docRef.get().then((value) async => value.data());
+
+      result!.values.toList().forEach((element) {
+        list.add(SkillsModel.fromMap(element));
+      });
       return list;
     } on FirebaseException catch (e) {
       //TODO implementar snackbar
