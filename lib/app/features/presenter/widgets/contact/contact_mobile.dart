@@ -3,14 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/text.dart';
+import '../../../../core/utils/utils.dart';
 import '../contact_widget/contact_widget.dart';
 
 class ContactMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
-      width: size.width * 0.8,
+      width: Utils.sizeQuery(context).width * 0.8,
       child: Column(
         children: [
           ContactWidget(
@@ -53,7 +53,7 @@ class ContactMobile extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 height: 50,
-                width: size.width * 0.5,
+                width: Utils.sizeQuery(context).width * 0.5,
                 child: SelectableText(
                   'Brasília - Distrito Federal\nBrasil',
                   style: TextStyle(

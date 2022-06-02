@@ -4,14 +4,13 @@ import 'package:portfolio/app/features/presenter/controller/skills_controller.da
 
 import '../../../core/constants/colors.dart';
 import '../../../core/constants/values.dart';
+import '../../../core/utils/utils.dart';
 import '../widgets/skills_carousel/common/skills_general_carousel.dart';
 import '../widgets/skills_carousel/web/skills_carousel_web.dart';
 
 class SkillsPage extends GetView<SkillsController> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return LayoutBuilder(builder: (context, constraints) {
       return Stack(
         alignment: Alignment.topCenter,
@@ -19,18 +18,18 @@ class SkillsPage extends GetView<SkillsController> {
           Container(
             color: ColorsApp.graphite,
             height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                ? size.height * 0.7
-                : size.height * 0.9,
-            width: size.width,
+                ? Utils.sizeQuery(context).height * 0.7
+                : Utils.sizeQuery(context).height * 0.9,
+            width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
             child: Container(
               color: ColorsApp.graphite,
               height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                  ? size.height * 0.7
-                  : size.height * 0.9,
-              width: size.width,
+                  ? Utils.sizeQuery(context).height * 0.7
+                  : Utils.sizeQuery(context).height * 0.9,
+              width: Utils.sizeQuery(context).width,
               child: SingleChildScrollView(
                 physics: NeverScrollableScrollPhysics(),
                 child: Column(
@@ -41,10 +40,10 @@ class SkillsPage extends GetView<SkillsController> {
                       height: 50,
                     ),
                     Container(
-                        width: size.width,
+                        width: Utils.sizeQuery(context).width,
                         height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                            ? size.height * 0.8
-                            : size.height * 0.9,
+                            ? Utils.sizeQuery(context).height * 0.8
+                            : Utils.sizeQuery(context).height * 0.9,
                         child: PageView(
                           children: [
                             SkillsGeneralCarousel(

@@ -33,7 +33,6 @@ class CarouselMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
@@ -50,8 +49,8 @@ class CarouselMobile extends StatelessWidget {
                     return child;
                   }
                   return SizedBox(
-                    width: size.width,
-                    height: size.height,
+                    width: Utils.sizeQuery(context).width,
+                    height: Utils.sizeQuery(context).height,
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: SizedBox(

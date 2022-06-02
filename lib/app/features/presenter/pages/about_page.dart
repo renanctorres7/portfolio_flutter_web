@@ -5,19 +5,19 @@ import 'package:universal_html/html.dart' as html;
 import '../../../core/constants/colors.dart';
 import '../../../core/constants/text.dart';
 import '../../../core/constants/values.dart';
+import '../../../core/utils/utils.dart';
 
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return LayoutBuilder(builder: (context, constraints) {
       return ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
         child: Container(
           height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-              ? size.height * 0.7
-              : size.height * 0.9,
-          width: size.width,
+              ? Utils.sizeQuery(context).height * 0.7
+              : Utils.sizeQuery(context).height * 0.9,
+          width: Utils.sizeQuery(context).width,
           color: ColorsApp.graphite,
           child: SingleChildScrollView(
             child: constraints.maxWidth > DefaultValues.MOBILE_MAX

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../core/constants/colors.dart';
 import '../../../core/constants/values.dart';
+import '../../../core/utils/utils.dart';
 import '../controller/home_controller.dart';
 import '../widgets/menu/mobile/mobile_menu.dart';
 import '../widgets/menu/web/web_menu.dart';
@@ -14,12 +15,10 @@ import 'skills_page.dart';
 class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Container(
       color: ColorsApp.graphite,
-      width: size.width,
-      height: size.height,
+      width: Utils.sizeQuery(context).width,
+      height: Utils.sizeQuery(context).height,
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 2400, minWidth: 480),
         child: LayoutBuilder(builder: (context, constraints) {
@@ -34,8 +33,8 @@ class HomePage extends GetView<HomeController> {
                     top: -.25 * controller.offset.value,
                     child: Container(
                       color: ColorsApp.graphite,
-                      height: size.height,
-                      width: size.width,
+                      height: Utils.sizeQuery(context).height,
+                      width: Utils.sizeQuery(context).width,
                     ),
                   ),
                   Scrollbar(
@@ -60,11 +59,11 @@ class HomePage extends GetView<HomeController> {
                         ? true
                         : false,
                     child: WebMenu(
-                      heigth: size.height,
+                      heigth: Utils.sizeQuery(context).height,
                       scrollController: controller.scrollController!,
                     ),
                     replacement: MobileMenu(
-                      height: size.height,
+                      height: Utils.sizeQuery(context).height,
                       scrollController: controller.scrollController!,
                     ),
                   ),

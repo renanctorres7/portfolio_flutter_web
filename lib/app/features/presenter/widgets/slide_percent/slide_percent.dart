@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/colors.dart';
+import '../../../../core/utils/utils.dart';
 
 class SlidePercent extends StatelessWidget {
   final String text;
@@ -19,7 +20,6 @@ class SlidePercent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
       width: width,
       height: height,
@@ -28,7 +28,7 @@ class SlidePercent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: size.width * 0.1,
+            width: Utils.sizeQuery(context).width * 0.1,
             height: 50,
             child: AutoSizeText(
               text,
@@ -45,14 +45,16 @@ class SlidePercent extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   children: [
                     Container(
-                      width: size.width * 0.3,
+                      width: Utils.sizeQuery(context).width * 0.3,
                       height: 30,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),
                           color: ColorsApp.white),
                     ),
                     Container(
-                      width: ((size.width * 0.3) * percent) / 100,
+                      width:
+                          ((Utils.sizeQuery(context).width * 0.3) * percent) /
+                              100,
                       height: 30,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(60),

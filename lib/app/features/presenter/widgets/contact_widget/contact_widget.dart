@@ -20,7 +20,6 @@ class ContactWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Row(
       children: [
         TextButton(
@@ -37,7 +36,7 @@ class ContactWidget extends StatelessWidget {
         Container(
           alignment: Alignment.centerLeft,
           height: 50,
-          width: isMobile == false ? 150 : size.width * 0.5,
+          width: isMobile == false ? 150 : Utils.sizeQuery(context).width * 0.5,
           child: SelectableText(
             text,
             maxLines: 2,

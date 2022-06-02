@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/constants/values.dart';
+import '../../../../../core/utils/utils.dart';
 import '../../../controller/skills_controller.dart';
 import '../../slide_percent/slide_percent.dart';
 
@@ -13,7 +14,6 @@ class SkillsCarouselWeb extends GetView<SkillsController> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return LayoutBuilder(builder: (context, constraints) {
       return Container(
         child: SingleChildScrollView(
@@ -41,13 +41,14 @@ class SkillsCarouselWeb extends GetView<SkillsController> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: size.height * 0.05),
+                  padding: EdgeInsets.only(
+                      top: Utils.sizeQuery(context).height * 0.05),
                   width: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                      ? size.width * 0.68
-                      : size.width * 0.9,
+                      ? Utils.sizeQuery(context).width * 0.68
+                      : Utils.sizeQuery(context).width * 0.9,
                   height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                      ? size.height * 0.45
-                      : size.height * 0.6,
+                      ? Utils.sizeQuery(context).height * 0.45
+                      : Utils.sizeQuery(context).height * 0.6,
                   child: Obx(() => ListView.builder(
                         shrinkWrap: true,
                         itemCount: controller.skillsList.length,
@@ -56,8 +57,8 @@ class SkillsCarouselWeb extends GetView<SkillsController> {
                           return Padding(
                             padding: const EdgeInsets.only(bottom: 15),
                             child: SlidePercent(
-                                width: size.width * 0.68,
-                                height: size.height * 0.02,
+                                width: Utils.sizeQuery(context).width * 0.68,
+                                height: Utils.sizeQuery(context).height * 0.02,
                                 text: controller.skillsList[index].title ?? "",
                                 percent: controller.skillsList[index].percent
                                         ?.toDouble() ??
@@ -67,7 +68,7 @@ class SkillsCarouselWeb extends GetView<SkillsController> {
                       )),
                 ),
                 Container(
-                  width: size.width * 0.7,
+                  width: Utils.sizeQuery(context).width * 0.7,
                   alignment: Alignment.bottomRight,
                   child: IconButton(
                       onPressed: () {

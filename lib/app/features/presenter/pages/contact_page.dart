@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constants/colors.dart';
 import '../../../core/constants/values.dart';
+import '../../../core/utils/utils.dart';
 import '../widgets/contact/contact_mobile.dart';
 import '../widgets/contact/contact_web.dart';
 
 class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return LayoutBuilder(builder: (context, constraints) {
       return Stack(
         alignment: Alignment.topCenter,
@@ -17,26 +17,26 @@ class ContactPage extends StatelessWidget {
           Container(
             color: ColorsApp.white,
             height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                ? size.height * 0.7
-                : size.height * 0.9,
-            width: size.width,
+                ? Utils.sizeQuery(context).height * 0.7
+                : Utils.sizeQuery(context).height * 0.9,
+            width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
             child: Container(
               color: ColorsApp.white,
               height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                  ? size.height * 0.7
-                  : size.height * 0.9,
-              width: size.width,
+                  ? Utils.sizeQuery(context).height * 0.7
+                  : Utils.sizeQuery(context).height * 0.9,
+              width: Utils.sizeQuery(context).width,
               child: Container(
                 padding: constraints.maxWidth > DefaultValues.MOBILE_MAX
                     ? EdgeInsets.only(left: 0)
                     : EdgeInsets.only(left: 60),
-                width: size.width,
+                width: Utils.sizeQuery(context).width,
                 height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                    ? size.height * 0.6
-                    : size.height * 0.9,
+                    ? Utils.sizeQuery(context).height * 0.6
+                    : Utils.sizeQuery(context).height * 0.9,
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment:
@@ -53,7 +53,7 @@ class ContactPage extends StatelessWidget {
                         constraints:
                             BoxConstraints(maxWidth: 800, minWidth: 350),
                         child: Container(
-                          width: size.width * 0.8,
+                          width: Utils.sizeQuery(context).width * 0.8,
                           alignment: Alignment.centerLeft,
                           child: AutoSizeText(
                             'Contato',

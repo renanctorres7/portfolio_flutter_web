@@ -33,7 +33,6 @@ class CarouselWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Container(
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
@@ -47,7 +46,7 @@ class CarouselWeb extends StatelessWidget {
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
                   child: Container(
-                    width: size.width * 0.5,
+                    width: Utils.sizeQuery(context).width * 0.5,
                     child: AutoSizeText(
                       'Projetos',
                       textAlign: TextAlign.left,
@@ -61,7 +60,7 @@ class CarouselWeb extends StatelessWidget {
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
                   child: Container(
-                    width: size.width * 0.5,
+                    width: Utils.sizeQuery(context).width * 0.5,
                     padding: const EdgeInsets.only(top: 10),
                     child: AutoSizeText(
                       title,
@@ -75,7 +74,7 @@ class CarouselWeb extends StatelessWidget {
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
                   child: Container(
-                    width: size.width * 0.5,
+                    width: Utils.sizeQuery(context).width * 0.5,
                     padding: const EdgeInsets.only(top: 10),
                     child: AutoSizeText(text,
                         style: TextStyle(
@@ -89,7 +88,7 @@ class CarouselWeb extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.bottomCenter,
                     padding: const EdgeInsets.only(top: 30),
-                    width: size.width * 0.4,
+                    width: Utils.sizeQuery(context).width * 0.4,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,8 +164,8 @@ class CarouselWeb extends StatelessWidget {
                       return child;
                     }
                     return SizedBox(
-                      width: size.width,
-                      height: size.height,
+                      width: Utils.sizeQuery(context).width,
+                      height: Utils.sizeQuery(context).height,
                       child: Align(
                         alignment: Alignment.topCenter,
                         child: SizedBox(

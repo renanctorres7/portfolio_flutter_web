@@ -15,4 +15,8 @@ abstract class Utils {
   static launchURL(String url) async {
     //if (!await launchUrl(Uri.parse(url))) throw 'Could not launch $url';
   }
+
+  static sizeQuery(BuildContext context) {
+    return MediaQuery.of(context).size;
+  }
 }

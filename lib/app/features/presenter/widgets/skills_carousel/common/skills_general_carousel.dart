@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/constants/values.dart';
 
+import '../../../../../core/utils/utils.dart';
 import '../../../controller/skills_controller.dart';
 import 'skills_general_card.dart';
 
@@ -18,7 +19,6 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return LayoutBuilder(builder: (context, constraints) {
       return SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
@@ -36,7 +36,7 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
                         ? EdgeInsets.zero
                         : EdgeInsets.only(left: 50, top: 50),
                     width: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                        ? size.width * 0.5
+                        ? Utils.sizeQuery(context).width * 0.5
                         : 400,
                     alignment: Alignment.centerLeft,
                     child: AutoSizeText(
@@ -52,8 +52,9 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
                   child: Container(
-                    width: size.width * 0.5,
-                    padding: EdgeInsets.only(top: size.height * 0.03),
+                    width: Utils.sizeQuery(context).width * 0.5,
+                    padding: EdgeInsets.only(
+                        top: Utils.sizeQuery(context).height * 0.03),
                     child: constraints.maxWidth > DefaultValues.MOBILE_MAX
                         ? Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +103,7 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
               ],
             ),
             Container(
-              height: size.height * 0.4,
+              height: Utils.sizeQuery(context).height * 0.4,
               alignment: Alignment.centerRight,
               padding: constraints.maxWidth > DefaultValues.MOBILE_MAX
                   ? EdgeInsets.zero

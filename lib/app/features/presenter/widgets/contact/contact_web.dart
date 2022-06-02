@@ -3,15 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/text.dart';
+import '../../../../core/utils/utils.dart';
 import '../contact_widget/contact_widget.dart';
 
 class ContactWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Container(
-      width: size.width,
+      width: Utils.sizeQuery(context).width,
       child: Column(
         children: [
           Row(

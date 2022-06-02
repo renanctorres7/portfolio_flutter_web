@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constants/colors.dart';
+import '../../../../../core/utils/utils.dart';
 import 'column_menu.dart';
 
 class MobileMenu extends StatefulWidget {
@@ -17,10 +18,8 @@ class _MobileMenuState extends State<MobileMenu> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Container(
-      width: size.width,
+      width: Utils.sizeQuery(context).width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),

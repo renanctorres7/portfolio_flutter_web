@@ -5,13 +5,13 @@ import 'package:portfolio/app/features/presenter/controller/projects_controller.
 
 import '../../../core/constants/status.dart';
 import '../../../core/constants/values.dart';
+import '../../../core/utils/utils.dart';
 import '../widgets/carousel_widget/mobile/carousel_mobile.dart';
 import '../widgets/carousel_widget/web/carousel_web.dart';
 
 class ProjectsPage extends GetView<ProjectsController> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return LayoutBuilder(builder: (context, constraints) {
       return Stack(
         alignment: Alignment.topCenter,
@@ -19,18 +19,18 @@ class ProjectsPage extends GetView<ProjectsController> {
           Container(
             color: ColorsApp.white,
             height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                ? size.height * 0.7
-                : size.height * 0.9,
-            width: size.width,
+                ? Utils.sizeQuery(context).height * 0.7
+                : Utils.sizeQuery(context).height * 0.9,
+            width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
             child: Container(
               color: ColorsApp.white,
               height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                  ? size.height * 0.7
-                  : size.height * 0.9,
-              width: size.width,
+                  ? Utils.sizeQuery(context).height * 0.7
+                  : Utils.sizeQuery(context).height * 0.9,
+              width: Utils.sizeQuery(context).width,
               child: SingleChildScrollView(
                 physics: NeverScrollableScrollPhysics(),
                 child: Column(
@@ -41,8 +41,8 @@ class ProjectsPage extends GetView<ProjectsController> {
                       height: 50,
                     ),
                     Container(
-                        width: size.width,
-                        height: size.height * 0.8,
+                        width: Utils.sizeQuery(context).width,
+                        height: Utils.sizeQuery(context).height * 0.8,
                         child: Obx(() {
                           switch (controller.loadingStatus.value) {
                             case StatusLoading.loading:
