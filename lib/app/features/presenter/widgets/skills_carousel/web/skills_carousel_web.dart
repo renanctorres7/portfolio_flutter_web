@@ -1,17 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/constants/values.dart';
-import '../../../../../core/utils/utils.dart';
+import '../../../controller/skills_controller.dart';
 import '../../slide_percent/slide_percent.dart';
 
-class SkillsCarouselWeb extends StatelessWidget {
-  final int index;
-  final PageController pageCrtl;
-
-  const SkillsCarouselWeb(
-      {Key? key, required this.index, required this.pageCrtl})
-      : super(key: key);
+class SkillsCarouselWeb extends GetView<SkillsController> {
+  const SkillsCarouselWeb({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,6 @@ class SkillsCarouselWeb extends StatelessWidget {
         child: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),
           child: Container(
-            width: size.width * 0.8,
             padding: constraints.maxWidth > DefaultValues.MOBILE_MAX
                 ? EdgeInsets.only(left: 0)
                 : EdgeInsets.only(left: 20),
@@ -32,7 +29,7 @@ class SkillsCarouselWeb extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  width: size.width * 0.68,
+                  width: 800,
                   alignment: Alignment.centerLeft,
                   child: AutoSizeText(
                     'Habilidades',
@@ -51,112 +48,38 @@ class SkillsCarouselWeb extends StatelessWidget {
                   height: constraints.maxWidth > DefaultValues.MOBILE_MAX
                       ? size.height * 0.45
                       : size.height * 0.6,
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: ClampingScrollPhysics(),
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SlidePercent(
+                  child: Obx(() => ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: controller.skillsList.length,
+                        physics: ClampingScrollPhysics(),
+                        itemBuilder: (BuildContext context, int index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 15),
+                            child: SlidePercent(
                                 width: size.width * 0.68,
                                 height: size.height * 0.02,
-                                text: 'HTML',
-                                percent: 70,
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              SlidePercent(
-                                width: size.width * 0.68,
-                                height: size.height * 0.02,
-                                text: 'CSS',
-                                percent: 50,
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              SlidePercent(
-                                width: size.width * 0.68,
-                                height: size.height * 0.02,
-                                text: 'Bootstrap',
-                                percent: 50,
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              SlidePercent(
-                                width: size.width * 0.68,
-                                height: size.height * 0.02,
-                                text:
-                                    'Banco de dados (relacional, não relacional)',
-                                percent: 80,
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              SlidePercent(
-                                width: size.width * 0.68,
-                                height: size.height * 0.02,
-                                text: 'Firebase',
-                                percent: 70,
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              SlidePercent(
-                                width: size.width * 0.68,
-                                height: size.height * 0.02,
-                                text: 'Git',
-                                percent: 90,
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              SlidePercent(
-                                width: size.width * 0.68,
-                                height: size.height * 0.02,
-                                text: 'Figma',
-                                percent: 70,
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              SlidePercent(
-                                width: size.width * 0.68,
-                                height: size.height * 0.02,
-                                text: 'Flutter',
-                                percent: 90,
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
+                                text: controller.skillsList[index].title ?? "",
+                                percent: controller.skillsList[index].percent
+                                        ?.toDouble() ??
+                                    50),
+                          );
+                        },
+                      )),
                 ),
                 Container(
                   width: size.width * 0.7,
                   alignment: Alignment.bottomRight,
                   child: IconButton(
                       onPressed: () {
-                        Utils.animateSlider(index, pageCrtl);
+                        controller.pageController.previousPage(
+                            duration: Duration(seconds: 1),
+                            curve: Curves.easeIn);
                       },
-                      icon: index != 0
-                          ? Icon(
-                              Icons.arrow_forward_ios,
-                              size: 50,
-                              color: ColorsApp.gray,
-                            )
-                          : Icon(
-                              Icons.arrow_back_ios_new,
-                              size: 50,
-                              color: ColorsApp.gray,
-                            )),
+                      icon: Icon(
+                        Icons.arrow_back_ios_new,
+                        size: 50,
+                        color: ColorsApp.gray,
+                      )),
                 )
               ],
             ),

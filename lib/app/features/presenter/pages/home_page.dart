@@ -28,6 +28,7 @@ class HomePage extends GetView<HomeController> {
             body: NotificationListener<ScrollNotification>(
               onNotification: controller.voidOnScroll,
               child: Stack(
+                alignment: Alignment.topCenter,
                 children: [
                   Positioned(
                     top: -.25 * controller.offset.value,
@@ -43,43 +44,13 @@ class HomePage extends GetView<HomeController> {
                     child: SingleChildScrollView(
                       controller: controller.scrollController,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height:
-                                constraints.maxWidth > DefaultValues.MOBILE_MAX
-                                    ? size.height * 0.7
-                                    : size.height * 0.9,
-                            width: size.width,
-                            color: ColorsApp.graphite,
-                            child: AboutPage(),
-                          ),
-                          Container(
-                            color: ColorsApp.white,
-                            height:
-                                constraints.maxWidth > DefaultValues.MOBILE_MAX
-                                    ? size.height * 0.7
-                                    : size.height * 0.9,
-                            width: size.width,
-                            child: ProjectsPage(),
-                          ),
-                          Container(
-                            color: ColorsApp.graphite,
-                            height:
-                                constraints.maxWidth > DefaultValues.MOBILE_MAX
-                                    ? size.height * 0.7
-                                    : size.height * 0.9,
-                            width: size.width,
-                            child: SkillsPage(),
-                          ),
-                          Container(
-                            color: ColorsApp.white,
-                            height:
-                                constraints.maxWidth > DefaultValues.MOBILE_MAX
-                                    ? size.height * 0.7
-                                    : size.height * 0.9,
-                            width: size.width,
-                            child: ContactPage(),
-                          )
+                          AboutPage(),
+                          ProjectsPage(),
+                          SkillsPage(),
+                          ContactPage()
                         ],
                       ),
                     ),

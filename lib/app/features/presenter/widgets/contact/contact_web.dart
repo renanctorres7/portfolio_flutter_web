@@ -11,7 +11,7 @@ class ContactWeb extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      width: size.width * 0.68,
+      width: size.width,
       child: Column(
         children: [
           Row(
@@ -25,7 +25,7 @@ class ContactWeb extends StatelessWidget {
                 isMobile: false,
               ),
               SizedBox(
-                width: 50,
+                width: 10,
               ),
               ContactWidget(
                 image: 'assets/arroba.svg',
@@ -47,17 +47,20 @@ class ContactWeb extends StatelessWidget {
                 isMobile: false,
               ),
               SizedBox(
-                width: 50,
+                width: 10,
               ),
               Container(
                 height: 50,
                 width: 50,
                 child: SvgPicture.asset('assets/local.svg'),
               ),
+              SizedBox(
+                width: 10,
+              ),
               Container(
                 alignment: Alignment.centerLeft,
                 height: 50,
-                width: size.width * 0.2,
+                width: 300,
                 child: SelectableText(
                   'Brasília - Distrito Federal\nBrasil',
                   style: TextStyle(

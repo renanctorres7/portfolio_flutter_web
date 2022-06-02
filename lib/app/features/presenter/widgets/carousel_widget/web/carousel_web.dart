@@ -39,7 +39,7 @@ class CarouselWeb extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -130,23 +130,23 @@ class CarouselWeb extends StatelessWidget {
                             : Container(
                                 height: 50,
                               ),
-                        Container(
-                          child: IconButton(
-                              onPressed: () {
-                                Utils.animateSlider(lastIndex, pageCrtl);
-                              },
-                              icon: index != lastIndex
-                                  ? Icon(
-                                      Icons.arrow_forward_ios,
-                                      size: 50,
-                                      color: ColorsApp.gray1,
-                                    )
-                                  : Icon(
-                                      Icons.arrow_back_ios_new,
-                                      size: 50,
-                                      color: ColorsApp.gray1,
-                                    )),
-                        )
+                        IconButton(
+                            iconSize: 50,
+                            padding: EdgeInsets.zero,
+                            onPressed: () {
+                              Utils.animateSlider(lastIndex, pageCrtl);
+                            },
+                            icon: index != lastIndex
+                                ? Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: 50,
+                                    color: ColorsApp.gray1,
+                                  )
+                                : Icon(
+                                    Icons.arrow_back_ios_new,
+                                    size: 50,
+                                    color: ColorsApp.gray1,
+                                  ))
                       ],
                     ),
                   ),

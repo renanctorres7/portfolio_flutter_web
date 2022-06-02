@@ -37,9 +37,10 @@ class ContactWidget extends StatelessWidget {
         Container(
           alignment: Alignment.centerLeft,
           height: 50,
-          width: isMobile == false ? size.width * 0.2 : size.width * 0.5,
+          width: isMobile == false ? 150 : size.width * 0.5,
           child: SelectableText(
             text,
+            maxLines: 2,
             style: TextStyle(
               fontSize: 14,
               color: ColorsApp.graphite,

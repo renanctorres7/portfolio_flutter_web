@@ -1,41 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:portfolio/app/features/domain/usecases/show_projects_usecase.dart';
+import 'package:portfolio/app/features/domain/usecases/show_skills.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../core/constants/status.dart';
-import '../../domain/entities/projects_entity.dart';
+import '../../domain/entities/skills_entity.dart';
 import '../../domain/errors/errors.dart';
 
-class ProjectsController extends GetxController {
-  final ShowProjectsUsecase usecase;
+class SkillsController extends GetxController {
+  final ShowSkillsUsecase usecase;
 
-  ProjectsController({
-    required this.usecase,
-  }) : super();
+  SkillsController({required this.usecase});
 
-  PageController pageController = PageController();
-  var projectsList = <ProjectsEntity>[].obs;
+  PageController pageController = PageController(initialPage: 0);
+
+  var loadingStatus = StatusLoading.loading.obs;
+  var index = 1.obs;
 
   @override
   onReady() {
     super.onReady();
-    addProjectsToList();
+    addSkillsToList();
   }
 
-  Future<Either<FailureShow, List<ProjectsEntity>>> getProjectsList() async {
+  @override
+  onInit() {
+    super.onInit();
+  }
+
+  Future<Either<FailureShow, List<SkillsEntity>>> getList() async {
     return await usecase();
   }
 
-  var loadingStatus = StatusLoading.loading.obs;
+  var skillsList = <SkillsEntity>[].obs;
 
-  addProjectsToList() async {
-    final result = await getProjectsList();
+  addSkillsToList() async {
+    final result = await getList();
 
-    result.fold((failure) => null, (List<ProjectsEntity>? value) {
+    result.fold((failure) => null, (List<SkillsEntity>? value) {
       if (value != null && value.isNotEmpty) {
-        projectsList.value = value;
+        skillsList.value = value;
 
         Future.delayed(const Duration(seconds: 1),
             () => loadingStatus.value = StatusLoading.complete);

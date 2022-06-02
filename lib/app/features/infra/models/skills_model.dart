@@ -7,11 +7,11 @@ class SkillsModel extends SkillsEntity {
       : super(title: title, percent: percent);
 
   Map<String, dynamic> toMap() {
-    return {'title': title, 'percent': percent};
+    return {'name': title, 'percent': percent};
   }
 
   static SkillsModel fromMap(Map<String, dynamic> map) {
-    return SkillsModel(title: map['title'], percent: map['percent']);
+    return SkillsModel(title: map['name'], percent: map['percent']);
   }
 
   String toJson() => jsonEncode(toMap());

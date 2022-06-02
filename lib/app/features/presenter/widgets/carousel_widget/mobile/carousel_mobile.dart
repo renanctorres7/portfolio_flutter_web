@@ -33,7 +33,7 @@ class CarouselMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return Container(
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
@@ -42,9 +42,31 @@ class CarouselMobile extends StatelessWidget {
           children: [
             Container(
               width: 150,
-              child: Image.asset(
+              child: Image.network(
                 image,
                 fit: BoxFit.fitHeight,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child;
+                  }
+                  return SizedBox(
+                    width: size.width,
+                    height: size.height,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: SizedBox(
+                        width: 150,
+                        child: LinearProgressIndicator(
+                          color: ColorsApp.purple,
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  loadingProgress.expectedTotalBytes!
+                              : null,
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
             Container(
@@ -122,23 +144,23 @@ class CarouselMobile extends StatelessWidget {
                       : Container(
                           height: 50,
                         ),
-                  Container(
-                    child: IconButton(
-                        onPressed: () {
-                          Utils.animateSlider(index, pageCrtl);
-                        },
-                        icon: index != lastIndex
-                            ? Icon(
-                                Icons.arrow_forward_ios,
-                                size: 50,
-                                color: ColorsApp.gray1,
-                              )
-                            : Icon(
-                                Icons.arrow_back_ios_new,
-                                size: 50,
-                                color: ColorsApp.gray1,
-                              )),
-                  )
+                  IconButton(
+                      iconSize: 50,
+                      padding: EdgeInsets.zero,
+                      onPressed: () {
+                        Utils.animateSlider(lastIndex, pageCrtl);
+                      },
+                      icon: index != lastIndex
+                          ? Icon(
+                              Icons.arrow_forward_ios,
+                              size: 50,
+                              color: ColorsApp.gray1,
+                            )
+                          : Icon(
+                              Icons.arrow_back_ios_new,
+                              size: 50,
+                              color: ColorsApp.gray1,
+                            ))
                 ],
               ),
             )

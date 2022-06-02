@@ -25,6 +25,4 @@ class HomeController extends GetxController {
           duration: const Duration(milliseconds: 1000),
           curve: Curves.decelerate);
   }
-
-  PageController pageController1 = PageController();
 }
