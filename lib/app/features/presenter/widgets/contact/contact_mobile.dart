@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/constants/colors.dart';
-import '../../../../core/constants/text.dart';
+import '../../../../core/constants/texts/contact_texts.dart';
 import '../../../../core/utils/utils.dart';
 import '../contact_widget/contact_widget.dart';
 
@@ -16,7 +16,7 @@ class ContactMobile extends StatelessWidget {
           ContactWidget(
             image: 'assets/whats.svg',
             text: "(61) 99917-4230",
-            url: DefaultTexts.urlPhone,
+            url: ContactTexts.urlPhone,
             isMobile: true,
           ),
           SizedBox(
@@ -25,7 +25,7 @@ class ContactMobile extends StatelessWidget {
           ContactWidget(
             image: 'assets/arroba.svg',
             text: "renanctorres7@gmail.com",
-            url: DefaultTexts.urlEmail,
+            url: ContactTexts.urlEmail,
             isMobile: true,
           ),
           SizedBox(
@@ -34,7 +34,7 @@ class ContactMobile extends StatelessWidget {
           ContactWidget(
             image: 'assets/linkedin.svg',
             text: "LinkedIn",
-            url: DefaultTexts.urlLink,
+            url: ContactTexts.urlLink,
             isMobile: true,
           ),
           SizedBox(

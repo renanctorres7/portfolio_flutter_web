@@ -18,18 +18,14 @@ class ProjectsPage extends GetView<ProjectsController> {
         children: [
           Container(
             color: ColorsApp.white,
-            height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                ? Utils.sizeQuery(context).height * 0.7
-                : Utils.sizeQuery(context).height * 0.9,
+            height: _returnSizeValue(constraints, context, 0.7, 0.9),
             width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
             child: Container(
               color: ColorsApp.white,
-              height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                  ? Utils.sizeQuery(context).height * 0.7
-                  : Utils.sizeQuery(context).height * 0.9,
+              height: _returnSizeValue(constraints, context, 0.7, 0.9),
               width: Utils.sizeQuery(context).width,
               child: SingleChildScrollView(
                 physics: NeverScrollableScrollPhysics(),
@@ -55,71 +51,9 @@ class ProjectsPage extends GetView<ProjectsController> {
                             default:
                               if (constraints.maxWidth >
                                   DefaultValues.MOBILE_MAX) {
-                                return PageView.builder(
-                                  itemCount: controller.projectsList.length,
-                                  controller: controller.pageController,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return CarouselWeb(
-                                      key: Key(index.toString()),
-                                      index: index,
-                                      lastIndex:
-                                          controller.projectsList.length - 1,
-                                      pageCrtl: controller.pageController,
-                                      title: controller
-                                              .projectsList[index].title ??
-                                          "",
-                                      text:
-                                          controller.projectsList[index].text ??
-                                              "",
-                                      image: controller
-                                              .projectsList[index].imageUrl ??
-                                          "",
-                                      urlAndroid: controller
-                                              .projectsList[index].androidUrl ??
-                                          "",
-                                      urlIOS: controller
-                                              .projectsList[index].iosUrl ??
-                                          "",
-                                      urlWeb: controller
-                                              .projectsList[index].webUrl ??
-                                          "",
-                                    );
-                                  },
-                                );
+                                return _webVersion(controller);
                               } else {
-                                return PageView.builder(
-                                  itemCount: controller.projectsList.length,
-                                  controller: controller.pageController,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return CarouselMobile(
-                                      key: Key(index.toString()),
-                                      index: index,
-                                      lastIndex:
-                                          controller.projectsList.length - 1,
-                                      pageCrtl: controller.pageController,
-                                      title: controller
-                                              .projectsList[index].title ??
-                                          "",
-                                      text:
-                                          controller.projectsList[index].text ??
-                                              "",
-                                      image: controller
-                                              .projectsList[index].imageUrl ??
-                                          "",
-                                      urlAndroid: controller
-                                              .projectsList[index].androidUrl ??
-                                          "",
-                                      urlIOS: controller
-                                              .projectsList[index].iosUrl ??
-                                          "",
-                                      urlWeb: controller
-                                              .projectsList[index].webUrl ??
-                                          "",
-                                    );
-                                  },
-                                );
+                                return _mobileVersion(controller);
                               }
                           }
                         })),
@@ -131,5 +65,56 @@ class ProjectsPage extends GetView<ProjectsController> {
         ],
       );
     });
+  }
+}
+
+Widget _webVersion(ProjectsController controller) {
+  return PageView.builder(
+    itemCount: controller.projectsList.length,
+    controller: controller.pageController,
+    itemBuilder: (BuildContext context, int index) {
+      return CarouselWeb(
+        key: Key(index.toString()),
+        index: index,
+        lastIndex: controller.projectsList.length - 1,
+        pageCrtl: controller.pageController,
+        title: controller.projectsList[index].title ?? "",
+        text: controller.projectsList[index].text ?? "",
+        image: controller.projectsList[index].imageUrl ?? "",
+        urlAndroid: controller.projectsList[index].androidUrl ?? "",
+        urlIOS: controller.projectsList[index].iosUrl ?? "",
+        urlWeb: controller.projectsList[index].webUrl ?? "",
+      );
+    },
+  );
+}
+
+Widget _mobileVersion(ProjectsController controller) {
+  return PageView.builder(
+    itemCount: controller.projectsList.length,
+    controller: controller.pageController,
+    itemBuilder: (BuildContext context, int index) {
+      return CarouselMobile(
+        key: Key(index.toString()),
+        index: index,
+        lastIndex: controller.projectsList.length - 1,
+        pageCrtl: controller.pageController,
+        title: controller.projectsList[index].title ?? "",
+        text: controller.projectsList[index].text ?? "",
+        image: controller.projectsList[index].imageUrl ?? "",
+        urlAndroid: controller.projectsList[index].androidUrl ?? "",
+        urlIOS: controller.projectsList[index].iosUrl ?? "",
+        urlWeb: controller.projectsList[index].webUrl ?? "",
+      );
+    },
+  );
+}
+
+double _returnSizeValue(
+    BoxConstraints constraints, BuildContext context, double a, double b) {
+  if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+    return Utils.sizeQuery(context).height * a;
+  } else {
+    return Utils.sizeQuery(context).height * b;
   }
 }

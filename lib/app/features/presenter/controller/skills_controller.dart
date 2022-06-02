@@ -34,24 +34,18 @@ class SkillsController extends GetxController {
 
   var skillsList = <SkillsEntity>[].obs;
 
-  addSkillsToList() async {
+  Future<void> addSkillsToList() async {
     final result = await getList();
 
-    result.fold((failure) => null, (List<SkillsEntity>? value) {
-      if (value != null && value.isNotEmpty) {
+    result.fold((failure) => null, (List<SkillsEntity> value) {
+      if (value.isNotEmpty) {
         skillsList.value = value;
 
-        Future.delayed(const Duration(seconds: 1),
-            () => loadingStatus.value = StatusLoading.complete);
-      } else if (value != null && value.isEmpty) {
-        Future.delayed(const Duration(seconds: 1),
-            () => loadingStatus.value = StatusLoading.empty);
-      } else if (value == null) {
-        Future.delayed(const Duration(seconds: 1),
-            () => loadingStatus.value = StatusLoading.error);
+        loadingStatus.value = StatusLoading.complete;
+      } else if (value.isEmpty) {
+        loadingStatus.value = StatusLoading.empty;
       } else {
-        Future.delayed(const Duration(seconds: 1),
-            () => loadingStatus.value = StatusLoading.none);
+        loadingStatus.value = StatusLoading.error;
       }
     });
   }

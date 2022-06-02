@@ -20,6 +20,7 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
+      bool constraintWidth = constraints.maxWidth > DefaultValues.MOBILE_MAX;
       return SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Row(
@@ -32,10 +33,10 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
                 ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
                   child: Container(
-                    padding: constraints.maxWidth > DefaultValues.MOBILE_MAX
+                    padding: constraintWidth
                         ? EdgeInsets.zero
                         : EdgeInsets.only(left: 50, top: 50),
-                    width: constraints.maxWidth > DefaultValues.MOBILE_MAX
+                    width: constraintWidth
                         ? Utils.sizeQuery(context).width * 0.5
                         : 400,
                     alignment: Alignment.centerLeft,
@@ -55,7 +56,7 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
                     width: Utils.sizeQuery(context).width * 0.5,
                     padding: EdgeInsets.only(
                         top: Utils.sizeQuery(context).height * 0.03),
-                    child: constraints.maxWidth > DefaultValues.MOBILE_MAX
+                    child: constraintWidth
                         ? Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -75,10 +76,9 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
                             ],
                           )
                         : Padding(
-                            padding:
-                                constraints.maxWidth > DefaultValues.MOBILE_MAX
-                                    ? EdgeInsets.zero
-                                    : EdgeInsets.only(left: 50, top: 30),
+                            padding: constraintWidth
+                                ? EdgeInsets.zero
+                                : EdgeInsets.only(left: 50, top: 30),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -105,7 +105,7 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
             Container(
               height: Utils.sizeQuery(context).height * 0.4,
               alignment: Alignment.centerRight,
-              padding: constraints.maxWidth > DefaultValues.MOBILE_MAX
+              padding: constraintWidth
                   ? EdgeInsets.zero
                   : EdgeInsets.only(right: 50),
               child: IconButton(

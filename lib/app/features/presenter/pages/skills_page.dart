@@ -17,18 +17,14 @@ class SkillsPage extends GetView<SkillsController> {
         children: [
           Container(
             color: ColorsApp.graphite,
-            height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                ? Utils.sizeQuery(context).height * 0.7
-                : Utils.sizeQuery(context).height * 0.9,
+            height: _returnSizeValue(constraints, context, 0.7, 0.9),
             width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
             child: Container(
               color: ColorsApp.graphite,
-              height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                  ? Utils.sizeQuery(context).height * 0.7
-                  : Utils.sizeQuery(context).height * 0.9,
+              height: _returnSizeValue(constraints, context, 0.7, 0.9),
               width: Utils.sizeQuery(context).width,
               child: SingleChildScrollView(
                 physics: NeverScrollableScrollPhysics(),
@@ -41,9 +37,8 @@ class SkillsPage extends GetView<SkillsController> {
                     ),
                     Container(
                         width: Utils.sizeQuery(context).width,
-                        height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                            ? Utils.sizeQuery(context).height * 0.8
-                            : Utils.sizeQuery(context).height * 0.9,
+                        height:
+                            _returnSizeValue(constraints, context, 0.8, 0.9),
                         child: PageView(
                           children: [
                             SkillsGeneralCarousel(
@@ -61,5 +56,14 @@ class SkillsPage extends GetView<SkillsController> {
         ],
       );
     });
+  }
+}
+
+double _returnSizeValue(
+    BoxConstraints constraints, BuildContext context, double a, double b) {
+  if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+    return Utils.sizeQuery(context).height * a;
+  } else {
+    return Utils.sizeQuery(context).height * b;
   }
 }

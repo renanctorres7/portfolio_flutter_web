@@ -11,43 +11,35 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
+      bool constraintWidth = constraints.maxWidth > DefaultValues.MOBILE_MAX;
       return Stack(
         alignment: Alignment.topCenter,
         children: [
           Container(
             color: ColorsApp.white,
-            height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                ? Utils.sizeQuery(context).height * 0.7
-                : Utils.sizeQuery(context).height * 0.9,
+            height: _returnSizeValue(constraints, context, 0.7, 0.9),
             width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
             child: Container(
               color: ColorsApp.white,
-              height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                  ? Utils.sizeQuery(context).height * 0.7
-                  : Utils.sizeQuery(context).height * 0.9,
+              height: _returnSizeValue(constraints, context, 0.7, 0.9),
               width: Utils.sizeQuery(context).width,
               child: Container(
-                padding: constraints.maxWidth > DefaultValues.MOBILE_MAX
+                padding: constraintWidth
                     ? EdgeInsets.only(left: 0)
                     : EdgeInsets.only(left: 60),
                 width: Utils.sizeQuery(context).width,
-                height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                    ? Utils.sizeQuery(context).height * 0.6
-                    : Utils.sizeQuery(context).height * 0.9,
+                height: _returnSizeValue(constraints, context, 0.7, 0.9),
                 child: SingleChildScrollView(
                   child: Column(
-                    crossAxisAlignment:
-                        constraints.maxWidth > DefaultValues.MOBILE_MAX
-                            ? CrossAxisAlignment.center
-                            : CrossAxisAlignment.start,
+                    crossAxisAlignment: constraintWidth
+                        ? CrossAxisAlignment.center
+                        : CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                            ? 100
-                            : 50,
+                        height: constraintWidth ? 100 : 50,
                       ),
                       ConstrainedBox(
                         constraints:
@@ -68,9 +60,7 @@ class ContactPage extends StatelessWidget {
                       Container(
                         height: 30,
                       ),
-                      constraints.maxWidth > DefaultValues.MOBILE_MAX
-                          ? ContactWeb()
-                          : ContactMobile(),
+                      constraintWidth ? ContactWeb() : ContactMobile(),
                     ],
                   ),
                 ),
@@ -80,5 +70,14 @@ class ContactPage extends StatelessWidget {
         ],
       );
     });
+  }
+}
+
+double _returnSizeValue(
+    BoxConstraints constraints, BuildContext context, double a, double b) {
+  if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+    return Utils.sizeQuery(context).height * a;
+  } else {
+    return Utils.sizeQuery(context).height * b;
   }
 }

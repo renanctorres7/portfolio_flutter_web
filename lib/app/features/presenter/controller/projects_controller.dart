@@ -30,24 +30,18 @@ class ProjectsController extends GetxController {
 
   var loadingStatus = StatusLoading.loading.obs;
 
-  addProjectsToList() async {
+  Future<void> addProjectsToList() async {
     final result = await getProjectsList();
 
-    result.fold((failure) => null, (List<ProjectsEntity>? value) {
-      if (value != null && value.isNotEmpty) {
+    result.fold((failure) => null, (List<ProjectsEntity> value) {
+      if (value.isNotEmpty) {
         projectsList.value = value;
 
-        Future.delayed(const Duration(seconds: 1),
-            () => loadingStatus.value = StatusLoading.complete);
-      } else if (value != null && value.isEmpty) {
-        Future.delayed(const Duration(seconds: 1),
-            () => loadingStatus.value = StatusLoading.empty);
-      } else if (value == null) {
-        Future.delayed(const Duration(seconds: 1),
-            () => loadingStatus.value = StatusLoading.error);
+        loadingStatus.value = StatusLoading.complete;
+      } else if (value.isEmpty) {
+        loadingStatus.value = StatusLoading.empty;
       } else {
-        Future.delayed(const Duration(seconds: 1),
-            () => loadingStatus.value = StatusLoading.none);
+        loadingStatus.value = StatusLoading.none;
       }
     });
   }

@@ -22,7 +22,6 @@ class HomePage extends GetView<HomeController> {
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 2400, minWidth: 480),
         child: LayoutBuilder(builder: (context, constraints) {
-          final controller = Get.put(HomeController());
           return Scaffold(
             body: NotificationListener<ScrollNotification>(
               onNotification: controller.voidOnScroll,
@@ -55,9 +54,7 @@ class HomePage extends GetView<HomeController> {
                     ),
                   ),
                   Visibility(
-                    visible: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                        ? true
-                        : false,
+                    visible: _returnTrueOrFalse(constraints, context),
                     child: WebMenu(
                       heigth: Utils.sizeQuery(context).height,
                       scrollController: controller.scrollController!,
@@ -74,5 +71,13 @@ class HomePage extends GetView<HomeController> {
         }),
       ),
     );
+  }
+}
+
+bool _returnTrueOrFalse(BoxConstraints constraints, BuildContext context) {
+  if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+    return true;
+  } else {
+    return false;
   }
 }

@@ -15,16 +15,15 @@ class SkillsCarouselWeb extends GetView<SkillsController> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
+      bool constraintWidth = constraints.maxWidth > DefaultValues.MOBILE_MAX;
       return Container(
         child: SingleChildScrollView(
           physics: NeverScrollableScrollPhysics(),
           child: Container(
-            padding: constraints.maxWidth > DefaultValues.MOBILE_MAX
+            padding: constraintWidth
                 ? EdgeInsets.only(left: 0)
                 : EdgeInsets.only(left: 20),
-            alignment: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                ? Alignment.center
-                : Alignment.topLeft,
+            alignment: constraintWidth ? Alignment.center : Alignment.topLeft,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -43,12 +42,8 @@ class SkillsCarouselWeb extends GetView<SkillsController> {
                 Container(
                   padding: EdgeInsets.only(
                       top: Utils.sizeQuery(context).height * 0.05),
-                  width: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                      ? Utils.sizeQuery(context).width * 0.68
-                      : Utils.sizeQuery(context).width * 0.9,
-                  height: constraints.maxWidth > DefaultValues.MOBILE_MAX
-                      ? Utils.sizeQuery(context).height * 0.45
-                      : Utils.sizeQuery(context).height * 0.6,
+                  width: _returnSizeValue(constraints, context, 0.68, 0.9),
+                  height: _returnSizeValue(constraints, context, 0.45, 0.6),
                   child: Obx(() => ListView.builder(
                         shrinkWrap: true,
                         itemCount: controller.skillsList.length,
@@ -88,5 +83,14 @@ class SkillsCarouselWeb extends GetView<SkillsController> {
         ),
       );
     });
+  }
+}
+
+double _returnSizeValue(
+    BoxConstraints constraints, BuildContext context, double a, double b) {
+  if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+    return Utils.sizeQuery(context).height * a;
+  } else {
+    return Utils.sizeQuery(context).height * b;
   }
 }
