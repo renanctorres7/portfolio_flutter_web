@@ -127,7 +127,7 @@ Widget _mobileVersion() {
           Container(
             child: CircleAvatar(
               backgroundImage: AssetImage('assets/eu.jpeg'),
-              radius: 50,
+              radius: 80,
             ),
           ),
           Container(
