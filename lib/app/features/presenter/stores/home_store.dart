@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  var offset = 0.0.obs;
+class HomeStore {
+  double offset = 0.0;
 
   ScrollController? scrollController = ScrollController();
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
   bool voidOnScroll(ScrollNotification scrollNotification) {
-    offset.value = scrollNotification.metrics.pixels;
+    offset = scrollNotification.metrics.pixels;
     return true;
   }
 

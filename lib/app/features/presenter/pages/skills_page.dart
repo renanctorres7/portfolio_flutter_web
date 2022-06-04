@@ -1,17 +1,46 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:portfolio/app/features/presenter/controller/skills_controller.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/constants/colors.dart';
+import '../../../core/constants/status.dart';
 import '../../../core/constants/values.dart';
+import '../../../core/utils/dependency_injection.dart';
 import '../../../core/utils/utils.dart';
+import '../../infra/models/skills_model.dart';
+import '../blocs/skills/skills_bloc.dart';
+import '../blocs/skills/skills_events.dart';
+import '../blocs/skills/skills_state.dart';
 import '../widgets/skills_carousel/common/skills_general_carousel.dart';
-import '../widgets/skills_carousel/web/skills_carousel_web.dart';
+import '../widgets/slide_percent/slide_percent.dart';
 
-class SkillsPage extends GetView<SkillsController> {
+class SkillsPage extends StatefulWidget {
+  @override
+  State<SkillsPage> createState() => _SkillsPageState();
+}
+
+class _SkillsPageState extends State<SkillsPage> {
+  late SkillsBloc bloc;
+  PageController pageController = PageController();
+  int index = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    bloc = SkillsBloc(s1());
+    bloc.add(LoadSkillsEvents());
+  }
+
+  @override
+  void dispose() {
+    bloc.close();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
+      bool constraintWidth = constraints.maxWidth > DefaultValues.MOBILE_MAX;
       return Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -42,11 +71,34 @@ class SkillsPage extends GetView<SkillsController> {
                         child: PageView(
                           children: [
                             SkillsGeneralCarousel(
-                              index: controller.index.value,
+                              index: index,
+                              pageController: pageController,
                             ),
-                            SkillsCarouselWeb(),
+                            BlocBuilder<SkillsBloc, SkillsState>(
+                                bloc: bloc,
+                                builder: (context, state) {
+                                  final skillsList = state.skills ?? [];
+
+                                  switch (bloc.loadingStatus) {
+                                    case StatusLoading.loading:
+                                      return Center(
+                                        child: CircularProgressIndicator(
+                                          color: ColorsApp.purple,
+                                        ),
+                                      );
+
+                                    case StatusLoading.complete:
+                                    default:
+                                      return _skillsList(
+                                          constraintWidth,
+                                          constraints,
+                                          context,
+                                          pageController,
+                                          skillsList);
+                                  }
+                                }),
                           ],
-                          controller: controller.pageController,
+                          controller: pageController,
                         )),
                   ],
                 ),
@@ -57,6 +109,77 @@ class SkillsPage extends GetView<SkillsController> {
       );
     });
   }
+}
+
+Widget _skillsList(
+    bool constraintWidth,
+    BoxConstraints constraints,
+    BuildContext context,
+    PageController? pageController,
+    List<SkillsModel>? skillsList) {
+  return Container(
+    child: SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
+      child: Container(
+        padding: constraintWidth
+            ? EdgeInsets.only(left: 0)
+            : EdgeInsets.only(left: 20),
+        alignment: constraintWidth ? Alignment.center : Alignment.topLeft,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              width: 800,
+              alignment: Alignment.centerLeft,
+              child: AutoSizeText(
+                'Habilidades',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontSize: 26,
+                    color: ColorsApp.white,
+                    fontWeight: FontWeight.w800),
+              ),
+            ),
+            Container(
+              padding:
+                  EdgeInsets.only(top: Utils.sizeQuery(context).height * 0.05),
+              width: _returnSizeValue(constraints, context, 0.68, 0.9),
+              height: _returnSizeValue(constraints, context, 0.45, 0.6),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: skillsList?.length,
+                physics: ClampingScrollPhysics(),
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: SlidePercent(
+                        width: Utils.sizeQuery(context).width * 0.68,
+                        height: Utils.sizeQuery(context).height * 0.02,
+                        text: skillsList?[index].title ?? "",
+                        percent: skillsList?[index].percent?.toDouble() ?? 50),
+                  );
+                },
+              ),
+            ),
+            Container(
+              width: Utils.sizeQuery(context).width * 0.7,
+              alignment: Alignment.bottomRight,
+              child: IconButton(
+                  onPressed: () {
+                    pageController?.previousPage(
+                        duration: Duration(seconds: 1), curve: Curves.easeIn);
+                  },
+                  icon: Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 50,
+                    color: ColorsApp.gray,
+                  )),
+            )
+          ],
+        ),
+      ),
+    ),
+  );
 }
 
 double _returnSizeValue(

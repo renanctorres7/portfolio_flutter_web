@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-
-import 'package:get/get.dart';
-import 'package:portfolio/app/core/routes/app_pages.dart';
+import 'package:portfolio/app/features/presenter/pages/home_page.dart';
 
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'quicksand'),
-      getPages: AppPages.pages,
+      home: HomePage(),
     );
   }
 }

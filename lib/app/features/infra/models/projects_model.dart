@@ -42,4 +42,12 @@ class ProjectsModels extends ProjectsEntity {
   String toJson() => jsonEncode(toMap());
 
   static ProjectsModels fromJson(String source) => fromMap(jsonDecode(source));
+
+  factory ProjectsModels.fromEntity(ProjectsEntity entity) => ProjectsModels(
+      title: entity.title,
+      text: entity.text,
+      androidUrl: entity.androidUrl,
+      iosUrl: entity.iosUrl,
+      webUrl: entity.webUrl,
+      imageUrl: entity.imageUrl);
 }

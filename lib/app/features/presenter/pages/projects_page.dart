@@ -1,15 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/app/core/constants/colors.dart';
-import 'package:portfolio/app/features/presenter/controller/projects_controller.dart';
+import 'package:portfolio/app/core/utils/dependency_injection.dart';
+import 'package:portfolio/app/features/presenter/blocs/projects/projects_bloc.dart';
+import 'package:portfolio/app/features/presenter/blocs/projects/projects_events.dart';
+import 'package:portfolio/app/features/presenter/blocs/projects/projects_state.dart';
 
 import '../../../core/constants/status.dart';
 import '../../../core/constants/values.dart';
 import '../../../core/utils/utils.dart';
+import '../../infra/models/projects_model.dart';
 import '../widgets/carousel_widget/mobile/carousel_mobile.dart';
 import '../widgets/carousel_widget/web/carousel_web.dart';
 
-class ProjectsPage extends GetView<ProjectsController> {
+class ProjectsPage extends StatefulWidget {
+  @override
+  State<ProjectsPage> createState() => _ProjectsPageState();
+}
+
+class _ProjectsPageState extends State<ProjectsPage> {
+  late ProjectsBloc bloc;
+  PageController pageController = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    bloc = ProjectsBloc(s1());
+    bloc.add(LoadProjectsEvents());
+  }
+
+  @override
+  void dispose() {
+    bloc.close();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -39,24 +64,29 @@ class ProjectsPage extends GetView<ProjectsController> {
                     Container(
                         width: Utils.sizeQuery(context).width,
                         height: Utils.sizeQuery(context).height * 0.8,
-                        child: Obx(() {
-                          switch (controller.loadingStatus.value) {
-                            case StatusLoading.loading:
-                              return Center(
-                                child: CircularProgressIndicator(
-                                  color: ColorsApp.purple,
-                                ),
-                              );
-                            case StatusLoading.complete:
-                            default:
-                              if (constraints.maxWidth >
-                                  DefaultValues.MOBILE_MAX) {
-                                return _webVersion(controller);
-                              } else {
-                                return _mobileVersion(controller);
+                        child: BlocBuilder<ProjectsBloc, ProjectsState>(
+                            bloc: bloc,
+                            builder: (context, state) {
+                              final projectsList = state.projects ?? [];
+                              switch (bloc.loadingStatus) {
+                                case StatusLoading.loading:
+                                  return Center(
+                                    child: CircularProgressIndicator(
+                                      color: ColorsApp.purple,
+                                    ),
+                                  );
+                                case StatusLoading.complete:
+                                default:
+                                  if (constraints.maxWidth >
+                                      DefaultValues.MOBILE_MAX) {
+                                    return _webVersion(
+                                        projectsList, pageController);
+                                  } else {
+                                    return _mobileVersion(
+                                        projectsList, pageController);
+                                  }
                               }
-                          }
-                        })),
+                            })),
                   ],
                 ),
               ),
@@ -68,43 +98,45 @@ class ProjectsPage extends GetView<ProjectsController> {
   }
 }
 
-Widget _webVersion(ProjectsController controller) {
+Widget _webVersion(
+    List<ProjectsModels>? projectsList, PageController pageController) {
   return PageView.builder(
-    itemCount: controller.projectsList.length,
-    controller: controller.pageController,
+    itemCount: projectsList?.length,
+    controller: pageController,
     itemBuilder: (BuildContext context, int index) {
       return CarouselWeb(
         key: Key(index.toString()),
         index: index,
-        lastIndex: controller.projectsList.length - 1,
-        pageCrtl: controller.pageController,
-        title: controller.projectsList[index].title ?? "",
-        text: controller.projectsList[index].text ?? "",
-        image: controller.projectsList[index].imageUrl ?? "",
-        urlAndroid: controller.projectsList[index].androidUrl ?? "",
-        urlIOS: controller.projectsList[index].iosUrl ?? "",
-        urlWeb: controller.projectsList[index].webUrl ?? "",
+        lastIndex: projectsList != null ? projectsList.length - 1 : 0,
+        pageCrtl: pageController,
+        title: projectsList?[index].title ?? "",
+        text: projectsList?[index].text ?? "",
+        image: projectsList?[index].imageUrl ?? "",
+        urlAndroid: projectsList?[index].androidUrl ?? "",
+        urlIOS: projectsList?[index].iosUrl ?? "",
+        urlWeb: projectsList?[index].webUrl ?? "",
       );
     },
   );
 }
 
-Widget _mobileVersion(ProjectsController controller) {
+Widget _mobileVersion(
+    List<ProjectsModels>? projectsList, PageController pageController) {
   return PageView.builder(
-    itemCount: controller.projectsList.length,
-    controller: controller.pageController,
+    itemCount: projectsList?.length,
+    controller: pageController,
     itemBuilder: (BuildContext context, int index) {
       return CarouselMobile(
         key: Key(index.toString()),
         index: index,
-        lastIndex: controller.projectsList.length - 1,
-        pageCrtl: controller.pageController,
-        title: controller.projectsList[index].title ?? "",
-        text: controller.projectsList[index].text ?? "",
-        image: controller.projectsList[index].imageUrl ?? "",
-        urlAndroid: controller.projectsList[index].androidUrl ?? "",
-        urlIOS: controller.projectsList[index].iosUrl ?? "",
-        urlWeb: controller.projectsList[index].webUrl ?? "",
+        lastIndex: projectsList != null ? projectsList.length - 1 : 0,
+        pageCrtl: pageController,
+        title: projectsList?[index].title ?? "",
+        text: projectsList?[index].text ?? "",
+        image: projectsList?[index].imageUrl ?? "",
+        urlAndroid: projectsList?[index].androidUrl ?? "",
+        urlIOS: projectsList?[index].iosUrl ?? "",
+        urlWeb: projectsList?[index].webUrl ?? "",
       );
     },
   );

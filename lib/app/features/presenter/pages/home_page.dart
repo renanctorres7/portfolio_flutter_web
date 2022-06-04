@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import 'package:portfolio/app/features/presenter/stores/home_store.dart';
 
 import '../../../core/constants/colors.dart';
 import '../../../core/constants/values.dart';
 import '../../../core/utils/utils.dart';
-import '../controller/home_controller.dart';
+
 import '../widgets/menu/mobile/mobile_menu.dart';
 import '../widgets/menu/web/web_menu.dart';
 import 'about_page.dart';
@@ -12,7 +13,14 @@ import 'contact_page.dart';
 import 'projects_page.dart';
 import 'skills_page.dart';
 
-class HomePage extends GetView<HomeController> {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final store = HomeStore();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,12 +32,12 @@ class HomePage extends GetView<HomeController> {
         child: LayoutBuilder(builder: (context, constraints) {
           return Scaffold(
             body: NotificationListener<ScrollNotification>(
-              onNotification: controller.voidOnScroll,
+              onNotification: store.voidOnScroll,
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
                   Positioned(
-                    top: -.25 * controller.offset.value,
+                    top: -.25 * store.offset,
                     child: Container(
                       color: ColorsApp.graphite,
                       height: Utils.sizeQuery(context).height,
@@ -37,10 +45,10 @@ class HomePage extends GetView<HomeController> {
                     ),
                   ),
                   Scrollbar(
-                    controller: controller.scrollController,
+                    controller: store.scrollController,
                     thumbVisibility: true,
                     child: SingleChildScrollView(
-                      controller: controller.scrollController,
+                      controller: store.scrollController,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,11 +65,11 @@ class HomePage extends GetView<HomeController> {
                     visible: _returnTrueOrFalse(constraints, context),
                     child: WebMenu(
                       heigth: Utils.sizeQuery(context).height,
-                      scrollController: controller.scrollController!,
+                      scrollController: store.scrollController!,
                     ),
                     replacement: MobileMenu(
                       height: Utils.sizeQuery(context).height,
-                      scrollController: controller.scrollController!,
+                      scrollController: store.scrollController!,
                     ),
                   ),
                 ],

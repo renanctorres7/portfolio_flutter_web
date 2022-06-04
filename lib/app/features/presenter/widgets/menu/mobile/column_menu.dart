@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../../../../core/constants/colors.dart';
-import '../../../controller/home_controller.dart';
+import 'package:portfolio/app/features/presenter/stores/home_store.dart';
 
-class ColumnMenu extends GetView<HomeController> {
+import '../../../../../core/constants/colors.dart';
+
+class ColumnMenu extends StatefulWidget {
   const ColumnMenu(
       {Key? key,
       required this.height,
@@ -16,8 +16,14 @@ class ColumnMenu extends GetView<HomeController> {
   final ScrollController scrollController;
 
   @override
+  State<ColumnMenu> createState() => _ColumnMenuState();
+}
+
+class _ColumnMenuState extends State<ColumnMenu> {
+  final store = HomeStore();
+  @override
   Widget build(BuildContext context) {
-    if (value == true) {
+    if (widget.value == true) {
       return Container(
         color: ColorsApp.gray,
         alignment: Alignment.topLeft,
@@ -44,7 +50,7 @@ class ColumnMenu extends GetView<HomeController> {
                           color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
-                  controller.goToElement(0, height, scrollController);
+                  store.goToElement(0, widget.height, widget.scrollController);
                 },
                 child: Text(
                   'Sobre   ',
@@ -69,7 +75,7 @@ class ColumnMenu extends GetView<HomeController> {
                           color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
-                  controller.goToElement(1, height, scrollController);
+                  store.goToElement(1, widget.height, widget.scrollController);
                 },
                 child: Text(
                   'Projetos',
@@ -94,7 +100,7 @@ class ColumnMenu extends GetView<HomeController> {
                           color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
-                  controller.goToElement(2, height, scrollController);
+                  store.goToElement(2, widget.height, widget.scrollController);
                 },
                 child: Text(
                   'Habilidades',
@@ -119,7 +125,7 @@ class ColumnMenu extends GetView<HomeController> {
                           color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
-                  controller.goToElement(3, height, scrollController);
+                  store.goToElement(3, widget.height, widget.scrollController);
                 },
                 child: Text(
                   'Contato',

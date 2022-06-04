@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../../core/constants/colors.dart';
-import '../../../controller/home_controller.dart';
 
-class WebMenu extends GetView<HomeController> {
+import '../../../stores/home_store.dart';
+
+class WebMenu extends StatefulWidget {
   final double heigth;
   final ScrollController scrollController;
   WebMenu({required this.heigth, required this.scrollController});
 
   @override
-  Widget build(BuildContext context) {
-    
+  State<WebMenu> createState() => _WebMenuState();
+}
 
+class _WebMenuState extends State<WebMenu> {
+  final store = HomeStore();
+  @override
+  Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topCenter,
       child: ConstrainedBox(
@@ -64,7 +68,8 @@ class WebMenu extends GetView<HomeController> {
                                   color: ColorsApp.gray3)),
                         ),
                         onPressed: () {
-                          controller.goToElement(0, heigth, scrollController);
+                          store.goToElement(
+                              0, widget.heigth, widget.scrollController);
                         },
                         child: Text('Sobre'),
                       ),
@@ -89,7 +94,8 @@ class WebMenu extends GetView<HomeController> {
                                   color: ColorsApp.gray3)),
                         ),
                         onPressed: () {
-                          controller.goToElement(1, heigth, scrollController);
+                          store.goToElement(
+                              1, widget.heigth, widget.scrollController);
                         },
                         child: Text(
                           'Projetos',
@@ -116,7 +122,8 @@ class WebMenu extends GetView<HomeController> {
                                   color: ColorsApp.gray3)),
                         ),
                         onPressed: () {
-                          controller.goToElement(2, heigth, scrollController);
+                          store.goToElement(
+                              2, widget.heigth, widget.scrollController);
                         },
                         child: Text(
                           'Habilidades',
@@ -143,7 +150,8 @@ class WebMenu extends GetView<HomeController> {
                                   color: ColorsApp.gray3)),
                         ),
                         onPressed: () {
-                          controller.goToElement(3, heigth, scrollController);
+                          store.goToElement(
+                              3, widget.heigth, widget.scrollController);
                         },
                         child: Text(
                           'Contato',

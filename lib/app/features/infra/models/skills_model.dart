@@ -17,4 +17,7 @@ class SkillsModel extends SkillsEntity {
   String toJson() => jsonEncode(toMap());
 
   static SkillsModel fromJson(String source) => fromMap(jsonDecode(source));
+
+  factory SkillsModel.fromEntity(SkillsEntity entity) =>
+      SkillsModel(title: entity.title, percent: entity.percent);
 }

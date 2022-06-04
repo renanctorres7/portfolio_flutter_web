@@ -1,21 +1,18 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import 'package:get/get.dart';
-
 import '../../../../../core/constants/colors.dart';
 import '../../../../../core/constants/values.dart';
 
 import '../../../../../core/utils/utils.dart';
-import '../../../controller/skills_controller.dart';
 import 'skills_general_card.dart';
 
-class SkillsGeneralCarousel extends GetView<SkillsController> {
+class SkillsGeneralCarousel extends StatelessWidget {
   final int index;
-  const SkillsGeneralCarousel({
-    Key? key,
-    required this.index,
-  }) : super(key: key);
+  final PageController? pageController;
+  const SkillsGeneralCarousel(
+      {Key? key, required this.index, required this.pageController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +109,7 @@ class SkillsGeneralCarousel extends GetView<SkillsController> {
                   iconSize: 50,
                   padding: EdgeInsets.zero,
                   onPressed: () {
-                    controller.pageController.nextPage(
+                    pageController?.nextPage(
                         duration: Duration(seconds: 1), curve: Curves.easeIn);
                   },
                   icon: Icon(
