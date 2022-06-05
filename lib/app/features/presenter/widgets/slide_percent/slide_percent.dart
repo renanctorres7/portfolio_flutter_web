@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/colors.dart';
-import '../../../../core/utils/utils.dart';
 
 class SlidePercent extends StatelessWidget {
   final String text;
@@ -21,7 +20,7 @@ class SlidePercent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 800,
+      width: 900,
       height: 50,
       child: Flex(
         direction: Axis.horizontal,
@@ -30,7 +29,7 @@ class SlidePercent extends StatelessWidget {
         children: [
           Flexible(
             child: SizedBox(
-              width: 100,
+              width: 200,
               child: AutoSizeText(
                 text,
                 maxLines: 3,
@@ -42,29 +41,26 @@ class SlidePercent extends StatelessWidget {
             ),
           ),
           Flexible(
-            child: Align(
-              child: Container(
-                child: Stack(
-                  alignment: Alignment.centerLeft,
-                  children: [
-                    Container(
-                      width: Utils.sizeQuery(context).width * 0.3,
-                      height: 30,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(60),
-                          color: ColorsApp.white),
-                    ),
-                    Container(
-                      width:
-                          ((Utils.sizeQuery(context).width * 0.3) * percent) /
-                              100,
-                      height: 30,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(60),
-                          color: ColorsApp.gray1),
-                    ),
-                  ],
-                ),
+            flex: 3,
+            child: Container(
+              child: Stack(
+                alignment: Alignment.centerLeft,
+                children: [
+                  Container(
+                    width: 300,
+                    height: 30,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(60),
+                        color: ColorsApp.white),
+                  ),
+                  Container(
+                    width: (percent / 100) * 300,
+                    height: 30,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(60),
+                        color: ColorsApp.gray1),
+                  ),
+                ],
               ),
             ),
           )

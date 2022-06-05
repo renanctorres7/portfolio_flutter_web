@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -122,62 +123,71 @@ Widget _skillsList(
       physics: NeverScrollableScrollPhysics(),
       child: Container(
         padding: constraintWidth
-            ? EdgeInsets.only(left: 0)
+            ? EdgeInsets.symmetric(horizontal: 50)
             : EdgeInsets.only(left: 20),
         alignment: constraintWidth ? Alignment.center : Alignment.topLeft,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 900,
-              padding: constraintWidth
-                  ? EdgeInsets.symmetric(horizontal: 50)
-                  : EdgeInsets.zero,
-              alignment: Alignment.centerLeft,
-              child: AutoSizeText(
-                'Habilidades',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 26,
-                    color: ColorsApp.white,
-                    fontWeight: FontWeight.w800),
-              ),
+            AutoSizeText(
+              'Habilidades',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  fontSize: 26,
+                  color: ColorsApp.white,
+                  fontWeight: FontWeight.w800),
             ),
             Container(
               padding:
                   EdgeInsets.only(top: Utils.sizeQuery(context).height * 0.05),
               width: _returnSizeValueWidth(constraints, context, 0.68, 0.9),
-              height: _returnSizeValueHeight(constraints, context, 0.45, 0.6),
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: skillsList?.length,
-                physics: ClampingScrollPhysics(),
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
-                    child: SlidePercent(
-                        width: Utils.sizeQuery(context).width * 0.68,
-                        height: Utils.sizeQuery(context).height * 0.02,
-                        text: skillsList?[index].title ?? "",
-                        percent: skillsList?[index].percent?.toDouble() ?? 50),
-                  );
-                },
+              height: _returnSizeValueHeight(constraints, context, 0.45, 0.65),
+              child: ScrollConfiguration(
+                behavior: ScrollConfiguration.of(context).copyWith(
+                  dragDevices: {
+                    PointerDeviceKind.touch,
+                    PointerDeviceKind.mouse,
+                  },
+                ),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: skillsList?.length,
+                  physics: ClampingScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 15),
+                      child: SlidePercent(
+                          width: Utils.sizeQuery(context).width * 0.68,
+                          height: Utils.sizeQuery(context).height * 0.02,
+                          text: skillsList?[index].title ?? "",
+                          percent:
+                              skillsList?[index].percent?.toDouble() ?? 50),
+                    );
+                  },
+                ),
               ),
             ),
-            Container(
-              width: Utils.sizeQuery(context).width * 0.7,
-              alignment: Alignment.bottomRight,
-              child: IconButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: () {
-                    pageController?.previousPage(
-                        duration: Duration(seconds: 1), curve: Curves.easeIn);
-                  },
-                  icon: Icon(
-                    Icons.arrow_back_ios_new,
-                    size: 50,
-                    color: ColorsApp.gray,
-                  )),
+            Padding(
+              padding: constraintWidth
+                  ? EdgeInsets.only(top: 30)
+                  : EdgeInsets.only(right: 20, top: 30),
+              child: Container(
+                height: 50,
+                width: Utils.sizeQuery(context).width,
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      pageController?.previousPage(
+                          duration: Duration(seconds: 1), curve: Curves.easeIn);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: 50,
+                      color: ColorsApp.gray,
+                    )),
+              ),
             )
           ],
         ),
