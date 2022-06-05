@@ -1,4 +1,7 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/constants/colors.dart';
 
 import '../../../infra/datasources/show_projects_datasource.dart';
 import '../../../infra/models/projects_model.dart';
@@ -25,7 +28,9 @@ class ShowProjectsFirebaseDatasource implements ShowProjectsDatasource {
 
       return list;
     } on FirebaseException catch (e) {
-      //TODO implementar snackbar
+      BotToast.showText(
+        text: e.message.toString(),
+      );
       throw FirebaseException(plugin: 'Exception');
     }
   }
