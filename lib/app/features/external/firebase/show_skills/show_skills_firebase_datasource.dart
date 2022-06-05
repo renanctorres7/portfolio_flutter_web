@@ -1,8 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 
-import '../../../../core/constants/colors.dart';
 import '../../../infra/datasources/show_skills_datasource.dart';
 import '../../../infra/models/skills_model.dart';
 
