@@ -37,8 +37,8 @@ dependencies:
   flutter_svg: ^1.0.3
   dhttpd: ^4.0.0
   universal_html: ^2.0.8
-  bloc:
-  flutter_bloc:
+  bloc: ^8.0.3
+  flutter_bloc: ^8.0.1
 
 dev_dependencies:
   flutter_test:

@@ -41,6 +41,7 @@ class CarouselMobile extends StatelessWidget {
           children: [
             Container(
               width: 150,
+              height: 300,
               child: Image.network(
                 image,
                 fit: BoxFit.fitHeight,

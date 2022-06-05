@@ -47,7 +47,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
             width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
+            constraints: BoxConstraints(maxWidth: 900, minWidth: 350),
             child: Container(
               color: ColorsApp.white,
               height: _returnSizeValue(constraints, context, 0.7, 0.9),

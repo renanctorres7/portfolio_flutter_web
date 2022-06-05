@@ -21,15 +21,12 @@ class ContactPage extends StatelessWidget {
             width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
+            constraints: BoxConstraints(maxWidth: 900, minWidth: 350),
             child: Container(
               color: ColorsApp.white,
               height: _returnSizeValue(constraints, context, 0.7, 0.9),
               width: Utils.sizeQuery(context).width,
               child: Container(
-                padding: constraintWidth
-                    ? EdgeInsets.only(left: 0)
-                    : EdgeInsets.only(left: 60),
                 width: Utils.sizeQuery(context).width,
                 height: _returnSizeValue(constraints, context, 0.7, 0.9),
                 child: SingleChildScrollView(
@@ -41,20 +38,19 @@ class ContactPage extends StatelessWidget {
                       Container(
                         height: constraintWidth ? 100 : 50,
                       ),
-                      ConstrainedBox(
-                        constraints:
-                            BoxConstraints(maxWidth: 800, minWidth: 350),
-                        child: Container(
-                          width: Utils.sizeQuery(context).width * 0.8,
-                          alignment: Alignment.centerLeft,
-                          child: AutoSizeText(
-                            'Contato',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                fontSize: 26,
-                                color: ColorsApp.graphite,
-                                fontWeight: FontWeight.w800),
-                          ),
+                      Container(
+                        padding: constraintWidth
+                            ? EdgeInsets.symmetric(horizontal: 50)
+                            : EdgeInsets.only(left: 60),
+                        width: 900,
+                        alignment: Alignment.centerLeft,
+                        child: AutoSizeText(
+                          'Contato',
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              fontSize: 26,
+                              color: ColorsApp.graphite,
+                              fontWeight: FontWeight.w800),
                         ),
                       ),
                       Container(

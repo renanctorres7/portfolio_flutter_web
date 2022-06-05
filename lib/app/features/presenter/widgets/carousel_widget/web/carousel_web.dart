@@ -34,6 +34,7 @@ class CarouselWeb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 50),
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Row(
@@ -156,6 +157,7 @@ class CarouselWeb extends StatelessWidget {
               constraints: BoxConstraints(maxWidth: 200, minWidth: 150),
               child: Container(
                 width: 200,
+                height: 400,
                 child: Image.network(
                   image,
                   fit: BoxFit.fitHeight,

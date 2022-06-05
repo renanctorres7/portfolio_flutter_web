@@ -46,14 +46,14 @@ class _SkillsPageState extends State<SkillsPage> {
         children: [
           Container(
             color: ColorsApp.graphite,
-            height: _returnSizeValue(constraints, context, 0.7, 0.9),
+            height: _returnSizeValueHeight(constraints, context, 0.7, 0.9),
             width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 800, minWidth: 350),
+            constraints: BoxConstraints(maxWidth: 900, minWidth: 350),
             child: Container(
               color: ColorsApp.graphite,
-              height: _returnSizeValue(constraints, context, 0.7, 0.9),
+              height: _returnSizeValueHeight(constraints, context, 0.7, 0.9),
               width: Utils.sizeQuery(context).width,
               child: SingleChildScrollView(
                 physics: NeverScrollableScrollPhysics(),
@@ -66,8 +66,8 @@ class _SkillsPageState extends State<SkillsPage> {
                     ),
                     Container(
                         width: Utils.sizeQuery(context).width,
-                        height:
-                            _returnSizeValue(constraints, context, 0.8, 0.9),
+                        height: _returnSizeValueHeight(
+                            constraints, context, 0.8, 0.9),
                         child: PageView(
                           children: [
                             SkillsGeneralCarousel(
@@ -129,7 +129,10 @@ Widget _skillsList(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              width: 800,
+              width: 900,
+              padding: constraintWidth
+                  ? EdgeInsets.symmetric(horizontal: 50)
+                  : EdgeInsets.zero,
               alignment: Alignment.centerLeft,
               child: AutoSizeText(
                 'Habilidades',
@@ -143,8 +146,8 @@ Widget _skillsList(
             Container(
               padding:
                   EdgeInsets.only(top: Utils.sizeQuery(context).height * 0.05),
-              width: _returnSizeValue(constraints, context, 0.68, 0.9),
-              height: _returnSizeValue(constraints, context, 0.45, 0.6),
+              width: _returnSizeValueWidth(constraints, context, 0.68, 0.9),
+              height: _returnSizeValueHeight(constraints, context, 0.45, 0.6),
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: skillsList?.length,
@@ -165,6 +168,7 @@ Widget _skillsList(
               width: Utils.sizeQuery(context).width * 0.7,
               alignment: Alignment.bottomRight,
               child: IconButton(
+                  padding: EdgeInsets.zero,
                   onPressed: () {
                     pageController?.previousPage(
                         duration: Duration(seconds: 1), curve: Curves.easeIn);
@@ -182,11 +186,20 @@ Widget _skillsList(
   );
 }
 
-double _returnSizeValue(
+double _returnSizeValueHeight(
     BoxConstraints constraints, BuildContext context, double a, double b) {
   if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
     return Utils.sizeQuery(context).height * a;
   } else {
     return Utils.sizeQuery(context).height * b;
+  }
+}
+
+double _returnSizeValueWidth(
+    BoxConstraints constraints, BuildContext context, double a, double b) {
+  if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+    return Utils.sizeQuery(context).width * a;
+  } else {
+    return Utils.sizeQuery(context).width * b;
   }
 }

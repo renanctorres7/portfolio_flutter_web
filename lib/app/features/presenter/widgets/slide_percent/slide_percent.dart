@@ -21,21 +21,24 @@ class SlidePercent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
-      height: height,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+      width: 800,
+      height: 50,
+      child: Flex(
+        direction: Axis.horizontal,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: Utils.sizeQuery(context).width * 0.1,
-            height: 50,
-            child: AutoSizeText(
-              text,
-              style: TextStyle(
-                  fontSize: 18,
-                  color: ColorsApp.white,
-                  fontWeight: FontWeight.w500),
+          Flexible(
+            child: SizedBox(
+              width: 100,
+              child: AutoSizeText(
+                text,
+                maxLines: 3,
+                style: TextStyle(
+                    fontSize: 18,
+                    color: ColorsApp.white,
+                    fontWeight: FontWeight.w500),
+              ),
             ),
           ),
           Flexible(

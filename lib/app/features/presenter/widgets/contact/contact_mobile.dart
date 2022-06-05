@@ -10,6 +10,7 @@ class ContactMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(left: 60),
       width: Utils.sizeQuery(context).width * 0.8,
       child: Column(
         children: [

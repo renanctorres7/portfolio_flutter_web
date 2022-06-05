@@ -20,30 +20,37 @@ class ContactWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Flex(
+      direction: Axis.horizontal,
       children: [
-        TextButton(
-          onPressed: () => Utils.launchURL(url),
-          child: Container(
-            height: 50,
-            width: 50,
-            child: SvgPicture.asset(image),
+        Flexible(
+          child: IconButton(
+            iconSize: 50,
+            padding: EdgeInsets.zero,
+            splashRadius: 60,
+            onPressed: () => Utils.launchURL(url),
+            icon: SizedBox(
+              height: 50,
+              width: 50,
+              child: SvgPicture.asset(image),
+            ),
           ),
         ),
         SizedBox(
           width: 10,
         ),
-        Container(
-          alignment: Alignment.centerLeft,
-          height: 50,
-          width: isMobile == false ? 150 : Utils.sizeQuery(context).width * 0.5,
-          child: SelectableText(
-            text,
-            maxLines: 2,
-            style: TextStyle(
-              fontSize: 14,
-              color: ColorsApp.graphite,
-              fontWeight: FontWeight.w600,
+        Flexible(
+          flex: 2,
+          child: Container(
+            alignment: Alignment.centerLeft,
+            child: SelectableText(
+              text,
+              maxLines: 2,
+              style: TextStyle(
+                fontSize: 14,
+                color: ColorsApp.graphite,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),
