@@ -1,10 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'package:portfolio/app/core/utils/dependency_injection.dart';
 
-import 'app/app_module.dart';
 import 'app/app_widget.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(ModularApp(module: AppModule(), child: AppWidget()));
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await DependencyInjection.init();
+  runApp(AppWidget());
 }
