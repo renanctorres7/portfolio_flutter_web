@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/constants/texts/about_texts.dart';
 
-import 'package:universal_html/html.dart' as html;
-
 import '../../../core/constants/colors.dart';
 import '../../../core/constants/values.dart';
 import '../../../core/utils/utils.dart';
@@ -12,18 +10,28 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       bool constraintWidth = constraints.maxWidth > DefaultValues.MOBILE_MAX;
-      return ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 900, minWidth: 350),
-        child: Container(
-          padding: constraintWidth
-              ? EdgeInsets.symmetric(horizontal: 50)
-              : EdgeInsets.zero,
-          height: _returnSizeValue(constraints, context),
-          width: Utils.sizeQuery(context).width,
-          color: ColorsApp.graphite,
-          child: SingleChildScrollView(
-              child: constraintWidth ? _webVersion() : _mobileVersion()),
-        ),
+      return Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Container(
+            color: ColorsApp.graphite,
+            height: _returnSizeValue(constraints, context, 0.7, 0.9),
+            width: Utils.sizeQuery(context).width,
+          ),
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 900, minWidth: 350),
+            child: Container(
+              padding: constraintWidth
+                  ? EdgeInsets.symmetric(horizontal: 50)
+                  : EdgeInsets.zero,
+              height: _returnSizeValue(constraints, context, 0.7, 0.9),
+              width: Utils.sizeQuery(context).width,
+              color: ColorsApp.graphite,
+              child: SingleChildScrollView(
+                  child: constraintWidth ? _webVersion() : _mobileVersion()),
+            ),
+          ),
+        ],
       );
     });
   }
@@ -109,9 +117,7 @@ Widget _webVersion() {
                       onSurface: ColorsApp.white,
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(60)))),
-                  onPressed: () {
-                    html.window.open(AboutTexts.resume, 'Currículo');
-                  },
+                  onPressed: () => Utils.launchURL(AboutTexts.resume),
                   child: Text('Baixar currículo')),
             )
           ],
@@ -201,19 +207,18 @@ Widget _mobileVersion() {
                 onSurface: ColorsApp.white,
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(60)))),
-            onPressed: () {
-              html.window.open(AboutTexts.resume, 'Currículo');
-            },
+            onPressed: () => Utils.launchURL(AboutTexts.resume),
             child: Text('Baixar currículo')),
       ),
     ],
   );
 }
 
-double _returnSizeValue(BoxConstraints constraints, BuildContext context) {
+double _returnSizeValue(
+    BoxConstraints constraints, BuildContext context, double a, double b) {
   if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
-    return Utils.sizeQuery(context).height * 0.7;
+    return Utils.sizeQuery(context).height * a;
   } else {
-    return Utils.sizeQuery(context).height * 0.9;
+    return Utils.sizeQuery(context).height * b;
   }
 }
