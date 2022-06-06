@@ -1,6 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <style>
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border: 15px solid;
+      border-top: 16px solid rgba(59, 59, 71, 1);
+      border-right: 16px solid white;
+      border-bottom: 16px solid rgba(59, 59, 71, 1);
+      border-left: 16px solid white;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
@@ -15,24 +63,34 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="Portfólio-Renan C. Torres" content="Meu portfólio criado em Flutter Web">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="Portfólio-Renan C. Torres">
+  <link rel="apple-touch-icon" href="icons/favicon.jpeg">
 
-  <title>portfolio</title>
+  <title>Portfólio - Renan C. Torres</title>
   <link rel="manifest" href="manifest.json">
 </head>
+<script type="text/javascript">
+  window.flutterWebRenderer = "html";
+</script>
+
 <body>
+  <div class="loading">
+    <div class="loader"></div>
+  </div>
+
+  <script src="main.dart.js" type="application/javascript"></script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
+
     function loadMainDartJs() {
       if (scriptLoaded) {
         return;
@@ -64,7 +122,7 @@
             if (!reg.active && (reg.installing || reg.waiting)) {
               // No active web worker and we have installed or are installing
               // one for the first time. Simply wait for it to activate.
-              waitForActivation(reg.installing ?? reg.waiting);
+              waitForActivation(reg.installing ? ? reg.waiting);
             } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
               // When the app updates the serviceWorkerVersion changes, so we
               // need to ask the service worker to update.
@@ -95,4 +153,5 @@
     }
   </script>
 </body>
+
 </html>
