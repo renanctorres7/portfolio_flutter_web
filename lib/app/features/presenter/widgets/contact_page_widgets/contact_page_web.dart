@@ -1,10 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio/app/features/presenter/widgets/contact_page_widgets/item_list.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/texts/contact_texts.dart';
-import '../contact_widget/contact_widget.dart';
 
 Widget contactPageWeb() {
   return Container(
@@ -16,7 +15,6 @@ Widget contactPageWeb() {
           height: 100,
         ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 50),
           width: 900,
           alignment: Alignment.centerLeft,
           child: AutoSizeText(
@@ -37,22 +35,22 @@ Widget contactPageWeb() {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Flexible(
-              child: ContactWidget(
+              child: itemList(
                 image: 'assets/whats.svg',
                 text: "(61) 99917-4230",
                 url: ContactTexts.urlPhone,
-                isMobile: false,
+                isWeb: true,
               ),
             ),
             SizedBox(
               width: 10,
             ),
             Flexible(
-              child: ContactWidget(
+              child: itemList(
                 image: 'assets/arroba.svg',
                 text: "renanctorres7@gmail.com",
                 url: ContactTexts.urlEmail,
-                isMobile: false,
+                isWeb: true,
               ),
             ),
           ],
@@ -66,44 +64,22 @@ Widget contactPageWeb() {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Flexible(
-              child: ContactWidget(
+              child: itemList(
                 image: 'assets/linkedin.svg',
                 text: "LinkedIn",
                 url: ContactTexts.urlLink,
-                isMobile: false,
+                isWeb: true,
               ),
             ),
             SizedBox(
               width: 10,
             ),
             Flexible(
-              child: Flex(
-                direction: Axis.horizontal,
-                children: [
-                  Flexible(
-                    child: SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: SvgPicture.asset('assets/local.svg'),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Flexible(
-                    flex: 2,
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: SelectableText(
-                        'Brasília - Distrito Federal\nBrasil',
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: ColorsApp.gray1,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  )
-                ],
+              child: itemList(
+                image: 'assets/local.svg',
+                text: 'Brasília - Distrito Federal\nBrasil',
+                url: "",
+                isWeb: true,
               ),
             ),
           ],
