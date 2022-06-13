@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   bot_toast: ^4.0.2
   url_launcher: ^6.1.2
+  
 
 dev_dependencies:
   flutter_test:

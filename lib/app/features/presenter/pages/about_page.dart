@@ -23,7 +23,7 @@ class AboutPage extends StatelessWidget {
             child: Container(
               padding: constraintWidth
                   ? EdgeInsets.symmetric(horizontal: 50)
-                  : EdgeInsets.zero,
+                  : EdgeInsets.symmetric(horizontal: 20),
               height: _returnSizeValue(constraints, context, 0.7, 0.9),
               width: Utils.sizeQuery(context).width,
               color: ColorsApp.graphite,
@@ -142,7 +142,7 @@ Widget _mobileVersion() {
           Container(
             child: CircleAvatar(
               backgroundImage: AssetImage('assets/eu.jpeg'),
-              radius: 80,
+              radius: 60,
             ),
           ),
           Container(
@@ -156,7 +156,7 @@ Widget _mobileVersion() {
                 AboutTexts.name,
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 26,
+                    fontSize: 24,
                     color: ColorsApp.white,
                     fontWeight: FontWeight.w800),
               ),
@@ -170,7 +170,7 @@ Widget _mobileVersion() {
               child: Text(
                 AboutTexts.profession,
                 style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 18,
                     color: ColorsApp.gray4,
                     fontWeight: FontWeight.w600),
               ),
