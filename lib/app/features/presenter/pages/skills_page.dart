@@ -90,12 +90,19 @@ class _SkillsPageState extends State<SkillsPage> {
 
                                     case StatusLoading.complete:
                                     default:
-                                      return _skillsList(
-                                          constraintWidth,
-                                          constraints,
-                                          context,
-                                          pageController,
-                                          skillsList);
+                                      return constraintWidth
+                                          ? _webSkillsList(
+                                              constraintWidth,
+                                              constraints,
+                                              context,
+                                              pageController,
+                                              skillsList)
+                                          : _mobileSkillsList(
+                                              constraintWidth,
+                                              constraints,
+                                              context,
+                                              pageController,
+                                              skillsList);
                                   }
                                 }),
                           ],
@@ -112,7 +119,7 @@ class _SkillsPageState extends State<SkillsPage> {
   }
 }
 
-Widget _skillsList(
+Widget _webSkillsList(
     bool constraintWidth,
     BoxConstraints constraints,
     BuildContext context,
@@ -169,9 +176,91 @@ Widget _skillsList(
               ),
             ),
             Padding(
-              padding: constraintWidth
-                  ? EdgeInsets.only(top: 30)
-                  : EdgeInsets.only(right: 20, top: 30),
+              padding:
+                  constraintWidth ? EdgeInsets.only(top: 30) : EdgeInsets.zero,
+              child: Container(
+                height: 50,
+                width: Utils.sizeQuery(context).width,
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {
+                      pageController?.previousPage(
+                          duration: Duration(seconds: 1), curve: Curves.easeIn);
+                    },
+                    icon: Icon(
+                      Icons.arrow_back_ios_new,
+                      size: 50,
+                      color: ColorsApp.gray,
+                    )),
+              ),
+            )
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
+Widget _mobileSkillsList(
+    bool constraintWidth,
+    BoxConstraints constraints,
+    BuildContext context,
+    PageController? pageController,
+    List<SkillsModel>? skillsList) {
+  return Container(
+    child: SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
+      child: Container(
+        padding: constraintWidth
+            ? EdgeInsets.symmetric(horizontal: 50)
+            : EdgeInsets.only(left: 20),
+        alignment: constraintWidth ? Alignment.center : Alignment.topLeft,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AutoSizeText(
+              'Habilidades',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  fontSize: 24,
+                  color: ColorsApp.white,
+                  fontWeight: FontWeight.w800),
+            ),
+            Container(
+              padding:
+                  EdgeInsets.only(top: Utils.sizeQuery(context).height * 0.05),
+              width: _returnSizeValueWidth(constraints, context, 0.68, 0.9),
+              height: _returnSizeValueHeight(constraints, context, 0.45, 0.65),
+              child: ScrollConfiguration(
+                behavior: ScrollConfiguration.of(context).copyWith(
+                  dragDevices: {
+                    PointerDeviceKind.touch,
+                    PointerDeviceKind.mouse,
+                  },
+                ),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: skillsList?.length,
+                  physics: ClampingScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 15),
+                      child: SlidePercent(
+                          width: Utils.sizeQuery(context).width * 0.68,
+                          height: Utils.sizeQuery(context).height * 0.02,
+                          text: skillsList?[index].title ?? "",
+                          percent:
+                              skillsList?[index].percent?.toDouble() ?? 50),
+                    );
+                  },
+                ),
+              ),
+            ),
+            Padding(
+              padding:
+                  constraintWidth ? EdgeInsets.only(top: 30) : EdgeInsets.zero,
               child: Container(
                 height: 50,
                 width: Utils.sizeQuery(context).width,
