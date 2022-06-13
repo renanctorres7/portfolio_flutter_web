@@ -34,6 +34,7 @@ class CarouselMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: Column(
@@ -41,7 +42,7 @@ class CarouselMobile extends StatelessWidget {
           children: [
             Container(
               width: 150,
-              height: 300,
+              height: 200,
               child: Image.network(
                 image,
                 fit: BoxFit.fitHeight,
@@ -75,7 +76,7 @@ class CarouselMobile extends StatelessWidget {
                 'Projetos',
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 26,
+                    fontSize: 24,
                     color: ColorsApp.graphite,
                     fontWeight: FontWeight.w800),
               ),
@@ -86,7 +87,7 @@ class CarouselMobile extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                    fontSize: 23,
+                    fontSize: 18,
                     color: ColorsApp.gray1,
                     fontWeight: FontWeight.w600),
               ),
