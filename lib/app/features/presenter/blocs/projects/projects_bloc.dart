@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:portfolio/app/core/constants/status.dart';
+
 import 'package:portfolio/app/features/domain/usecases/show_projects_usecase.dart';
 import 'package:portfolio/app/features/infra/models/projects_model.dart';
-import 'package:portfolio/app/features/presenter/blocs/projects/projects_events.dart';
-import 'package:portfolio/app/features/presenter/blocs/projects/projects_state.dart';
 
+import '../../../../core/constants/constants.dart';
 import '../../../domain/entities/projects_entity.dart';
+import '../bloc.dart';
 
 class ProjectsBloc extends Bloc<ProjectsEvents, ProjectsState> {
   final ShowProjectsUsecase usecase;

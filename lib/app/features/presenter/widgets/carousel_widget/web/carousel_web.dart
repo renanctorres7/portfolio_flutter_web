@@ -2,8 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../../core/constants/colors.dart';
-import '../../../../../core/utils/utils.dart';
+import '../../../../../core/constants/theme/colors_app.dart';
+import '../../../../../core/utils/utils_functions.dart';
 
 class CarouselWeb extends StatelessWidget {
   final int index;

@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/features/presenter/widgets/contact_page_widgets/item_list.dart';
 
-import '../../../../core/constants/colors.dart';
+import '../../../../core/constants/theme/colors_app.dart';
 import '../../../../core/constants/texts/contact_texts.dart';
 
 Widget contactPageWeb() {

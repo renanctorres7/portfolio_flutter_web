@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/core/constants/colors.dart';
 
+import '../../../core/constants/constants.dart';
 import '../widgets/widgets.dart';
 
 class AboutPage extends StatelessWidget {

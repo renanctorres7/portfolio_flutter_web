@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:portfolio/app/features/presenter/widgets/widgets.dart';
+import '../widgets/widgets.dart';
 
 class ContactPage extends StatelessWidget {
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/values.dart';
-import '../../../../core/utils/utils.dart';
+import '../../../../core/constants/values/default_values.dart';
+import '../../../../core/utils/utils_functions.dart';
 
 class CustomLayout extends StatelessWidget {
   const CustomLayout(

@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/colors.dart';
+import '../../../../core/constants/theme/colors_app.dart';
 
 class SlidePercent extends StatelessWidget {
   final String text;

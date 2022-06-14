@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constants/colors.dart';
-
-import '../../../stores/home_store.dart';
+import '../../../../../core/constants/constants.dart';
+import '../../../../../core/utils/utils.dart';
 
 class WebMenu extends StatefulWidget {
   final double heigth;
@@ -14,7 +13,6 @@ class WebMenu extends StatefulWidget {
 }
 
 class _WebMenuState extends State<WebMenu> {
-  final store = HomeStore();
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -68,7 +66,7 @@ class _WebMenuState extends State<WebMenu> {
                                   color: ColorsApp.gray3)),
                         ),
                         onPressed: () {
-                          store.goToElement(
+                          Utils.scrollUntilElementPage(
                               0, widget.heigth, widget.scrollController);
                         },
                         child: Text('Sobre'),
@@ -94,7 +92,7 @@ class _WebMenuState extends State<WebMenu> {
                                   color: ColorsApp.gray3)),
                         ),
                         onPressed: () {
-                          store.goToElement(
+                          Utils.scrollUntilElementPage(
                               1, widget.heigth, widget.scrollController);
                         },
                         child: Text(
@@ -122,7 +120,7 @@ class _WebMenuState extends State<WebMenu> {
                                   color: ColorsApp.gray3)),
                         ),
                         onPressed: () {
-                          store.goToElement(
+                          Utils.scrollUntilElementPage(
                               2, widget.heigth, widget.scrollController);
                         },
                         child: Text(
@@ -150,7 +148,7 @@ class _WebMenuState extends State<WebMenu> {
                                   color: ColorsApp.gray3)),
                         ),
                         onPressed: () {
-                          store.goToElement(
+                          Utils.scrollUntilElementPage(
                               3, widget.heigth, widget.scrollController);
                         },
                         child: Text(

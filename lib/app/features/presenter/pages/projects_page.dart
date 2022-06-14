@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/app/core/constants/colors.dart';
-import 'package:portfolio/app/core/utils/dependency_injection.dart';
-import 'package:portfolio/app/features/presenter/blocs/projects/projects_bloc.dart';
-import 'package:portfolio/app/features/presenter/blocs/projects/projects_events.dart';
-import 'package:portfolio/app/features/presenter/blocs/projects/projects_state.dart';
 
-import '../../../core/constants/status.dart';
-import '../../../core/constants/values.dart';
+import '../../../core/constants/constants.dart';
 import '../../../core/utils/utils.dart';
 import '../../infra/models/projects_model.dart';
+import '../blocs/bloc.dart';
 import '../widgets/carousel_widget/mobile/carousel_mobile.dart';
 import '../widgets/carousel_widget/web/carousel_web.dart';
 

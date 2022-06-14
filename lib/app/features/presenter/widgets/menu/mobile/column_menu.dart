@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/features/presenter/stores/home_store.dart';
+import 'package:portfolio/app/core/utils/utils.dart';
 
-import '../../../../../core/constants/colors.dart';
+import '../../../../../core/constants/theme/colors_app.dart';
 
 class ColumnMenu extends StatefulWidget {
   const ColumnMenu(
@@ -20,7 +20,6 @@ class ColumnMenu extends StatefulWidget {
 }
 
 class _ColumnMenuState extends State<ColumnMenu> {
-  final store = HomeStore();
   @override
   Widget build(BuildContext context) {
     if (widget.value == true) {
@@ -50,7 +49,8 @@ class _ColumnMenuState extends State<ColumnMenu> {
                           color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
-                  store.goToElement(0, widget.height, widget.scrollController);
+                  Utils.scrollUntilElementPage(
+                      0, widget.height, widget.scrollController);
                 },
                 child: Text(
                   'Sobre   ',
@@ -75,7 +75,8 @@ class _ColumnMenuState extends State<ColumnMenu> {
                           color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
-                  store.goToElement(1, widget.height, widget.scrollController);
+                  Utils.scrollUntilElementPage(
+                      1, widget.height, widget.scrollController);
                 },
                 child: Text(
                   'Projetos',
@@ -100,7 +101,8 @@ class _ColumnMenuState extends State<ColumnMenu> {
                           color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
-                  store.goToElement(2, widget.height, widget.scrollController);
+                  Utils.scrollUntilElementPage(
+                      2, widget.height, widget.scrollController);
                 },
                 child: Text(
                   'Habilidades',
@@ -125,7 +127,8 @@ class _ColumnMenuState extends State<ColumnMenu> {
                           color: ColorsApp.gray3)),
                 ),
                 onPressed: () {
-                  store.goToElement(3, widget.height, widget.scrollController);
+                  Utils.scrollUntilElementPage(
+                      3, widget.height, widget.scrollController);
                 },
                 child: Text(
                   'Contato',
