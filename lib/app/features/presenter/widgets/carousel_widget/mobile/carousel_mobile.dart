@@ -146,7 +146,7 @@ class CarouselMobile extends StatelessWidget {
                           height: 50,
                         ),
                   IconButton(
-                      iconSize: 50,
+                      iconSize: 30,
                       padding: EdgeInsets.zero,
                       onPressed: () {
                         Utils.animateSlider(lastIndex, pageCrtl);
@@ -154,12 +154,12 @@ class CarouselMobile extends StatelessWidget {
                       icon: index != lastIndex
                           ? Icon(
                               Icons.arrow_forward_ios,
-                              size: 50,
+                              size: 30,
                               color: ColorsApp.gray1,
                             )
                           : Icon(
                               Icons.arrow_back_ios_new,
-                              size: 50,
+                              size: 30,
                               color: ColorsApp.gray1,
                             ))
                 ],

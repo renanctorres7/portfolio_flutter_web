@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/utils/utils.dart';
 
 import 'package:portfolio/app/features/presenter/widgets/widgets.dart';
 
@@ -17,13 +18,34 @@ class SkillsPage extends StatefulWidget {
 class _SkillsPageState extends State<SkillsPage> {
   late SkillsBloc bloc;
   PageController pageController = PageController();
-  int index = 1;
+
+  int pageViewIndex = 0;
+
+  _changePageView() async {
+    Utils.changePagePageView(
+        numberOfWidgets: 2, pageController: pageController);
+
+    Future.delayed(Duration(seconds: 1), () {
+      if (pageViewIndex < 1) {
+        setState(() {
+          pageViewIndex++;
+        });
+      } else {
+        setState(() {
+          pageViewIndex = 0;
+        });
+      }
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     bloc = SkillsBloc(s1());
     bloc.add(LoadSkillsEvents());
+    setState(() {
+      pageViewIndex = 0;
+    });
   }
 
   @override
@@ -37,14 +59,17 @@ class _SkillsPageState extends State<SkillsPage> {
     return CustomLayout(
         color: ColorsApp.graphite,
         webWidget: skillsPageWeb(
-          context: context,
-          pageController: pageController,
-          bloc: bloc,
-        ),
+            context: context,
+            pageController: pageController,
+            bloc: bloc,
+            pageViewIndex: pageViewIndex,
+            onPressed: _changePageView),
         mobileWidget: skillsPageMobile(
           context: context,
           pageController: pageController,
           bloc: bloc,
+          onPressed: _changePageView,
+          pageViewIndex: pageViewIndex,
         ));
   }
 }

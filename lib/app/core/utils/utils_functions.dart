@@ -4,8 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../constants/values/default_values.dart';
 
 abstract class Utils {
-  static Future<void> animateSlider(
-      int lastIndex, PageController pageController) async {
+  static animateSlider(int lastIndex, PageController pageController) async {
     if (pageController.page == lastIndex) {
       pageController.animateTo(0,
           duration: Duration(seconds: 1), curve: Curves.easeIn);
@@ -55,5 +54,31 @@ abstract class Utils {
               index), // 100 is the height of container and index of 6th element is 5
           duration: const Duration(milliseconds: 1000),
           curve: Curves.decelerate);
+  }
+
+  static changePagePageView(
+      {required int numberOfWidgets, required PageController pageController}) {
+    int value = numberOfWidgets != 0 ? numberOfWidgets - 1 : 0;
+    if (pageController.page == value) {
+      pageController.animateTo(0,
+          duration: Duration(seconds: 1), curve: Curves.easeIn);
+    } else {
+      pageController.nextPage(
+          duration: Duration(seconds: 1), curve: Curves.easeIn);
+    }
+  }
+
+  static IconData changePageViewIcon(
+      {required int numberOfWidgets, required PageController? pageController}) {
+    if (pageController != null && pageController.hasClients) {
+      int value = numberOfWidgets != 0 ? numberOfWidgets - 1 : 0;
+      if (pageController.page == value) {
+        return Icons.arrow_back_ios_new;
+      } else {
+        return Icons.arrow_forward_ios_outlined;
+      }
+    } else {
+      return Icons.arrow_forward_ios_outlined;
+    }
   }
 }

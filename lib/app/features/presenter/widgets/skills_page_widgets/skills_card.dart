@@ -65,44 +65,45 @@ Widget skillsCard(
           ],
         )
       : Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 120,
-              height: 120,
+            SizedBox(
+              width: 80,
+              height: 80,
               child: Card(
-                elevation: 10,
+                elevation: 7,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                child: Container(
-                  width: 30,
-                  alignment: Alignment.center,
-                  child: svgAsset.isNotEmpty
-                      ? SvgPicture.asset(
+                    borderRadius: BorderRadius.circular(15)),
+                child: svgAsset.isNotEmpty
+                    ? Padding(
+                        padding: EdgeInsets.all(20),
+                        child: SvgPicture.asset(
                           svgAsset,
                           color: Colors.black,
-                        )
-                      : Icon(
-                          Icons.design_services_rounded,
-                          size: 30,
-                          color: ColorsApp.gray3,
+                          fit: BoxFit.contain,
                         ),
-                ),
+                      )
+                    : Icon(
+                        Icons.design_services_rounded,
+                        size: 25,
+                        color: ColorsApp.gray3,
+                      ),
               ),
             ),
             Container(
-              width: 120,
+              alignment: Alignment.centerLeft,
               padding: EdgeInsets.only(top: 20),
               child: AutoSizeText(
                 title,
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     color: ColorsApp.white,
-                    fontWeight: FontWeight.w500),
+                    fontWeight: FontWeight.w600),
               ),
             ),
             Container(
-              width: 120,
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.only(top: 20),
               child: AutoSizeText(

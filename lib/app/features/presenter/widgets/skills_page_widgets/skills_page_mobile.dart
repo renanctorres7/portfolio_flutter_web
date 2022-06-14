@@ -6,46 +6,64 @@ import '../../../../core/utils/utils.dart';
 import '../../blocs/skills/skills_bloc.dart';
 import '../widgets.dart';
 
-Widget skillsPageMobile({
-  required BuildContext context,
-  required PageController pageController,
-  required SkillsBloc bloc,
-}) {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+Widget skillsPageMobile(
+    {required BuildContext context,
+    required PageController pageController,
+    required SkillsBloc bloc,
+    required int pageViewIndex,
+    required Function()? onPressed}) {
+  return Stack(
     children: [
-      Container(
-        height: 50,
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            padding: const EdgeInsets.only(top: 50),
+            alignment: Alignment.centerLeft,
+            child: AutoSizeText(
+              'Habilidades',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w800),
+            ),
+          ),
+          Container(
+              alignment: Alignment.centerLeft,
+              width: Utils.sizeQuery(context).width,
+              height: Utils.sizeQuery(context).height,
+              child: PageView(
+                children: [
+                  skillsGeneralItems(
+                    context: context,
+                    isWeb: false,
+                  ),
+                  skillsBlocBuilder(
+                    bloc: bloc,
+                    isWeb: false,
+                  )
+                ],
+                controller: pageController,
+              )),
+        ],
       ),
       Container(
-        width: 900,
-        alignment: Alignment.centerLeft,
-        child: AutoSizeText(
-          'Habilidade',
-          textAlign: TextAlign.left,
-          style: TextStyle(
-              fontSize: 24,
-              color: ColorsApp.graphite,
-              fontWeight: FontWeight.w800),
-        ),
-      ),
-      Container(
-          width: Utils.sizeQuery(context).width,
-          height: Utils.sizeQuery(context).height * 0.8,
-          child: PageView(
-            children: [
-              skillsGeneralItems(
-                context: context,
-                isWeb: false,
-              ),
-              skillsBlocBuilder(
-                bloc: bloc,
-                isWeb: false,
-              )
-            ],
-            controller: pageController,
-          )),
+        height: Utils.sizeQuery(context).height * 0.7,
+        width: Utils.sizeQuery(context).width,
+        alignment: Alignment.bottomRight,
+        child: IconButton(
+            padding: EdgeInsets.zero,
+            onPressed: onPressed,
+            icon: Icon(
+              pageViewIndex == 1
+                  ? Icons.arrow_back_ios_new
+                  : Icons.arrow_forward_ios_outlined,
+              size: 40,
+              color: ColorsApp.gray,
+            )),
+      )
     ],
   );
 }

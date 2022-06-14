@@ -37,6 +37,7 @@ class CustomLayout extends StatelessWidget {
               width: Utils.sizeQuery(context).width,
               color: color,
               child: SingleChildScrollView(
+                  physics: NeverScrollableScrollPhysics(),
                   child: constraintWidth ? webWidget : mobileWidget),
             ),
           ),

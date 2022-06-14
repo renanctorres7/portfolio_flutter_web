@@ -29,28 +29,25 @@ Widget skillsGeneralItems(
                   svgAsset: ''),
             ],
           )
-        : Padding(
-            padding: EdgeInsets.only(top: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 30),
-                  child: skillsCard(
-                    svgAsset: 'assets/mobile.svg',
-                    title: 'Desenvolvimento Mobile',
-                    text: 'Flutter (Dart)',
-                    isWeb: isWeb,
-                  ),
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 40),
+                child: skillsCard(
+                  svgAsset: 'assets/mobile.svg',
+                  title: 'Desenvolvimento Mobile',
+                  text: 'Flutter (Dart)',
+                  isWeb: isWeb,
                 ),
-                skillsCard(
-                    title: 'UI/UX Design',
-                    text: 'Figma',
-                    isWeb: isWeb,
-                    svgAsset: ''),
-              ],
-            ),
+              ),
+              skillsCard(
+                  title: 'UI/UX Design',
+                  text: 'Figma',
+                  isWeb: isWeb,
+                  svgAsset: ''),
+            ],
           ),
   );
 }

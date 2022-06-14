@@ -8,20 +8,22 @@ class SlidePercent extends StatelessWidget {
   final double width;
   final double height;
   final double percent;
+  final bool isWeb;
 
   const SlidePercent(
       {Key? key,
       required this.text,
       required this.width,
       required this.height,
-      required this.percent})
+      required this.percent,
+      required this.isWeb})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 900,
-      height: 50,
+      height: isWeb == true ? 50 : 30,
       child: Flex(
         direction: Axis.horizontal,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,7 +36,7 @@ class SlidePercent extends StatelessWidget {
                 text,
                 maxLines: 3,
                 style: TextStyle(
-                    fontSize: 18,
+                    fontSize: isWeb == true ? 18 : 14,
                     color: ColorsApp.white,
                     fontWeight: FontWeight.w500),
               ),
@@ -48,14 +50,14 @@ class SlidePercent extends StatelessWidget {
                 children: [
                   Container(
                     width: 300,
-                    height: 30,
+                    height: isWeb == true ? 30 : 20,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(60),
                         color: ColorsApp.white),
                   ),
                   Container(
                     width: (percent / 100) * 300,
-                    height: 30,
+                    height: isWeb == true ? 30 : 20,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(60),
                         color: ColorsApp.gray1),
