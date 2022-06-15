@@ -4,14 +4,15 @@ import '../../../../core/constants/constants.dart';
 import '../../../../core/utils/utils.dart';
 
 class ProjectsImage extends StatelessWidget {
-  const ProjectsImage({Key? key, required this.image}) : super(key: key);
+  const ProjectsImage({Key? key, required this.image, required this.isWeb})
+      : super(key: key);
   final String image;
+  final bool isWeb;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200,
-      height: 400,
+      height: isWeb ? 400 : 300,
       child: Image.network(
         image,
         fit: BoxFit.fitHeight,

@@ -8,3 +8,4 @@ export './skills_page_widgets/skills.dart';
 export './circular_progress/circular_progress.dart';
 
 export './slide_percent/slide_percent.dart';
+export './icon_url_button/icon_url_button.dart';

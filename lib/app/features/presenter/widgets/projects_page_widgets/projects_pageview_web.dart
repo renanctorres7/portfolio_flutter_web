@@ -33,25 +33,29 @@ class ProjectsPageViewWeb extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          width: Utils.sizeQuery(context).width,
-          height: Utils.sizeQuery(context).height * 0.8,
-          child: PageView.builder(
-            itemCount: projectsList?.length,
-            controller: pageController,
-            itemBuilder: (BuildContext context, int index) {
-              return ProjectsItemWeb(
-                index: index,
-                lastIndex: projectsList != null ? projectsList!.length - 1 : 0,
-                pageCrtl: pageController,
-                title: projectsList?[index].title ?? "",
-                text: projectsList?[index].text ?? "",
-                image: projectsList?[index].imageUrl ?? "",
-                urlAndroid: projectsList?[index].androidUrl ?? "",
-                urlIOS: projectsList?[index].iosUrl ?? "",
-                urlWeb: projectsList?[index].webUrl ?? "",
-              );
-            },
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: SizedBox(
+            width: Utils.sizeQuery(context).width,
+            height: Utils.sizeQuery(context).height * 0.8,
+            child: PageView.builder(
+              itemCount: projectsList?.length,
+              controller: pageController,
+              itemBuilder: (BuildContext context, int index) {
+                return ProjectsItemWeb(
+                  index: index,
+                  lastIndex:
+                      projectsList != null ? projectsList!.length - 1 : 0,
+                  pageCrtl: pageController,
+                  title: projectsList?[index].title ?? "",
+                  text: projectsList?[index].text ?? "",
+                  image: projectsList?[index].imageUrl ?? "",
+                  urlAndroid: projectsList?[index].androidUrl ?? "",
+                  urlIOS: projectsList?[index].iosUrl ?? "",
+                  urlWeb: projectsList?[index].webUrl ?? "",
+                );
+              },
+            ),
           ),
         ),
       ],
