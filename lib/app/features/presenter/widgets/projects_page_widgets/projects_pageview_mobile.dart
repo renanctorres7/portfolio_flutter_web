@@ -26,7 +26,7 @@ class ProjectsPageViewMobile extends StatelessWidget {
             child: Container(
               width: 900,
               alignment: Alignment.centerLeft,
-              child: AutoSizeText(
+              child: const AutoSizeText(
                 'Projetos',
                 textAlign: TextAlign.left,
                 style: TextStyle(

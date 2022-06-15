@@ -7,10 +7,10 @@ abstract class Utils {
   static animateSlider(int lastIndex, PageController pageController) async {
     if (pageController.page == lastIndex) {
       pageController.animateTo(0,
-          duration: Duration(seconds: 1), curve: Curves.easeIn);
+          duration: const Duration(seconds: 1), curve: Curves.easeIn);
     } else {
       pageController.nextPage(
-          duration: Duration(seconds: 1), curve: Curves.easeIn);
+          duration: const Duration(seconds: 1), curve: Curves.easeIn);
     }
   }
 
@@ -24,7 +24,7 @@ abstract class Utils {
 
   static double returnSizeHeight(
       BoxConstraints constraints, BuildContext context, double a, double b) {
-    if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+    if (constraints.maxWidth > DefaultValues.mobileMax) {
       return Utils.sizeQuery(context).height * a;
     } else {
       return Utils.sizeQuery(context).height * b;
@@ -33,7 +33,7 @@ abstract class Utils {
 
   static double returnSizeWidth(
       BoxConstraints constraints, BuildContext context, double a, double b) {
-    if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+    if (constraints.maxWidth > DefaultValues.mobileMax) {
       return Utils.sizeQuery(context).width * a;
     } else {
       return Utils.sizeQuery(context).width * b;
@@ -48,12 +48,13 @@ abstract class Utils {
 
   static void scrollUntilElementPage(
       int index, double height, ScrollController scrollController) {
-    if (scrollController.hasClients)
+    if (scrollController.hasClients) {
       scrollController.animateTo(
           ((height * 0.7) *
               index), // 100 is the height of container and index of 6th element is 5
           duration: const Duration(milliseconds: 1000),
           curve: Curves.decelerate);
+    }
   }
 
   static changePagePageView(
@@ -61,10 +62,10 @@ abstract class Utils {
     int value = numberOfWidgets != 0 ? numberOfWidgets - 1 : 0;
     if (pageController.page == value) {
       pageController.animateTo(0,
-          duration: Duration(seconds: 1), curve: Curves.easeIn);
+          duration: const Duration(seconds: 1), curve: Curves.easeIn);
     } else {
       pageController.nextPage(
-          duration: Duration(seconds: 1), curve: Curves.easeIn);
+          duration: const Duration(seconds: 1), curve: Curves.easeIn);
     }
   }
 

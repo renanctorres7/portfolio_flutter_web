@@ -21,7 +21,7 @@ class SlidePercent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 900,
       height: isWeb == true ? 50 : 30,
       child: Flex(
@@ -44,26 +44,24 @@ class SlidePercent extends StatelessWidget {
           ),
           Flexible(
             flex: 3,
-            child: Container(
-              child: Stack(
-                alignment: Alignment.centerLeft,
-                children: [
-                  Container(
-                    width: 300,
-                    height: isWeb == true ? 30 : 20,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(60),
-                        color: ColorsApp.white),
-                  ),
-                  Container(
-                    width: (percent / 100) * 300,
-                    height: isWeb == true ? 30 : 20,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(60),
-                        color: ColorsApp.gray1),
-                  ),
-                ],
-              ),
+            child: Stack(
+              alignment: Alignment.centerLeft,
+              children: [
+                Container(
+                  width: 300,
+                  height: isWeb == true ? 30 : 20,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(60),
+                      color: ColorsApp.white),
+                ),
+                Container(
+                  width: (percent / 100) * 300,
+                  height: isWeb == true ? 30 : 20,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(60),
+                      color: ColorsApp.gray1),
+                ),
+              ],
             ),
           )
         ],

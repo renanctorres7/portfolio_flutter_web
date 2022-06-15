@@ -7,7 +7,9 @@ import 'column_menu.dart';
 class MobileMenu extends StatefulWidget {
   final double height;
   final ScrollController scrollController;
-  MobileMenu({required this.height, required this.scrollController});
+  const MobileMenu(
+      {Key? key, required this.height, required this.scrollController})
+      : super(key: key);
 
   @override
   State<MobileMenu> createState() => _MobileMenuState();
@@ -20,7 +22,7 @@ class _MobileMenuState extends State<MobileMenu> {
   Widget build(BuildContext context) {
     return Container(
       width: Utils.sizeQuery(context).width,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(5), bottomLeft: Radius.circular(5)),
           color: ColorsApp.gray,
@@ -37,8 +39,8 @@ class _MobileMenuState extends State<MobileMenu> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Text(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: const Text(
                     'PORTFÓLIO',
                     style: TextStyle(
                         fontSize: 20,
@@ -46,14 +48,14 @@ class _MobileMenuState extends State<MobileMenu> {
                         color: ColorsApp.graphite),
                   )),
               Container(
-                padding: EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.only(right: 20),
                 child: IconButton(
                     onPressed: () {
                       setState(() {
                         value = !value;
                       });
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.menu,
                       color: ColorsApp.graphite,
                     )),

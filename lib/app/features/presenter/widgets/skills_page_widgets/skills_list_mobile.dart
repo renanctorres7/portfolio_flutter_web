@@ -14,7 +14,7 @@ class SkillsListMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 30, bottom: 30, right: 50),
+      padding: const EdgeInsets.only(top: 30, bottom: 30, right: 50),
       child: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(
           dragDevices: {
@@ -25,7 +25,7 @@ class SkillsListMobile extends StatelessWidget {
         child: ListView.builder(
           shrinkWrap: true,
           itemCount: skillsList?.length,
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.only(bottom: 15),

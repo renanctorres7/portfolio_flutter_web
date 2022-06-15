@@ -24,7 +24,7 @@ class SkillsListWeb extends StatelessWidget {
         child: ListView.builder(
           shrinkWrap: true,
           itemCount: skillsList?.length,
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.only(bottom: 15),

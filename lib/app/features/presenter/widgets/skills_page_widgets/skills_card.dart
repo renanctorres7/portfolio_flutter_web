@@ -24,7 +24,7 @@ class SkillsCardItem extends StatelessWidget {
     return isWeb == true
         ? Column(
             children: [
-              Container(
+              SizedBox(
                 width: 150,
                 height: 150,
                 child: Card(
@@ -39,7 +39,7 @@ class SkillsCardItem extends StatelessWidget {
                             svgAsset,
                             color: Colors.black,
                           )
-                        : Icon(
+                        : const Icon(
                             Icons.design_services_rounded,
                             size: 50,
                             color: ColorsApp.gray3,
@@ -49,11 +49,11 @@ class SkillsCardItem extends StatelessWidget {
               ),
               Container(
                 width: 150,
-                padding: EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 20),
                 child: AutoSizeText(
                   title,
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       color: ColorsApp.white,
                       fontWeight: FontWeight.w500),
@@ -62,11 +62,11 @@ class SkillsCardItem extends StatelessWidget {
               Container(
                 width: 150,
                 alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 20),
                 child: AutoSizeText(
                   text,
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 14,
                       fontFamily: 'roboto',
                       color: ColorsApp.white,
@@ -88,14 +88,14 @@ class SkillsCardItem extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15)),
                   child: svgAsset.isNotEmpty
                       ? Padding(
-                          padding: EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(20),
                           child: SvgPicture.asset(
                             svgAsset,
                             color: Colors.black,
                             fit: BoxFit.contain,
                           ),
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.design_services_rounded,
                           size: 25,
                           color: ColorsApp.gray3,
@@ -104,11 +104,11 @@ class SkillsCardItem extends StatelessWidget {
               ),
               Container(
                 alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 20),
                 child: AutoSizeText(
                   title,
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16,
                       color: ColorsApp.white,
                       fontWeight: FontWeight.w600),
@@ -116,11 +116,11 @@ class SkillsCardItem extends StatelessWidget {
               ),
               Container(
                 alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 20),
                 child: AutoSizeText(
                   text,
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 14,
                       fontFamily: 'roboto',
                       color: ColorsApp.white,

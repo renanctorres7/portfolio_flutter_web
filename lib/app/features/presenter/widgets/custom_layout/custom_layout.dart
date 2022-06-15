@@ -18,7 +18,7 @@ class CustomLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      bool constraintWidth = constraints.maxWidth > DefaultValues.MOBILE_MAX;
+      bool constraintWidth = constraints.maxWidth > DefaultValues.mobileMax;
       return Stack(
         alignment: Alignment.topCenter,
         children: [
@@ -28,16 +28,16 @@ class CustomLayout extends StatelessWidget {
             width: Utils.sizeQuery(context).width,
           ),
           ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 900, minWidth: 350),
+            constraints: const BoxConstraints(maxWidth: 900, minWidth: 350),
             child: Container(
               padding: constraintWidth
-                  ? EdgeInsets.symmetric(horizontal: 50)
-                  : EdgeInsets.symmetric(horizontal: 20),
+                  ? const EdgeInsets.symmetric(horizontal: 50)
+                  : const EdgeInsets.symmetric(horizontal: 20),
               height: Utils.returnSizeHeight(constraints, context, 0.7, 0.9),
               width: Utils.sizeQuery(context).width,
               color: color,
               child: SingleChildScrollView(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   child: constraintWidth ? webWidget : mobileWidget),
             ),
           ),

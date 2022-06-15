@@ -7,6 +7,8 @@ import '../blocs/bloc.dart';
 import '../widgets/projects_page_widgets/projects.dart';
 
 class ProjectsPage extends StatefulWidget {
+  const ProjectsPage({Key? key}) : super(key: key);
+
   @override
   State<ProjectsPage> createState() => _ProjectsPageState();
 }
@@ -33,12 +35,12 @@ class _ProjectsPageState extends State<ProjectsPage> {
     return CustomLayout(
         color: Colors.white,
         webWidget: ProjectsBlocBuilder(
-            key: ValueKey('ProjectsBlocBuilder'),
+            key: const ValueKey('ProjectsBlocBuilder'),
             bloc: bloc,
             isWeb: true,
             pageController: pageController),
         mobileWidget: ProjectsBlocBuilder(
-            key: ValueKey('ProjectsBlocBuilder1'),
+            key: const ValueKey('ProjectsBlocBuilder1'),
             bloc: bloc,
             isWeb: false,
             pageController: pageController));

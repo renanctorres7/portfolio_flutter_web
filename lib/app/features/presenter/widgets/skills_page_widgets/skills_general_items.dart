@@ -12,7 +12,7 @@ class SkillsGeneralItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Utils.sizeQuery(context).width,
-      padding: EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.only(top: 30),
       child: isWeb == true
           ? Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +24,7 @@ class SkillsGeneralItem extends StatelessWidget {
                   text: 'Flutter (Dart)',
                   isWeb: isWeb,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 50,
                 ),
                 SkillsCardItem(

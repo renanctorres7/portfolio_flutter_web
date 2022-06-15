@@ -19,10 +19,10 @@ class AboutPageWeb extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 150,
               ),
-              Container(
+              const SizedBox(
                 width: 400,
                 child: Text(
                   AboutTexts.name,
@@ -36,7 +36,7 @@ class AboutPageWeb extends StatelessWidget {
               Container(
                 width: 400,
                 padding: const EdgeInsets.only(top: 10),
-                child: Text(
+                child: const Text(
                   AboutTexts.profession,
                   style: TextStyle(
                       fontSize: 23,
@@ -47,7 +47,7 @@ class AboutPageWeb extends StatelessWidget {
               Container(
                 width: 400,
                 padding: const EdgeInsets.only(top: 10),
-                child: Text(AboutTexts.about,
+                child: const Text(AboutTexts.about,
                     style: TextStyle(
                         fontSize: 16,
                         color: ColorsApp.white,
@@ -61,26 +61,24 @@ class AboutPageWeb extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 150,
               ),
-              Container(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/eu.jpeg'),
-                  radius: 100,
-                ),
+              const CircleAvatar(
+                backgroundImage: AssetImage('assets/eu.jpeg'),
+                radius: 100,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 width: 200,
                 child: TextButton(
                     style: TextButton.styleFrom(
                         enableFeedback: true,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                        textStyle: TextStyle(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 20),
+                        textStyle: const TextStyle(
                             color: ColorsApp.graphite,
                             fontFamily: 'quicksand',
                             fontSize: 14),
@@ -90,7 +88,7 @@ class AboutPageWeb extends StatelessWidget {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(60)))),
                     onPressed: () => Utils.launchURL(AboutTexts.resume),
-                    child: Text('Baixar currículo')),
+                    child: const Text('Baixar currículo')),
               )
             ],
           ),

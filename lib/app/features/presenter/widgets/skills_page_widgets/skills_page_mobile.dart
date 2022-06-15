@@ -31,7 +31,7 @@ class SkillsPageMobile extends StatelessWidget {
             Container(
               padding: const EdgeInsets.only(top: 50),
               alignment: Alignment.centerLeft,
-              child: AutoSizeText(
+              child: const AutoSizeText(
                 'Habilidades',
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -45,8 +45,9 @@ class SkillsPageMobile extends StatelessWidget {
                 width: Utils.sizeQuery(context).width,
                 height: Utils.sizeQuery(context).height,
                 child: PageView(
+                  controller: pageController,
                   children: [
-                    SkillsGeneralItem(
+                    const SkillsGeneralItem(
                       isWeb: false,
                     ),
                     SkillsBlocBuilder(
@@ -54,7 +55,6 @@ class SkillsPageMobile extends StatelessWidget {
                       isWeb: false,
                     )
                   ],
-                  controller: pageController,
                 )),
           ],
         ),

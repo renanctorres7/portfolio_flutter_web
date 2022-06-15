@@ -21,7 +21,7 @@ class SkillsBlocBuilder extends StatelessWidget {
 
           switch (bloc.loadingStatus) {
             case StatusLoading.loading:
-              return CircularProgress();
+              return const CircularProgress();
 
             case StatusLoading.complete:
             default:

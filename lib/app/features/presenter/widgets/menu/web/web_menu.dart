@@ -6,7 +6,9 @@ import '../../../../../core/utils/utils.dart';
 class WebMenu extends StatefulWidget {
   final double heigth;
   final ScrollController scrollController;
-  WebMenu({required this.heigth, required this.scrollController});
+  const WebMenu(
+      {Key? key, required this.heigth, required this.scrollController})
+      : super(key: key);
 
   @override
   State<WebMenu> createState() => _WebMenuState();
@@ -18,9 +20,9 @@ class _WebMenuState extends State<WebMenu> {
     return Align(
       alignment: Alignment.topCenter,
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 1920),
+        constraints: const BoxConstraints(maxWidth: 1920),
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(5),
                   bottomLeft: Radius.circular(5)),
@@ -34,8 +36,8 @@ class _WebMenuState extends State<WebMenu> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                  padding: EdgeInsets.only(left: 60),
-                  child: Text(
+                  padding: const EdgeInsets.only(left: 60),
+                  child: const Text(
                     'PORTFÓLIO',
                     style: TextStyle(
                         fontSize: 20,
@@ -43,11 +45,11 @@ class _WebMenuState extends State<WebMenu> {
                         color: ColorsApp.graphite),
                   )),
               Container(
-                padding: EdgeInsets.only(right: 60),
+                padding: const EdgeInsets.only(right: 60),
                 child: Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: TextButton(
                         style: ButtonStyle(
                           foregroundColor:
@@ -59,7 +61,7 @@ class _WebMenuState extends State<WebMenu> {
                             }
                           }),
                           textStyle: MaterialStateProperty.resolveWith(
-                              (states) => TextStyle(
+                              (states) => const TextStyle(
                                   fontSize: 16,
                                   fontFamily: "quicksand",
                                   fontWeight: FontWeight.w500,
@@ -69,11 +71,11 @@ class _WebMenuState extends State<WebMenu> {
                           Utils.scrollUntilElementPage(
                               0, widget.heigth, widget.scrollController);
                         },
-                        child: Text('Sobre'),
+                        child: const Text('Sobre'),
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: TextButton(
                         style: ButtonStyle(
                           foregroundColor:
@@ -85,7 +87,7 @@ class _WebMenuState extends State<WebMenu> {
                             }
                           }),
                           textStyle: MaterialStateProperty.resolveWith(
-                              (states) => TextStyle(
+                              (states) => const TextStyle(
                                   fontSize: 16,
                                   fontFamily: "quicksand",
                                   fontWeight: FontWeight.w500,
@@ -95,13 +97,13 @@ class _WebMenuState extends State<WebMenu> {
                           Utils.scrollUntilElementPage(
                               1, widget.heigth, widget.scrollController);
                         },
-                        child: Text(
+                        child: const Text(
                           'Projetos',
                         ),
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: TextButton(
                         style: ButtonStyle(
                           foregroundColor:
@@ -113,7 +115,7 @@ class _WebMenuState extends State<WebMenu> {
                             }
                           }),
                           textStyle: MaterialStateProperty.resolveWith(
-                              (states) => TextStyle(
+                              (states) => const TextStyle(
                                   fontSize: 16,
                                   fontFamily: "quicksand",
                                   fontWeight: FontWeight.w500,
@@ -123,13 +125,13 @@ class _WebMenuState extends State<WebMenu> {
                           Utils.scrollUntilElementPage(
                               2, widget.heigth, widget.scrollController);
                         },
-                        child: Text(
+                        child: const Text(
                           'Habilidades',
                         ),
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20),
                       child: TextButton(
                         style: ButtonStyle(
                           foregroundColor:
@@ -141,7 +143,7 @@ class _WebMenuState extends State<WebMenu> {
                             }
                           }),
                           textStyle: MaterialStateProperty.resolveWith(
-                              (states) => TextStyle(
+                              (states) => const TextStyle(
                                   fontSize: 16,
                                   fontFamily: "quicksand",
                                   fontWeight: FontWeight.w500,
@@ -151,7 +153,7 @@ class _WebMenuState extends State<WebMenu> {
                           Utils.scrollUntilElementPage(
                               3, widget.heigth, widget.scrollController);
                         },
-                        child: Text(
+                        child: const Text(
                           'Contato',
                         ),
                       ),

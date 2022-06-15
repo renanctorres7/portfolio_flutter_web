@@ -22,7 +22,7 @@ class ProjectsBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: Utils.sizeQuery(context).width,
         height: Utils.sizeQuery(context).height,
         child: BlocBuilder<ProjectsBloc, ProjectsState>(
@@ -31,7 +31,7 @@ class ProjectsBlocBuilder extends StatelessWidget {
               final projectsList = state.projects ?? [];
               switch (bloc.loadingStatus) {
                 case StatusLoading.loading:
-                  return CircularProgress();
+                  return const CircularProgress();
                 case StatusLoading.complete:
                 default:
                   return isWeb == true

@@ -53,7 +53,7 @@ class ContactItemList extends StatelessWidget {
                     child: SvgPicture.asset(image),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Flexible(
@@ -84,7 +84,7 @@ class ContactItemList extends StatelessWidget {
                   child: SvgPicture.asset(image),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Flexible(

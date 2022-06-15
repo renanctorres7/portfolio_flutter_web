@@ -9,6 +9,8 @@ import '../blocs/skills/skills_bloc.dart';
 import '../blocs/skills/skills_events.dart';
 
 class SkillsPage extends StatefulWidget {
+  const SkillsPage({Key? key}) : super(key: key);
+
   @override
   State<SkillsPage> createState() => _SkillsPageState();
 }
@@ -23,7 +25,7 @@ class _SkillsPageState extends State<SkillsPage> {
     Utils.changePagePageView(
         numberOfWidgets: 2, pageController: pageController);
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       if (pageViewIndex < 1) {
         setState(() {
           pageViewIndex++;
@@ -57,13 +59,13 @@ class _SkillsPageState extends State<SkillsPage> {
     return CustomLayout(
         color: ColorsApp.graphite,
         webWidget: SkillsPageWeb(
-            key: ValueKey('SkillsPageWeb'),
+            key: const ValueKey('SkillsPageWeb'),
             pageController: pageController,
             bloc: bloc,
             pageViewIndex: pageViewIndex,
             onPressed: _changePageView),
         mobileWidget: SkillsPageMobile(
-          key: ValueKey('SkillsPageMobile'),
+          key: const ValueKey('SkillsPageMobile'),
           pageController: pageController,
           bloc: bloc,
           onPressed: _changePageView,

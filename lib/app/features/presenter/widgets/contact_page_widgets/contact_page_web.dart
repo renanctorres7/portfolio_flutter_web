@@ -12,13 +12,13 @@ class ContactPageWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 100,
         ),
         Container(
           width: 900,
           alignment: Alignment.centerLeft,
-          child: AutoSizeText(
+          child: const AutoSizeText(
             'Contato',
             textAlign: TextAlign.left,
             style: TextStyle(
@@ -34,7 +34,7 @@ class ContactPageWeb extends StatelessWidget {
           direction: Axis.horizontal,
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [
+          children: const [
             Flexible(
               child: ContactItemList(
                 image: 'assets/whats.svg',
@@ -56,14 +56,14 @@ class ContactPageWeb extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
         Flex(
           direction: Axis.horizontal,
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [
+          children: const [
             Flexible(
               child: ContactItemList(
                 image: 'assets/linkedin.svg',

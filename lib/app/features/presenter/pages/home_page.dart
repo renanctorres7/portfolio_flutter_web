@@ -12,6 +12,8 @@ import 'projects_page.dart';
 import 'skills_page.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -28,7 +30,7 @@ class _HomePageState extends State<HomePage> {
       width: Utils.sizeQuery(context).width,
       height: Utils.sizeQuery(context).height,
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 2400, minWidth: 480),
+        constraints: const BoxConstraints(maxWidth: 2400, minWidth: 480),
         child: LayoutBuilder(builder: (context, constraints) {
           return Scaffold(
             body: NotificationListener<ScrollNotification>(
@@ -54,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           AboutPage(),
                           ProjectsPage(),
                           SkillsPage(),
@@ -65,12 +67,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Visibility(
                     visible: _returnTrueOrFalse(constraints, context),
-                    child: WebMenu(
-                      heigth: Utils.sizeQuery(context).height,
-                      scrollController: scrollController,
-                    ),
                     replacement: MobileMenu(
                       height: Utils.sizeQuery(context).height,
+                      scrollController: scrollController,
+                    ),
+                    child: WebMenu(
+                      heigth: Utils.sizeQuery(context).height,
                       scrollController: scrollController,
                     ),
                   ),
@@ -85,7 +87,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 bool _returnTrueOrFalse(BoxConstraints constraints, BuildContext context) {
-  if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+  if (constraints.maxWidth > DefaultValues.mobileMax) {
     return true;
   } else {
     return false;

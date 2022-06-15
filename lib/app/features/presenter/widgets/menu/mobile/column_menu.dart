@@ -26,119 +26,112 @@ class _ColumnMenuState extends State<ColumnMenu> {
       return Container(
         color: ColorsApp.gray,
         alignment: Alignment.topLeft,
-        padding: EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              child: TextButton(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.resolveWith((states) {
-                    if (states.contains(MaterialState.hovered)) {
-                      return Colors.white;
-                    } else {
-                      return ColorsApp.gray3;
-                    }
-                  }),
-                  textStyle: MaterialStateProperty.resolveWith((states) =>
-                      TextStyle(
-                          fontSize: 16,
-                          fontFamily: "quicksand",
-                          fontWeight: FontWeight.w500,
-                          color: ColorsApp.gray3)),
-                ),
-                onPressed: () {
-                  Utils.scrollUntilElementPage(
-                      0, widget.height, widget.scrollController);
-                },
-                child: Text(
-                  'Sobre   ',
-                ),
+            TextButton(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.resolveWith((states) {
+                  if (states.contains(MaterialState.hovered)) {
+                    return Colors.white;
+                  } else {
+                    return ColorsApp.gray3;
+                  }
+                }),
+                textStyle: MaterialStateProperty.resolveWith((states) =>
+                    const TextStyle(
+                        fontSize: 16,
+                        fontFamily: "quicksand",
+                        fontWeight: FontWeight.w500,
+                        color: ColorsApp.gray3)),
+              ),
+              onPressed: () {
+                Utils.scrollUntilElementPage(
+                    0, widget.height, widget.scrollController);
+              },
+              child: const Text(
+                'Sobre   ',
               ),
             ),
-            Container(
-              child: TextButton(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.resolveWith((states) {
-                    if (states.contains(MaterialState.hovered)) {
-                      return Colors.white;
-                    } else {
-                      return ColorsApp.gray3;
-                    }
-                  }),
-                  textStyle: MaterialStateProperty.resolveWith((states) =>
-                      TextStyle(
-                          fontSize: 16,
-                          fontFamily: "quicksand",
-                          fontWeight: FontWeight.w500,
-                          color: ColorsApp.gray3)),
-                ),
-                onPressed: () {
-                  Utils.scrollUntilElementPage(
-                      1, widget.height, widget.scrollController);
-                },
-                child: Text(
-                  'Projetos',
-                ),
+            TextButton(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.resolveWith((states) {
+                  if (states.contains(MaterialState.hovered)) {
+                    return Colors.white;
+                  } else {
+                    return ColorsApp.gray3;
+                  }
+                }),
+                textStyle: MaterialStateProperty.resolveWith((states) =>
+                    const TextStyle(
+                        fontSize: 16,
+                        fontFamily: "quicksand",
+                        fontWeight: FontWeight.w500,
+                        color: ColorsApp.gray3)),
+              ),
+              onPressed: () {
+                Utils.scrollUntilElementPage(
+                    1, widget.height, widget.scrollController);
+              },
+              child: const Text(
+                'Projetos',
               ),
             ),
-            Container(
-              child: TextButton(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.resolveWith((states) {
-                    if (states.contains(MaterialState.hovered)) {
-                      return Colors.white;
-                    } else {
-                      return ColorsApp.gray3;
-                    }
-                  }),
-                  textStyle: MaterialStateProperty.resolveWith((states) =>
-                      TextStyle(
-                          fontSize: 16,
-                          fontFamily: "quicksand",
-                          fontWeight: FontWeight.w500,
-                          color: ColorsApp.gray3)),
-                ),
-                onPressed: () {
-                  Utils.scrollUntilElementPage(
-                      2, widget.height, widget.scrollController);
-                },
-                child: Text(
-                  'Habilidades',
-                ),
+            TextButton(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.resolveWith((states) {
+                  if (states.contains(MaterialState.hovered)) {
+                    return Colors.white;
+                  } else {
+                    return ColorsApp.gray3;
+                  }
+                }),
+                textStyle: MaterialStateProperty.resolveWith((states) =>
+                    const TextStyle(
+                        fontSize: 16,
+                        fontFamily: "quicksand",
+                        fontWeight: FontWeight.w500,
+                        color: ColorsApp.gray3)),
+              ),
+              onPressed: () {
+                Utils.scrollUntilElementPage(
+                    2, widget.height, widget.scrollController);
+              },
+              child: const Text(
+                'Habilidades',
               ),
             ),
-            Container(
-              child: TextButton(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.resolveWith((states) {
-                    if (states.contains(MaterialState.hovered)) {
-                      return Colors.white;
-                    } else {
-                      return ColorsApp.gray3;
-                    }
-                  }),
-                  textStyle: MaterialStateProperty.resolveWith((states) =>
-                      TextStyle(
-                          fontSize: 16,
-                          fontFamily: "quicksand",
-                          fontWeight: FontWeight.w500,
-                          color: ColorsApp.gray3)),
-                ),
-                onPressed: () {
-                  Utils.scrollUntilElementPage(
-                      3, widget.height, widget.scrollController);
-                },
-                child: Text(
-                  'Contato',
-                ),
+            TextButton(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.resolveWith((states) {
+                  if (states.contains(MaterialState.hovered)) {
+                    return Colors.white;
+                  } else {
+                    return ColorsApp.gray3;
+                  }
+                }),
+                textStyle: MaterialStateProperty.resolveWith((states) =>
+                    const TextStyle(
+                        fontSize: 16,
+                        fontFamily: "quicksand",
+                        fontWeight: FontWeight.w500,
+                        color: ColorsApp.gray3)),
+              ),
+              onPressed: () {
+                Utils.scrollUntilElementPage(
+                    3, widget.height, widget.scrollController);
+              },
+              child: const Text(
+                'Contato',
               ),
             ),
           ],
         ),
       );
-    } else
-      return Container();
+    } else {
+      return const SizedBox();
+    }
   }
 }

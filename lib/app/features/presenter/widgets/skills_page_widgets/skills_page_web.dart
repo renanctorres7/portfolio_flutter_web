@@ -32,7 +32,7 @@ class SkillsPageWeb extends StatelessWidget {
               child: Container(
                 width: 900,
                 alignment: Alignment.centerLeft,
-                child: AutoSizeText(
+                child: const AutoSizeText(
                   'Habilidades',
                   textAlign: TextAlign.left,
                   style: TextStyle(
@@ -47,16 +47,16 @@ class SkillsPageWeb extends StatelessWidget {
                 width: Utils.sizeQuery(context).width,
                 height: 600,
                 child: PageView(
+                  controller: pageController,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 100),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 100),
                       child: SkillsGeneralItem(
                         isWeb: true,
                       ),
                     ),
                     SkillsBlocBuilder(bloc: bloc, isWeb: true)
                   ],
-                  controller: pageController,
                 )),
           ],
         ),

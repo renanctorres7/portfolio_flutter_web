@@ -4,9 +4,11 @@ import '../../../core/constants/constants.dart';
 import '../widgets/widgets.dart';
 
 class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return CustomLayout(
+    return const CustomLayout(
         color: ColorsApp.graphite,
         webWidget: AboutPageWeb(
           key: ValueKey('AboutPageWeb'),

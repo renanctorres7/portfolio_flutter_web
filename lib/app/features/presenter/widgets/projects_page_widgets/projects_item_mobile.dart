@@ -38,10 +38,10 @@ class ProjectsItemMobile extends StatelessWidget {
       children: [
         ProjectsImage(image: image),
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
-          child: Container(
+          constraints: const BoxConstraints(maxWidth: 500, minWidth: 350),
+          child: SizedBox(
             width: Utils.sizeQuery(context).width * 0.5,
-            child: AutoSizeText(
+            child: const AutoSizeText(
               'Projetos',
               textAlign: TextAlign.left,
               style: TextStyle(
@@ -52,13 +52,13 @@ class ProjectsItemMobile extends StatelessWidget {
           ),
         ),
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
+          constraints: const BoxConstraints(maxWidth: 500, minWidth: 350),
           child: Container(
             width: Utils.sizeQuery(context).width * 0.5,
             padding: const EdgeInsets.only(top: 10),
             child: AutoSizeText(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 23,
                   color: ColorsApp.gray1,
                   fontWeight: FontWeight.w600),
@@ -66,19 +66,19 @@ class ProjectsItemMobile extends StatelessWidget {
           ),
         ),
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 500, minWidth: 350),
+          constraints: const BoxConstraints(maxWidth: 500, minWidth: 350),
           child: Container(
             width: Utils.sizeQuery(context).width * 0.5,
             padding: const EdgeInsets.only(top: 10),
             child: AutoSizeText(text,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 16,
                     color: ColorsApp.graphite,
                     fontWeight: FontWeight.w400)),
           ),
         ),
         ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 500, minWidth: 330),
+          constraints: const BoxConstraints(maxWidth: 500, minWidth: 330),
           child: Container(
             alignment: Alignment.bottomCenter,
             padding: const EdgeInsets.only(top: 30),
@@ -92,7 +92,7 @@ class ProjectsItemMobile extends StatelessWidget {
                         onPressed: () {
                           Utils.launchURL(urlAndroid);
                         },
-                        child: Container(
+                        child: SizedBox(
                           height: 50,
                           child: SvgPicture.asset('assets/android.svg'),
                         ))
@@ -104,7 +104,7 @@ class ProjectsItemMobile extends StatelessWidget {
                         onPressed: () {
                           Utils.launchURL(urlIOS);
                         },
-                        child: Container(
+                        child: SizedBox(
                           height: 50,
                           child: SvgPicture.asset('assets/apple.svg'),
                         ))
@@ -116,7 +116,7 @@ class ProjectsItemMobile extends StatelessWidget {
                         onPressed: () {
                           Utils.launchURL(urlWeb);
                         },
-                        child: Container(
+                        child: SizedBox(
                           height: 50,
                           child: SvgPicture.asset('assets/web.svg'),
                         ))
@@ -130,12 +130,12 @@ class ProjectsItemMobile extends StatelessWidget {
                       Utils.animateSlider(lastIndex, pageCrtl);
                     },
                     icon: index != lastIndex
-                        ? Icon(
+                        ? const Icon(
                             Icons.arrow_forward_ios,
                             size: 50,
                             color: ColorsApp.gray1,
                           )
-                        : Icon(
+                        : const Icon(
                             Icons.arrow_back_ios_new,
                             size: 50,
                             color: ColorsApp.gray1,
