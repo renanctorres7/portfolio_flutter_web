@@ -9,88 +9,85 @@ class AboutPageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
-          height: 100,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const CircleAvatar(
+    return SizedBox(
+      height: Utils.sizeQuery(context).height,
+      width: Utils.sizeQuery(context).width,
+      child: Flex(
+        direction: Axis.vertical,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            height: 100,
+          ),
+          const Flexible(
+            flex: 2,
+            child: CircleAvatar(
               backgroundImage: AssetImage('assets/eu.jpeg'),
-              radius: 60,
+              radius: 100,
             ),
-            Container(
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          const Flexible(
+            child: Text(
+              AboutTexts.name,
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                  fontSize: 24,
+                  color: ColorsApp.white,
+                  fontWeight: FontWeight.w800),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Flexible(
+            child: Text(
+              AboutTexts.profession,
+              style: TextStyle(
+                  fontSize: 18,
+                  color: ColorsApp.gray4,
+                  fontWeight: FontWeight.w600),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Flexible(
+            flex: 2,
+            child: Text(AboutTexts.about,
+                style: TextStyle(
+                    fontSize: 16,
+                    color: ColorsApp.white,
+                    fontWeight: FontWeight.w400)),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Flexible(
+            child: SizedBox(
               height: 50,
+              child: TextButton(
+                  style: TextButton.styleFrom(
+                      enableFeedback: true,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 20),
+                      textStyle: const TextStyle(
+                          color: ColorsApp.graphite,
+                          fontFamily: 'quicksand',
+                          fontSize: 14),
+                      backgroundColor: ColorsApp.gray4,
+                      onSurface: ColorsApp.white,
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(60)))),
+                  onPressed: () => Utils.launchURL(AboutTexts.resume),
+                  child: const Text('Baixar currículo')),
             ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 400, minWidth: 350),
-              child: const SizedBox(
-                width: 400,
-                child: Text(
-                  AboutTexts.name,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontSize: 24,
-                      color: ColorsApp.white,
-                      fontWeight: FontWeight.w800),
-                ),
-              ),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 400, minWidth: 350),
-              child: Container(
-                width: 400,
-                padding: const EdgeInsets.only(top: 10),
-                child: const Text(
-                  AboutTexts.profession,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: ColorsApp.gray4,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-            ),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 400, minWidth: 350),
-              child: Container(
-                width: 400,
-                padding: const EdgeInsets.only(top: 10),
-                child: const Text(AboutTexts.about,
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: ColorsApp.white,
-                        fontWeight: FontWeight.w400)),
-              ),
-            ),
-          ],
-        ),
-        Container(
-          height: 50,
-        ),
-        SizedBox(
-          width: 200,
-          child: TextButton(
-              style: TextButton.styleFrom(
-                  enableFeedback: true,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  textStyle: const TextStyle(
-                      color: ColorsApp.graphite,
-                      fontFamily: 'quicksand',
-                      fontSize: 14),
-                  backgroundColor: ColorsApp.gray4,
-                  onSurface: ColorsApp.white,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(60)))),
-              onPressed: () => Utils.launchURL(AboutTexts.resume),
-              child: const Text('Baixar currículo')),
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
