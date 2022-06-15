@@ -4,8 +4,12 @@ import '../../../../core/constants/theme/colors_app.dart';
 import '../../../../core/constants/texts/about_texts.dart';
 import '../../../../core/utils/utils_functions.dart';
 
-Widget aboutPageMobile() {
-  return Column(
+class AboutPageMobile extends StatelessWidget {
+  const AboutPageMobile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+     return Column(
     crossAxisAlignment: CrossAxisAlignment.center,
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
@@ -89,4 +93,6 @@ Widget aboutPageMobile() {
       ),
     ],
   );
+  }
 }
+

@@ -8,7 +8,9 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomLayout(
         color: ColorsApp.graphite,
-        webWidget: aboutPageWeb(),
-        mobileWidget: aboutPageMobile());
+        webWidget: AboutPageWeb(
+          key: ValueKey('AboutPageWeb'),
+        ),
+        mobileWidget: AboutPageMobile(key: ValueKey('AboutPageMobile')));
   }
 }

@@ -5,24 +5,30 @@ import '../../../../core/constants/constants.dart';
 import '../../blocs/bloc.dart';
 import '../widgets.dart';
 
-Widget skillsBlocBuilder({
-  required SkillsBloc bloc,
-  required bool isWeb,
-}) {
-  return BlocBuilder<SkillsBloc, SkillsState>(
-      bloc: bloc,
-      builder: (context, state) {
-        final skillsList = state.skills ?? [];
+class SkillsBlocBuilder extends StatelessWidget {
+  const SkillsBlocBuilder({Key? key, required this.bloc, required this.isWeb})
+      : super(key: key);
 
-        switch (bloc.loadingStatus) {
-          case StatusLoading.loading:
-            return CircularProgress();
+  final SkillsBloc bloc;
+  final bool isWeb;
 
-          case StatusLoading.complete:
-          default:
-            return isWeb == true
-                ? skillsListWeb(context: context, skillsList: skillsList)
-                : skillsListMobile(context: context, skillsList: skillsList);
-        }
-      });
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SkillsBloc, SkillsState>(
+        bloc: bloc,
+        builder: (context, state) {
+          final skillsList = state.skills ?? [];
+
+          switch (bloc.loadingStatus) {
+            case StatusLoading.loading:
+              return CircularProgress();
+
+            case StatusLoading.complete:
+            default:
+              return isWeb == true
+                  ? SkillsListWeb(skillsList: skillsList)
+                  : SkillsListMobile(skillsList: skillsList);
+          }
+        });
+  }
 }

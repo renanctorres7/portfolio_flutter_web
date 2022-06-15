@@ -7,7 +7,9 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomLayout(
         color: Colors.white,
-        webWidget: contactPageWeb(),
-        mobileWidget: contactPageMobile(context));
+        webWidget: ContactPageWeb(
+          key: ValueKey('ContactPageWeb'),
+        ),
+        mobileWidget: ContactPageMobile(key: ValueKey('ContactPageMobile')));
   }
 }

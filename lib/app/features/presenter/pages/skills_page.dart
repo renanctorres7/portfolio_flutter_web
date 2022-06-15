@@ -5,8 +5,6 @@ import 'package:portfolio/app/features/presenter/widgets/widgets.dart';
 
 import '../../../core/constants/theme/colors_app.dart';
 
-import '../../../core/utils/dependency_injection.dart';
-
 import '../blocs/skills/skills_bloc.dart';
 import '../blocs/skills/skills_events.dart';
 
@@ -58,14 +56,14 @@ class _SkillsPageState extends State<SkillsPage> {
   Widget build(BuildContext context) {
     return CustomLayout(
         color: ColorsApp.graphite,
-        webWidget: skillsPageWeb(
-            context: context,
+        webWidget: SkillsPageWeb(
+            key: ValueKey('SkillsPageWeb'),
             pageController: pageController,
             bloc: bloc,
             pageViewIndex: pageViewIndex,
             onPressed: _changePageView),
-        mobileWidget: skillsPageMobile(
-          context: context,
+        mobileWidget: SkillsPageMobile(
+          key: ValueKey('SkillsPageMobile'),
           pageController: pageController,
           bloc: bloc,
           onPressed: _changePageView,
