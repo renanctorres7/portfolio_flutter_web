@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/features/presenter/widgets/contact_page_widgets/contact_item_list.dart';
 
+import '../../../../core/constants/constants.dart';
 import '../../../../core/constants/theme/colors_app.dart';
 import '../../../../core/constants/texts/contact_texts.dart';
 
@@ -37,10 +38,10 @@ class ContactPageWeb extends StatelessWidget {
           children: const [
             Flexible(
               child: ContactItemList(
-                image: 'assets/whats.svg',
-                text: "(61) 99917-4230",
+                image: AppImages.whats,
+                text: ContactTexts.phoneNumber,
                 url: ContactTexts.urlPhone,
-                isWeb: true,
+                isWeb: false,
               ),
             ),
             SizedBox(
@@ -48,10 +49,10 @@ class ContactPageWeb extends StatelessWidget {
             ),
             Flexible(
               child: ContactItemList(
-                image: 'assets/arroba.svg',
-                text: "renanctorres7@gmail.com",
+                image: AppImages.mailSign,
+                text: ContactTexts.urlEmail,
                 url: ContactTexts.urlEmail,
-                isWeb: true,
+                isWeb: false,
               ),
             ),
           ],
@@ -66,10 +67,10 @@ class ContactPageWeb extends StatelessWidget {
           children: const [
             Flexible(
               child: ContactItemList(
-                image: 'assets/linkedin.svg',
+                image: AppImages.linkedin,
                 text: "LinkedIn",
                 url: ContactTexts.urlLink,
-                isWeb: true,
+                isWeb: false,
               ),
             ),
             SizedBox(
@@ -77,11 +78,10 @@ class ContactPageWeb extends StatelessWidget {
             ),
             Flexible(
               child: ContactItemList(
-                image: 'assets/local.svg',
-                text: 'Brasília - Distrito Federal\nBrasil',
-                url: "",
-                isWeb: true,
-              ),
+                  image: AppImages.local,
+                  text: ContactTexts.address,
+                  url: '',
+                  isWeb: false),
             ),
           ],
         ),

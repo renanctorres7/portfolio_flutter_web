@@ -75,9 +75,9 @@ class ProjectsItemWeb extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconUrlButton(
-                              url: urlAndroid, asset: 'assets/android.svg'),
-                          IconUrlButton(url: urlIOS, asset: 'assets/apple.svg'),
-                          IconUrlButton(url: urlWeb, asset: 'assets/web.svg'),
+                              url: urlAndroid, asset: AppImages.android),
+                          IconUrlButton(url: urlIOS, asset: AppImages.apple),
+                          IconUrlButton(url: urlWeb, asset: AppImages.web),
                           ProjectsIconArrowButton(
                               pageController: pageCrtl,
                               lastIndex: lastIndex,

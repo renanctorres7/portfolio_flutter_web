@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:portfolio/app/core/constants/constants.dart';
 
 import '../../../../core/utils/utils.dart';
 import '../widgets.dart';
@@ -19,7 +20,7 @@ class SkillsGeneralItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SkillsCardItem(
-                  svgAsset: 'assets/mobile.svg',
+                  svgAsset: AppImages.mobile,
                   title: 'Desenvolvimento Mobile',
                   text: 'Flutter (Dart)',
                   isWeb: isWeb,
@@ -41,7 +42,7 @@ class SkillsGeneralItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 40),
                   child: SkillsCardItem(
-                    svgAsset: 'assets/mobile.svg',
+                    svgAsset: AppImages.mobile,
                     title: 'Desenvolvimento Mobile',
                     text: 'Flutter (Dart)',
                     isWeb: isWeb,

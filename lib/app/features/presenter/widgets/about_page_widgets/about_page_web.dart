@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/constants.dart';
 import '../../../../core/constants/theme/colors_app.dart';
 import '../../../../core/constants/texts/about_texts.dart';
 import '../../../../core/utils/utils_functions.dart';
@@ -65,7 +66,7 @@ class AboutPageWeb extends StatelessWidget {
                 height: 150,
               ),
               const CircleAvatar(
-                backgroundImage: AssetImage('assets/eu.jpeg'),
+                backgroundImage: AssetImage(AppImages.profile),
                 radius: 100,
               ),
               const SizedBox(

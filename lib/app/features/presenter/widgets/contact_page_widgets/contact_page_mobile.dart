@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+
 import 'package:portfolio/app/features/presenter/widgets/contact_page_widgets/contact_item_list.dart';
 
-import '../../../../core/constants/theme/colors_app.dart';
-import '../../../../core/constants/texts/contact_texts.dart';
+import '../../../../core/constants/constants.dart';
 import '../../../../core/utils/utils_functions.dart';
 
 class ContactPageMobile extends StatelessWidget {
@@ -34,8 +34,8 @@ class ContactPageMobile extends StatelessWidget {
             height: 30,
           ),
           const ContactItemList(
-            image: 'assets/whats.svg',
-            text: "(61) 99917-4230",
+            image: AppImages.whats,
+            text: ContactTexts.phoneNumber,
             url: ContactTexts.urlPhone,
             isWeb: false,
           ),
@@ -43,8 +43,8 @@ class ContactPageMobile extends StatelessWidget {
             height: 30,
           ),
           const ContactItemList(
-            image: 'assets/arroba.svg',
-            text: "renanctorres7@gmail.com",
+            image: AppImages.mailSign,
+            text: ContactTexts.urlEmail,
             url: ContactTexts.urlEmail,
             isWeb: false,
           ),
@@ -52,7 +52,7 @@ class ContactPageMobile extends StatelessWidget {
             height: 30,
           ),
           const ContactItemList(
-            image: 'assets/linkedin.svg',
+            image: AppImages.linkedin,
             text: "LinkedIn",
             url: ContactTexts.urlLink,
             isWeb: false,
@@ -61,8 +61,8 @@ class ContactPageMobile extends StatelessWidget {
             height: 30,
           ),
           const ContactItemList(
-              image: 'assets/local.svg',
-              text: 'Brasília - Distrito Federal\nBrasil',
+              image: AppImages.local,
+              text: ContactTexts.address,
               url: '',
               isWeb: false)
         ],
