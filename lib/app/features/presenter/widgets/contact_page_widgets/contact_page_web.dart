@@ -1,6 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/features/presenter/widgets/contact_page_widgets/contact_item_list.dart';
+import 'package:portfolio/app/features/presenter/widgets/custom_title/custom_title.dart';
 
 import '../../../../core/configs/configs.dart';
 
@@ -11,77 +11,63 @@ class ContactPageWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(
-          height: 100,
-        ),
-        Container(
-          width: 900,
-          alignment: Alignment.centerLeft,
-          child: const AutoSizeText(
-            'Contato',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-                fontSize: 26,
-                color: ColorsApp.graphite,
-                fontWeight: FontWeight.w800),
+        const CustomTitle(title: 'Contato', textIsWhite: false),
+        Padding(
+          padding: const EdgeInsets.only(top: 30),
+          child: Flex(
+            direction: Axis.horizontal,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const [
+              Flexible(
+                child: ContactItemList(
+                  image: AppImages.whats,
+                  text: ContactTexts.phoneNumber,
+                  url: ContactTexts.urlPhone,
+                  isWeb: true,
+                ),
+              ),
+              Flexible(
+                child: Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: ContactItemList(
+                    image: AppImages.mailSign,
+                    text: ContactTexts.urlEmail,
+                    url: ContactTexts.urlEmail,
+                    isWeb: true,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        Container(
-          height: 30,
-        ),
-        Flex(
-          direction: Axis.horizontal,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Flexible(
-              child: ContactItemList(
-                image: AppImages.whats,
-                text: ContactTexts.phoneNumber,
-                url: ContactTexts.urlPhone,
-                isWeb: false,
+        Padding(
+          padding: const EdgeInsets.only(top: 50),
+          child: Flex(
+            direction: Axis.horizontal,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const [
+              Flexible(
+                child: ContactItemList(
+                  image: AppImages.linkedin,
+                  text: "LinkedIn",
+                  url: ContactTexts.urlLink,
+                  isWeb: true,
+                ),
               ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Flexible(
-              child: ContactItemList(
-                image: AppImages.mailSign,
-                text: ContactTexts.urlEmail,
-                url: ContactTexts.urlEmail,
-                isWeb: false,
+              Flexible(
+                child: Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: ContactItemList(
+                      image: AppImages.local,
+                      text: ContactTexts.address,
+                      url: '',
+                      isWeb: true),
+                ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 50,
-        ),
-        Flex(
-          direction: Axis.horizontal,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Flexible(
-              child: ContactItemList(
-                image: AppImages.linkedin,
-                text: "LinkedIn",
-                url: ContactTexts.urlLink,
-                isWeb: false,
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Flexible(
-              child: ContactItemList(
-                  image: AppImages.local,
-                  text: ContactTexts.address,
-                  url: '',
-                  isWeb: false),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

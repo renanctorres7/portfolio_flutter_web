@@ -23,16 +23,12 @@ class ProjectsIconArrowButton extends StatelessWidget {
         onPressed: () {
           Utils.animateSlider(lastIndex, pageController);
         },
-        icon: index != lastIndex
-            ? const Icon(
-                Icons.arrow_forward_ios,
-                size: 50,
-                color: ColorsApp.gray1,
-              )
-            : const Icon(
-                Icons.arrow_back_ios_new,
-                size: 50,
-                color: ColorsApp.gray1,
-              ));
+        icon: Icon(
+          index != lastIndex
+              ? Icons.arrow_forward_ios
+              : Icons.arrow_back_ios_new,
+          size: 50,
+          color: ColorsApp.gray1,
+        ));
   }
 }

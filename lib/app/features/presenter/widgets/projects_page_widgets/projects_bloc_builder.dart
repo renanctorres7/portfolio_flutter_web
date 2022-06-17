@@ -1,11 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/app/core/extensions/context.dart';
-import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects_pageview_web.dart';
-import 'package:portfolio/app/features/presenter/widgets/widgets.dart';
+
+import '../../../../core/extensions/context.dart';
 
 import '../../../../core/configs/configs.dart';
 import '../../blocs/bloc.dart';
+import '../widgets.dart';
 import 'projects_pageview_mobile.dart';
 
 class ProjectsBlocBuilder extends StatelessWidget {

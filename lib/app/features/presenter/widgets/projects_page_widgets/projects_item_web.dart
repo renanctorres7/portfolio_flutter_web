@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
-import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects.dart';
 
 import '../../../../core/configs/configs.dart';
 import '../widgets.dart';
@@ -48,23 +47,14 @@ class ProjectsItemWeb extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    Padding(
                       padding: const EdgeInsets.only(top: 10),
-                      child: AutoSizeText(
-                        title,
-                        style: const TextStyle(
-                            fontSize: 23,
-                            color: ColorsApp.gray1,
-                            fontWeight: FontWeight.w600),
-                      ),
+                      child: Text(title, style: context.appTextTheme.subtitle2),
                     ),
-                    Container(
+                    Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: AutoSizeText(text,
-                          style: const TextStyle(
-                              fontSize: 16,
-                              color: ColorsApp.graphite,
-                              fontWeight: FontWeight.w400)),
+                          style: context.appTextTheme.bodyText2),
                     ),
                     Container(
                       alignment: Alignment.bottomCenter,

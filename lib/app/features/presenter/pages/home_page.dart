@@ -4,8 +4,8 @@ import 'package:portfolio/app/core/extensions/context.dart';
 import '../../../core/configs/configs.dart';
 import '../../../core/utils/utils_functions.dart';
 
-import '../widgets/menu/mobile/mobile_menu.dart';
-import '../widgets/menu/web/web_menu.dart';
+import '../widgets/menu/menu_mobile.dart';
+import '../widgets/menu/menu_web.dart';
 import 'about_page.dart';
 import 'contact_page.dart';
 import 'projects_page.dart';
@@ -68,7 +68,6 @@ class _HomePageState extends State<HomePage> {
                   Visibility(
                     visible: _returnTrueOrFalse(constraints, context),
                     replacement: MobileMenu(
-                      height: context.screenSize.height,
                       scrollController: scrollController,
                     ),
                     child: WebMenu(

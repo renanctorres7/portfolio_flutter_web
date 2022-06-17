@@ -2,8 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 
-import '../../../../core/configs/configs.dart';
-
 class CustomTitle extends StatelessWidget {
   const CustomTitle({Key? key, required this.title, required this.textIsWhite})
       : super(key: key);
@@ -21,8 +19,8 @@ class CustomTitle extends StatelessWidget {
         child: AutoSizeText(title,
             textAlign: TextAlign.left,
             style: textIsWhite
-                ? context.appTextTheme.headline2
-                : context.appTextTheme.headline1),
+                ? context.appTextTheme.headline1
+                : context.appTextTheme.headline2),
       ),
     );
   }

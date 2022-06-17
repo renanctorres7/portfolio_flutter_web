@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
 import '../../../../core/configs/configs.dart';
 import '../widgets.dart';
@@ -33,10 +33,10 @@ class ProjectsItemMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.only(top: 10),
       child: Flex(
         direction: Axis.vertical,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Flexible(
@@ -47,26 +47,15 @@ class ProjectsItemMobile extends StatelessWidget {
             ),
           ),
           Flexible(
-            child: Container(
-              padding: const EdgeInsets.only(top: 20),
-              child: AutoSizeText(
-                title,
-                style: const TextStyle(
-                    fontSize: 24,
-                    color: ColorsApp.gray1,
-                    fontWeight: FontWeight.w600),
-              ),
-            ),
-          ),
+              child: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(title, style: context.appTextTheme.subtitle2),
+          )),
           Flexible(
             flex: 2,
-            child: Container(
+            child: Padding(
               padding: const EdgeInsets.only(top: 10),
-              child: AutoSizeText(text,
-                  style: const TextStyle(
-                      fontSize: 16,
-                      color: ColorsApp.graphite,
-                      fontWeight: FontWeight.w400)),
+              child: AutoSizeText(text, style: context.appTextTheme.bodyText2),
             ),
           ),
           Flexible(

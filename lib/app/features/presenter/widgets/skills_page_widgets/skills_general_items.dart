@@ -25,14 +25,14 @@ class SkillsGeneralItem extends StatelessWidget {
                   text: 'Flutter (Dart)',
                   isWeb: isWeb,
                 ),
-                const SizedBox(
-                  width: 50,
+                Padding(
+                  padding: const EdgeInsets.only(left: 50),
+                  child: SkillsCardItem(
+                      title: 'UI/UX Design',
+                      text: 'Figma',
+                      isWeb: isWeb,
+                      svgAsset: ''),
                 ),
-                SkillsCardItem(
-                    title: 'UI/UX Design',
-                    text: 'Figma',
-                    isWeb: isWeb,
-                    svgAsset: ''),
               ],
             )
           : Column(

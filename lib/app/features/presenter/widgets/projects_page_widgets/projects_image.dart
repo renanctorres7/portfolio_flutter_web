@@ -12,7 +12,7 @@ class ProjectsImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: isWeb ? 400 : 300,
+      height: isWeb ? 400 : context.screenSize.height * 0.3,
       child: Image.network(
         image,
         fit: BoxFit.fitHeight,

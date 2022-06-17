@@ -1,10 +1,8 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
-import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects.dart';
 
-import '../../../../core/configs/configs.dart';
 import '../../../infra/models/projects_model.dart';
+import '../widgets.dart';
 
 class ProjectsPageViewMobile extends StatelessWidget {
   const ProjectsPageViewMobile(
@@ -21,20 +19,9 @@ class ProjectsPageViewMobile extends StatelessWidget {
       height: context.screenSize.height,
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: Container(
-              width: 900,
-              alignment: Alignment.centerLeft,
-              child: const AutoSizeText(
-                'Projetos',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                    fontSize: 26,
-                    color: ColorsApp.graphite,
-                    fontWeight: FontWeight.w800),
-              ),
-            ),
+          const CustomTitle(
+            title: 'Projetos',
+            textIsWhite: false,
           ),
           SizedBox(
             width: context.screenSize.width,

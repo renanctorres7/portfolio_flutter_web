@@ -4,4 +4,5 @@ export './skills_bloc_builder.dart';
 export './skills_page_mobile.dart';
 export './skills_page_web.dart';
 export './skills_general_items.dart';
-export './skills_card.dart';
+export 'skills_card_item.dart';
+export './skills_arrow_button.dart';
