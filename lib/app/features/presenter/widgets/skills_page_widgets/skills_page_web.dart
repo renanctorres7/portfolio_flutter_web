@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 
 import '../../blocs/bloc.dart';
 import '../widgets.dart';

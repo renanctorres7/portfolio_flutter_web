@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../constants/values/default_values.dart';
+import '../configs/configs.dart';
 
 abstract class Utils {
   static animateSlider(int lastIndex, PageController pageController) async {

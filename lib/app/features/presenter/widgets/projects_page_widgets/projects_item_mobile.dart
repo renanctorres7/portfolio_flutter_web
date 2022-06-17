@@ -3,7 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 import '../widgets.dart';
 
 class ProjectsItemMobile extends StatelessWidget {

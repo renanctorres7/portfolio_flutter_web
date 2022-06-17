@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
+
 import '../../../../core/utils/utils_functions.dart';
 
 class AboutPageMobile extends StatelessWidget {

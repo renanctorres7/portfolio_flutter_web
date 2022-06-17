@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 import '../../../infra/models/projects_model.dart';
 
 class ProjectsPageViewWeb extends StatelessWidget {

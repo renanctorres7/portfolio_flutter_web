@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 
-import '../../../../../core/constants/theme/colors_app.dart';
+import '../../../../../core/configs/configs.dart';
 import 'column_menu.dart';
 
 class MobileMenu extends StatefulWidget {

@@ -3,7 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../core/constants/theme/colors_app.dart';
+import '../../../../core/configs/configs.dart';
 
 class SkillsCardItem extends StatelessWidget {
   const SkillsCardItem(

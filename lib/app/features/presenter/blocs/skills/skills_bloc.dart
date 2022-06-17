@@ -6,7 +6,7 @@ import 'package:portfolio/app/features/domain/entities/skills_entity.dart';
 import 'package:portfolio/app/features/domain/usecases/show_skills.dart';
 import 'package:portfolio/app/features/infra/models/skills_model.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 import '../bloc.dart';
 
 class SkillsBloc extends Bloc<SkillsEvents, SkillsState> {

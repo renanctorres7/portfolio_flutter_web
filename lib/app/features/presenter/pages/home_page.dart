@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 
-import '../../../core/constants/theme/colors_app.dart';
-import '../../../core/constants/values/default_values.dart';
+import '../../../core/configs/configs.dart';
 import '../../../core/utils/utils_functions.dart';
 
 import '../widgets/menu/mobile/mobile_menu.dart';

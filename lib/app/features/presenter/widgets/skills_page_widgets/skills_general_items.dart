@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:portfolio/app/core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 
 import '../widgets.dart';

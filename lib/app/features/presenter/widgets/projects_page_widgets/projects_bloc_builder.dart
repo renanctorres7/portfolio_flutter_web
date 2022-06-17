@@ -4,7 +4,7 @@ import 'package:portfolio/app/core/extensions/context.dart';
 import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects_pageview_web.dart';
 import 'package:portfolio/app/features/presenter/widgets/widgets.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 import '../../blocs/bloc.dart';
 import 'projects_pageview_mobile.dart';
 

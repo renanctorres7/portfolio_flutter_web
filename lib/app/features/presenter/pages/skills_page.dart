@@ -3,7 +3,8 @@ import 'package:portfolio/app/core/utils/utils.dart';
 
 import 'package:portfolio/app/features/presenter/widgets/widgets.dart';
 
-import '../../../core/constants/theme/colors_app.dart';
+
+import '../../../core/configs/configs.dart';
 
 import '../blocs/skills/skills_bloc.dart';
 import '../blocs/skills/skills_events.dart';

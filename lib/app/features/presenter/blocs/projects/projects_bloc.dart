@@ -5,7 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:portfolio/app/features/domain/usecases/show_projects_usecase.dart';
 import 'package:portfolio/app/features/infra/models/projects_model.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 import '../../../domain/entities/projects_entity.dart';
 import '../bloc.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../core/constants/theme/colors_app.dart';
+import '../../../../core/configs/configs.dart';
 import '../../../../core/utils/utils_functions.dart';
 
 class ContactItemList extends StatelessWidget {

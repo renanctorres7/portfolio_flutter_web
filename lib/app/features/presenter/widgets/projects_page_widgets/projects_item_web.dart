@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 import '../widgets.dart';
 
 class ProjectsItemWeb extends StatelessWidget {

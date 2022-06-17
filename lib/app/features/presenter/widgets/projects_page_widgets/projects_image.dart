@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 
 class ProjectsImage extends StatelessWidget {
   const ProjectsImage({Key? key, required this.image, required this.isWeb})

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/utils/utils.dart';
 
-import '../../../../../core/constants/theme/colors_app.dart';
+import '../../../../../core/configs/configs.dart';
 
 class ColumnMenu extends StatefulWidget {
   const ColumnMenu(

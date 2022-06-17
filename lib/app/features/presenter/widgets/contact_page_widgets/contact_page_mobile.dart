@@ -4,7 +4,7 @@ import 'package:portfolio/app/core/extensions/context.dart';
 
 import 'package:portfolio/app/features/presenter/widgets/contact_page_widgets/contact_item_list.dart';
 
-import '../../../../core/constants/constants.dart';
+import '../../../../core/configs/configs.dart';
 
 class ContactPageMobile extends StatelessWidget {
   const ContactPageMobile({Key? key}) : super(key: key);
