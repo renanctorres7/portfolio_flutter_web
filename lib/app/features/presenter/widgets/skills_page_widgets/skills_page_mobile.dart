@@ -1,8 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/utils/utils.dart';
+
 import '../../blocs/skills/skills_bloc.dart';
 import '../widgets.dart';
 
@@ -42,8 +43,8 @@ class SkillsPageMobile extends StatelessWidget {
             ),
             Container(
                 alignment: Alignment.centerLeft,
-                width: Utils.sizeQuery(context).width,
-                height: Utils.sizeQuery(context).height,
+                width: context.screenSize.width,
+                height: context.screenSize.height,
                 child: PageView(
                   controller: pageController,
                   children: [
@@ -59,8 +60,8 @@ class SkillsPageMobile extends StatelessWidget {
           ],
         ),
         Container(
-          height: Utils.sizeQuery(context).height * 0.7,
-          width: Utils.sizeQuery(context).width,
+          height: context.screenSize.height * 0.7,
+          width: context.screenSize.width,
           alignment: Alignment.bottomRight,
           child: IconButton(
               padding: EdgeInsets.zero,

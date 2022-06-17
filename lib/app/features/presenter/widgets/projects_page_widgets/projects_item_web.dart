@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/utils/utils.dart';
 import '../widgets.dart';
 
 class ProjectsItemWeb extends StatelessWidget {
@@ -69,7 +69,7 @@ class ProjectsItemWeb extends StatelessWidget {
                     Container(
                       alignment: Alignment.bottomCenter,
                       padding: const EdgeInsets.only(top: 30),
-                      width: Utils.sizeQuery(context).width * 0.4,
+                      width: context.screenSize.width * 0.4,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/values/default_values.dart';
@@ -18,25 +19,21 @@ abstract class Utils {
     if (!await launchUrl(Uri.parse(url))) throw 'Could not launcc';
   }
 
-  static Size sizeQuery(BuildContext context) {
-    return MediaQuery.of(context).size;
-  }
-
   static double returnSizeHeight(
       BoxConstraints constraints, BuildContext context, double a, double b) {
     if (constraints.maxWidth > DefaultValues.mobileMax) {
-      return Utils.sizeQuery(context).height * a;
+      return context.screenSize.height * a;
     } else {
-      return Utils.sizeQuery(context).height * b;
+      return context.screenSize.height * b;
     }
   }
 
   static double returnSizeWidth(
       BoxConstraints constraints, BuildContext context, double a, double b) {
     if (constraints.maxWidth > DefaultValues.mobileMax) {
-      return Utils.sizeQuery(context).width * a;
+      return context.screenSize.width * a;
     } else {
-      return Utils.sizeQuery(context).width * b;
+      return context.screenSize.width * b;
     }
   }
 
@@ -49,9 +46,7 @@ abstract class Utils {
   static void scrollUntilElementPage(
       int index, double height, ScrollController scrollController) {
     if (scrollController.hasClients) {
-      scrollController.animateTo(
-          ((height * 0.7) *
-              index), // 100 is the height of container and index of 6th element is 5
+      scrollController.animateTo(((height * 0.7) * index),
           duration: const Duration(milliseconds: 1000),
           curve: Curves.decelerate);
     }

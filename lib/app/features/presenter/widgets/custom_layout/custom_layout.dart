@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
 import '../../../../core/constants/values/default_values.dart';
 import '../../../../core/utils/utils_functions.dart';
@@ -25,7 +26,7 @@ class CustomLayout extends StatelessWidget {
           Container(
             color: color,
             height: Utils.returnSizeHeight(constraints, context, 0.7, 0.9),
-            width: Utils.sizeQuery(context).width,
+            width: context.screenSize.width,
           ),
           ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 900, minWidth: 350),
@@ -34,7 +35,7 @@ class CustomLayout extends StatelessWidget {
                   ? const EdgeInsets.symmetric(horizontal: 50)
                   : const EdgeInsets.symmetric(horizontal: 20),
               height: Utils.returnSizeHeight(constraints, context, 0.7, 0.9),
-              width: Utils.sizeQuery(context).width,
+              width: context.screenSize.width,
               color: color,
               child: SingleChildScrollView(
                   physics: const NeverScrollableScrollPhysics(),

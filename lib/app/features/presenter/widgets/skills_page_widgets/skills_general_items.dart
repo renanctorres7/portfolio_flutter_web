@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:portfolio/app/core/constants/constants.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
-import '../../../../core/utils/utils.dart';
 import '../widgets.dart';
 
 class SkillsGeneralItem extends StatelessWidget {
@@ -12,7 +12,7 @@ class SkillsGeneralItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Utils.sizeQuery(context).width,
+      width: context.screenSize.width,
       padding: const EdgeInsets.only(top: 30),
       child: isWeb == true
           ? Row(

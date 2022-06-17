@@ -1,8 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/utils/utils_functions.dart';
+
 import '../../blocs/bloc.dart';
 import '../widgets.dart';
 
@@ -44,7 +45,7 @@ class SkillsPageWeb extends StatelessWidget {
             ),
             Container(
                 alignment: Alignment.centerLeft,
-                width: Utils.sizeQuery(context).width,
+                width: context.screenSize.width,
                 height: 600,
                 child: PageView(
                   controller: pageController,
@@ -61,8 +62,8 @@ class SkillsPageWeb extends StatelessWidget {
           ],
         ),
         Container(
-          height: Utils.sizeQuery(context).height * 0.6,
-          width: Utils.sizeQuery(context).width,
+          height: context.screenSize.height * 0.6,
+          width: context.screenSize.width,
           alignment: Alignment.bottomRight,
           child: IconButton(
               padding: EdgeInsets.zero,

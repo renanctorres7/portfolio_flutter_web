@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/app/core/constants/images/images.dart';
 import 'package:portfolio/app/core/utils/dependency_injection.dart';
 
 import 'app/app_widget.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
-import '../../../../core/utils/utils.dart';
 import '../../../infra/models/skills_model.dart';
 import '../widgets.dart';
 
@@ -31,8 +31,8 @@ class SkillsListMobile extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 15),
               child: SlidePercent(
                   isWeb: false,
-                  width: Utils.sizeQuery(context).width * 0.68,
-                  height: Utils.sizeQuery(context).height * 0.02,
+                  width: context.screenSize.width * 0.68,
+                  height: context.screenSize.height * 0.02,
                   text: skillsList?[index].title ?? "",
                   percent: skillsList?[index].percent?.toDouble() ?? 50),
             );

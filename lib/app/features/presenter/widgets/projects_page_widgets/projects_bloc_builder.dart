@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects_pageview_web.dart';
 import 'package:portfolio/app/features/presenter/widgets/widgets.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/utils/utils.dart';
 import '../../blocs/bloc.dart';
 import 'projects_pageview_mobile.dart';
 
@@ -23,8 +23,8 @@ class ProjectsBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: Utils.sizeQuery(context).width,
-        height: Utils.sizeQuery(context).height,
+        width: context.screenSize.width,
+        height: context.screenSize.height,
         child: BlocBuilder<ProjectsBloc, ProjectsState>(
             bloc: bloc,
             builder: (context, state) {

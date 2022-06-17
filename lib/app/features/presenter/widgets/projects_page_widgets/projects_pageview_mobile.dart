@@ -1,9 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 import 'package:portfolio/app/features/presenter/widgets/projects_page_widgets/projects.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/utils/utils.dart';
 import '../../../infra/models/projects_model.dart';
 
 class ProjectsPageViewMobile extends StatelessWidget {
@@ -17,8 +17,8 @@ class ProjectsPageViewMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: Utils.sizeQuery(context).width,
-      height: Utils.sizeQuery(context).height,
+      width: context.screenSize.width,
+      height: context.screenSize.height,
       child: Column(
         children: [
           Padding(
@@ -37,8 +37,8 @@ class ProjectsPageViewMobile extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: Utils.sizeQuery(context).width,
-            height: Utils.sizeQuery(context).height * 0.8,
+            width: context.screenSize.width,
+            height: context.screenSize.height * 0.8,
             child: PageView.builder(
               itemCount: projectsList?.length,
               controller: pageController,

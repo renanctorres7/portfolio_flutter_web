@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/utils/utils.dart';
 
 class ProjectsImage extends StatelessWidget {
   const ProjectsImage({Key? key, required this.image, required this.isWeb})
@@ -21,8 +21,8 @@ class ProjectsImage extends StatelessWidget {
             return child;
           }
           return SizedBox(
-            width: Utils.sizeQuery(context).width,
-            height: Utils.sizeQuery(context).height,
+            width: context.screenSize.width,
+            height: context.screenSize.height,
             child: Align(
               alignment: Alignment.topCenter,
               child: SizedBox(

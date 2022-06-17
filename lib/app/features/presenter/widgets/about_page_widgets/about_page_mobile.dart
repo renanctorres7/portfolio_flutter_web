@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../../../../core/utils/utils_functions.dart';
@@ -9,8 +10,8 @@ class AboutPageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Utils.sizeQuery(context).height,
-      width: Utils.sizeQuery(context).width,
+      height: context.screenSize.height,
+      width: context.screenSize.width,
       child: Flex(
         direction: Axis.vertical,
         crossAxisAlignment: CrossAxisAlignment.center,

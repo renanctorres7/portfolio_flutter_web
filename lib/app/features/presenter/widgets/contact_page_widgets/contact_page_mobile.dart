@@ -1,10 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
 import 'package:portfolio/app/features/presenter/widgets/contact_page_widgets/contact_item_list.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/utils/utils_functions.dart';
 
 class ContactPageMobile extends StatelessWidget {
   const ContactPageMobile({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class ContactPageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: Utils.sizeQuery(context).width,
+      width: context.screenSize.width,
       child: Column(
         children: [
           const SizedBox(

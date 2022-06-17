@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
 import '../../../core/constants/theme/colors_app.dart';
 import '../../../core/constants/values/default_values.dart';
@@ -27,8 +28,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       color: ColorsApp.graphite,
-      width: Utils.sizeQuery(context).width,
-      height: Utils.sizeQuery(context).height,
+      width: context.screenSize.width,
+      height: context.screenSize.height,
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 2400, minWidth: 480),
         child: LayoutBuilder(builder: (context, constraints) {
@@ -44,8 +45,8 @@ class _HomePageState extends State<HomePage> {
                     top: -.25 * offset,
                     child: Container(
                       color: ColorsApp.graphite,
-                      height: Utils.sizeQuery(context).height,
-                      width: Utils.sizeQuery(context).width,
+                      height: context.screenSize.height,
+                      width: context.screenSize.width,
                     ),
                   ),
                   Scrollbar(
@@ -68,11 +69,11 @@ class _HomePageState extends State<HomePage> {
                   Visibility(
                     visible: _returnTrueOrFalse(constraints, context),
                     replacement: MobileMenu(
-                      height: Utils.sizeQuery(context).height,
+                      height: context.screenSize.height,
                       scrollController: scrollController,
                     ),
                     child: WebMenu(
-                      heigth: Utils.sizeQuery(context).height,
+                      heigth: context.screenSize.height,
                       scrollController: scrollController,
                     ),
                   ),
