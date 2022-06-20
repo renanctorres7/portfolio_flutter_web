@@ -11,5 +11,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await DependencyInjection.init();
-  runApp(AppWidget());
+
+  runApp(const AppWidget());
 }

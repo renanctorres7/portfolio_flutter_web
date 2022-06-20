@@ -1,58 +1,68 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/app/core/extensions/context.dart';
 
-import 'package:portfolio/app/features/presenter/stores/home_store.dart';
+import '../../../core/configs/configs.dart';
+import '../../../core/utils/utils_functions.dart';
 
-import '../../../core/constants/colors.dart';
-import '../../../core/constants/values.dart';
-import '../../../core/utils/utils.dart';
-
-import '../widgets/menu/mobile/mobile_menu.dart';
-import '../widgets/menu/web/web_menu.dart';
+import '../widgets/menu/menu_mobile.dart';
+import '../widgets/menu/menu_web.dart';
 import 'about_page.dart';
 import 'contact_page.dart';
 import 'projects_page.dart';
 import 'skills_page.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final store = HomeStore();
+  double offset = 0.0;
+
+  ScrollController scrollController = ScrollController();
+
+  @override
+  void didChangeDependencies() {
+    AppImages.loadImages(context);
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: ColorsApp.graphite,
-      width: Utils.sizeQuery(context).width,
-      height: Utils.sizeQuery(context).height,
+      width: context.screenSize.width,
+      height: context.screenSize.height,
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 2400, minWidth: 480),
+        constraints: const BoxConstraints(maxWidth: 2400, minWidth: 480),
         child: LayoutBuilder(builder: (context, constraints) {
           return Scaffold(
             body: NotificationListener<ScrollNotification>(
-              onNotification: store.voidOnScroll,
+              onNotification: (scrollNotification) {
+                return Utils.getOnScrollOffset(scrollNotification, offset);
+              },
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
                   Positioned(
-                    top: -.25 * store.offset,
+                    top: -.25 * offset,
                     child: Container(
                       color: ColorsApp.graphite,
-                      height: Utils.sizeQuery(context).height,
-                      width: Utils.sizeQuery(context).width,
+                      height: context.screenSize.height,
+                      width: context.screenSize.width,
                     ),
                   ),
                   Scrollbar(
-                    controller: store.scrollController,
+                    controller: scrollController,
                     thumbVisibility: true,
                     child: SingleChildScrollView(
-                      controller: store.scrollController,
+                      controller: scrollController,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           AboutPage(),
                           ProjectsPage(),
                           SkillsPage(),
@@ -63,13 +73,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Visibility(
                     visible: _returnTrueOrFalse(constraints, context),
-                    child: WebMenu(
-                      heigth: Utils.sizeQuery(context).height,
-                      scrollController: store.scrollController!,
-                    ),
                     replacement: MobileMenu(
-                      height: Utils.sizeQuery(context).height,
-                      scrollController: store.scrollController!,
+                      scrollController: scrollController,
+                    ),
+                    child: WebMenu(
+                      heigth: context.screenSize.height,
+                      scrollController: scrollController,
                     ),
                   ),
                 ],
@@ -83,7 +92,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 bool _returnTrueOrFalse(BoxConstraints constraints, BuildContext context) {
-  if (constraints.maxWidth > DefaultValues.MOBILE_MAX) {
+  if (constraints.maxWidth > DefaultValues.mobileMax) {
     return true;
   } else {
     return false;

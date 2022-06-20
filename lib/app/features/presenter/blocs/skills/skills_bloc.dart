@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/app/core/constants/status.dart';
+
 import 'package:portfolio/app/features/domain/entities/skills_entity.dart';
 import 'package:portfolio/app/features/domain/usecases/show_skills.dart';
 import 'package:portfolio/app/features/infra/models/skills_model.dart';
-import 'package:portfolio/app/features/presenter/blocs/skills/skills_events.dart';
-import 'package:portfolio/app/features/presenter/blocs/skills/skills_state.dart';
+
+import '../../../../core/configs/configs.dart';
+import '../bloc.dart';
 
 class SkillsBloc extends Bloc<SkillsEvents, SkillsState> {
   final ShowSkillsUsecase usecase;
