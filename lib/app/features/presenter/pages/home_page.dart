@@ -24,6 +24,12 @@ class _HomePageState extends State<HomePage> {
   ScrollController scrollController = ScrollController();
 
   @override
+  void didChangeDependencies() {
+    AppImages.loadImages(context);
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       color: ColorsApp.graphite,

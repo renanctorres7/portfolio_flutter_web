@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 const String _imagePath = "/images";
 
 class AppImages {
@@ -13,4 +16,30 @@ class AppImages {
   static const String profile = '$_imagePath/profile.jpeg';
   static const String web = '$_imagePath/web.svg';
   static const String whats = '$_imagePath/whats.svg';
+
+  static loadImages(BuildContext context) async {
+    Future.wait([
+      precacheImage(const AssetImage(profile), context),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, android), null),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, apple), null),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, linkedin),
+          null),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, local), null),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, mailSign),
+          null),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, mobile), null),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, pc), null),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, web), null),
+      precachePicture(
+          ExactAssetPicture(SvgPicture.svgStringDecoderBuilder, whats), null),
+    ]);
+  }
 }
