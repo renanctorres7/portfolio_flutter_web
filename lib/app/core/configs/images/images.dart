@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-const String _imagePath = "/images";
+const String _imagePath = "images";
 
 class AppImages {
   static const String android = '$_imagePath/android.svg';
