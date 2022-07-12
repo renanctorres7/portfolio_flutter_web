@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/core/extensions/context.dart';
 
@@ -9,14 +10,15 @@ class SkillsPageMobile extends StatelessWidget {
       {Key? key,
       required this.pageController,
       required this.bloc,
-      required this.pageViewIndex,
-      this.onPressed})
+      required this.onPressed,
+      required this.valueListenable})
       : super(key: key);
 
   final PageController pageController;
   final SkillsBloc bloc;
-  final int pageViewIndex;
-  final Function()? onPressed;
+
+  final Function() onPressed;
+  final ValueListenable<int> valueListenable;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,10 @@ class SkillsPageMobile extends StatelessWidget {
           ],
         ),
         SkillsArrowButton(
-            pageController: pageController, pageViewIndex: pageViewIndex)
+          pageController: pageController,
+          onPressed: onPressed,
+          valueListenable: valueListenable,
+        )
       ],
     );
   }

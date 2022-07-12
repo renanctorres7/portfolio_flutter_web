@@ -3,7 +3,6 @@ import 'package:portfolio/app/core/utils/utils.dart';
 
 import 'package:portfolio/app/features/presenter/widgets/widgets.dart';
 
-
 import '../../../core/configs/configs.dart';
 
 import '../blocs/skills/skills_bloc.dart';
@@ -19,22 +18,17 @@ class SkillsPage extends StatefulWidget {
 class _SkillsPageState extends State<SkillsPage> {
   late SkillsBloc bloc;
   PageController pageController = PageController();
-
-  int pageViewIndex = 0;
+  ValueNotifier<int> valueNotifier = ValueNotifier<int>(0);
 
   _changePageView() async {
     Utils.changePagePageView(
         numberOfWidgets: 2, pageController: pageController);
 
     Future.delayed(const Duration(seconds: 1), () {
-      if (pageViewIndex < 1) {
-        setState(() {
-          pageViewIndex++;
-        });
+      if (valueNotifier.value < 1) {
+        valueNotifier.value++;
       } else {
-        setState(() {
-          pageViewIndex = 0;
-        });
+        valueNotifier.value = 0;
       }
     });
   }
@@ -44,15 +38,13 @@ class _SkillsPageState extends State<SkillsPage> {
     super.initState();
     bloc = SkillsBloc(s1());
     bloc.add(LoadSkillsEvents());
-    setState(() {
-      pageViewIndex = 0;
-    });
   }
 
   @override
   void dispose() {
     bloc.close();
     super.dispose();
+    valueNotifier.dispose();
   }
 
   @override
@@ -60,17 +52,18 @@ class _SkillsPageState extends State<SkillsPage> {
     return CustomLayout(
         color: ColorsApp.graphite,
         webWidget: SkillsPageWeb(
-            key: const ValueKey('SkillsPageWeb'),
-            pageController: pageController,
-            bloc: bloc,
-            pageViewIndex: pageViewIndex,
-            onPressed: _changePageView),
+          key: const ValueKey('SkillsPageWeb'),
+          pageController: pageController,
+          bloc: bloc,
+          onPressed: _changePageView,
+          valueListenable: valueNotifier,
+        ),
         mobileWidget: SkillsPageMobile(
           key: const ValueKey('SkillsPageMobile'),
           pageController: pageController,
           bloc: bloc,
           onPressed: _changePageView,
-          pageViewIndex: pageViewIndex,
+          valueListenable: valueNotifier,
         ));
   }
 }
